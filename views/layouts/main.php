@@ -29,7 +29,7 @@ AppAsset::register($this);
                 'brandLabel' => Yii::$app->params['siteName'],
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
-                    'class' => 'navbar-fixed-top',
+                    'class' => 'navbar-inverse navbar-fixed-top',
                 ],
             ]);
             echo Nav::widget([
