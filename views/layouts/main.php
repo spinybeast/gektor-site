@@ -1,4 +1,5 @@
 <?php
+use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -26,10 +27,13 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
     <div class="wrap">
         <header>
+            <div class="headerdetails">
         <div class="container">
-            <a class="logo pull-left" href="index.html"><img title="Simplepx" alt="Simplepx" src="img/logo.png"></a>
-            <!--Social -->
-            <div class="socialtop pull-right">
+            <a class="logo pull-left" href="<?= Url::to('') ?>">
+                <?= Html::img('img/logo.png', array('alt' => Html::encode(Yii::$app->params['siteName']))) ?>
+                <?= Html::encode(Yii::$app->params['siteName']) ?>
+            </a>
+            <div class="pull-right">
                 <div class="call"><?= FA::icon('phone')->size(FA::SIZE_LARGE) ?> <span class="beige">+ 00 123 456 7890 </span></div>
                 <ul class="pull-right">
                    <button class="btn btn-success"><?= FA::icon('envelope-o') ?> Напишите нам</button>
@@ -39,14 +43,14 @@ AppAsset::register($this);
             <div class="pull-right topsearch">
                 <form class="form-inline">
                     <input type="search" placeholder="Search Here" class="form-control">
-                    <button data-original-title="Search" class="btn btn-orange btn-small tooltip-test"> <i class="icon-search icon-white"></i> </button>
+                    <button data-original-title="Search" class="btn btn-small btn-default"> <?= FA::icon('search')->size(FA::SIZE_LARGE) ?> </button>
                 </form>
             </div>
         </div>
-
+    </div>
         <?php
             NavBar::begin([
-                'brandLabel' => Yii::$app->params['siteName'],
+                'brandLabel' => '',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-gektor',
