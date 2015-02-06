@@ -1,6 +1,21 @@
+@font-face {
+    font-family: 'helveticaneuecyrmedium';
+    src: url('fonts/helveticaneuecyr-medium-webfont.eot');
+    src: url('fonts/helveticaneuecyr-medium-webfont.eot?#iefix') format('embedded-opentype'),
+    url('fonts/helveticaneuecyr-medium-webfont.woff2') format('woff2'),
+    url('fonts/helveticaneuecyr-medium-webfont.woff') format('woff'),
+    url('fonts/helveticaneuecyr-medium-webfont.ttf') format('truetype'),
+    url('fonts/helveticaneuecyr-medium-webfont.svg#helveticaneuecyrmedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 html,
 body {
     height: 100%;
+    font-family: "fonts/helveticaneuecyrthin",Helvetica,Arial,sans-serif;
+    background: #FDFBF4 url(../img/back.png);
 }
 
 .wrap {
@@ -88,4 +103,22 @@ a.desc:after {
     border-left: 3px solid #eed3d7;
     padding: 10px 20px;
     margin: 0 0 15px 0;
+}
+
+.navbar-gektor {
+    background-color: #64585A;
+    border-color: #594d4f;
+}
+.navbar-gektor a {
+    color:#FDFBF4;
+}
+.navbar-gektor a:hover, .navbar-gektor a:active {
+    color:#594d4f;
+}
+.beige {
+    color: #918479;
+}
+.call {
+    font-size: 16px;
+    font-weight: bold;
 }
