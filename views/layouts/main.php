@@ -18,6 +18,8 @@ AppAsset::register($this);
 <head>
     <meta charset="<?= Yii::$app->charset ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="<?= Html::encode(Yii::$app->params['keywords']) ?>">
+    <meta name="description" content="<?= Html::encode(Yii::$app->params['description']) ?>">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode(Yii::$app->params['siteName'] . ' - ' . $this->title) ?></title>
     <?php $this->head() ?>
@@ -60,7 +62,9 @@ AppAsset::register($this);
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
                     ['label' => 'Главная', 'url' => ['/site/index']],
-                    ['label' => 'О нас', 'url' => ['/site/about']],
+                    ['label' => 'Каталог оборудования', 'url' => ['/site/catalog']],
+                    ['label' => 'Цены', 'url' => ['/site/price']],
+                    ['label' => 'О компании', 'url' => ['/site/about']],
                     ['label' => 'Контакты', 'url' => ['/site/contact']]
                 ],
             ]);
