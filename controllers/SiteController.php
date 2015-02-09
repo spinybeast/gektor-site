@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use yii\web\Response;
 
 class SiteController extends Controller
 {
@@ -94,8 +95,29 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
-    public function actionSay($message = 'Hello')
+    public function actionShowMessageForm()
     {
-        return $this->render('say', ['message' => $message]);
+        $model = new ContactForm();
+        return $this->renderPartial('contact', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionSubmitMessage()
+    {
+        $model = new ContactForm();
+        $model->load(Yii::$app->request->post());
+
+        if($model->load(Yii::$app->request->post()) && $model->validate(null, false)) {
+            $success=true;
+            return json_encode($success);
+        }
+        else
+        {
+            return $this->renderPartial('contact', [
+                'model' => $model,
+            ]);
+
+        }
     }
 }

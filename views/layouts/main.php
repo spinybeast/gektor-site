@@ -3,6 +3,7 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\bootstrap\Modal;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use rmrevin\yii\fontawesome\FA;
@@ -38,7 +39,24 @@ AppAsset::register($this);
             <div class="pull-right">
                 <div class="call"><?= FA::icon('phone')->size(FA::SIZE_LARGE) ?> <span class="beige">+ 00 123 456 7890 </span></div>
                 <ul class="pull-right">
-                   <button class="btn btn-success"><?= FA::icon('envelope-o') ?> Напишите нам</button>
+                    <?= Html::button(
+                    FA::icon('envelope-o') .' Напишите нам',
+                    [
+                        'class' => 'btn btn-success',
+                        'value' => Url::to(['showmessageform']),
+                        'id' => 'modalButton'
+                    ]) ?>
+
+
+                    <?php
+                    Modal::begin([
+                        'id' => 'modal'
+                    ]);
+
+                    echo "<div id='modalContent'></div>";
+
+                    Modal::end();
+                    ?>
                 </ul>
             </div>
             <!--Top Search -->
