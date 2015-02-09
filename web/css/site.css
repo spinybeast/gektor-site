@@ -133,3 +133,6 @@ a.desc:after {
 .topsearch {
     margin: 30px 60px;
 }
+p.help-block.help-block-error {
+    font-size: 13px;
+}

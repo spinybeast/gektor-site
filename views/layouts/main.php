@@ -37,20 +37,21 @@ AppAsset::register($this);
                 <?= Html::encode(Yii::$app->params['siteName']) ?>
             </a>
             <div class="pull-right">
-                <div class="call"><?= FA::icon('phone')->size(FA::SIZE_LARGE) ?> <span class="beige">+ 00 123 456 7890 </span></div>
+                <div class="call"><?= FA::icon('phone')->size(FA::SIZE_LARGE) ?> <span class="beige">+ 8 (908) 555 33 22</span></div>
                 <ul class="pull-right">
                     <?= Html::button(
-                    FA::icon('envelope-o') .' Напишите нам',
+                    FA::icon('question') .' Задать вопрос',
                     [
                         'class' => 'btn btn-success',
-                        'value' => Url::to(['showmessageform']),
+                        'value' => Url::to(['show-message-form']),
                         'id' => 'modalButton'
                     ]) ?>
 
 
                     <?php
                     Modal::begin([
-                        'id' => 'modal'
+                        'id' => 'modal',
+                        'header' => 'Обратная связь'
                     ]);
 
                     echo "<div id='modalContent'></div>";
@@ -83,7 +84,6 @@ AppAsset::register($this);
                     ['label' => 'Каталог оборудования', 'url' => ['/site/catalog']],
                     ['label' => 'Цены', 'url' => ['/site/price']],
                     ['label' => 'О компании', 'url' => ['/site/about']],
-                    ['label' => 'Контакты', 'url' => ['/site/contact']]
                 ],
             ]);
             NavBar::end();

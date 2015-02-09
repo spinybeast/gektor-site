@@ -76,20 +76,6 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    public function actionContact()
-    {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
-            return $this->refresh();
-        } else {
-            return $this->render('contact', [
-                'model' => $model,
-            ]);
-        }
-    }
-
     public function actionAbout()
     {
         return $this->render('about');
@@ -106,18 +92,12 @@ class SiteController extends Controller
     public function actionSubmitMessage()
     {
         $model = new ContactForm();
-        $model->load(Yii::$app->request->post());
 
-        if($model->load(Yii::$app->request->post()) && $model->validate(null, false)) {
-            $success=true;
-            return json_encode($success);
+        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
+            Yii::$app->session->setFlash('contactFormSubmitted');
         }
-        else
-        {
-            return $this->renderPartial('contact', [
-                'model' => $model,
-            ]);
-
-        }
+        return $this->renderPartial('contact', [
+            'model' => $model,
+        ]);
     }
 }
