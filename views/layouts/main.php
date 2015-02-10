@@ -32,7 +32,7 @@ AppAsset::register($this);
     <header>
         <div class="headerdetails">
             <div class="container">
-                <a class="logo pull-left" href="<?= Url::to(['site/index']) ?>">
+                <a class="logo pull-left" href="<?= Url::home() ?>">
                     <?= Html::img('img/logo.png', array('alt' => Html::encode(Yii::$app->params['siteName']))) ?>
                     <span class="beige">&nbsp;<?= Html::encode(Yii::$app->params['siteName']) ?></span>
                 </a>

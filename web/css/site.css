@@ -4,7 +4,14 @@
     src: url('fonts/helveticaneuecyr-light-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/helveticaneuecyr-light-webfont.woff2') format('woff2'), url('fonts/helveticaneuecyr-light-webfont.woff') format('woff'), url('fonts/helveticaneuecyr-light-webfont.ttf') format('truetype'), url('fonts/helveticaneuecyr-light-webfont.svg#helveticaneuecyrmedium') format('svg');
     font-weight: normal;
     font-style: normal;
+}
 
+@font-face {
+    font-family: 'ds_greeceregular';
+    src: url('fonts/ds_greece-webfont.eot');
+    src: url('fonts/ds_greece-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/ds_greece-webfont.woff2') format('woff2'), url('fonts/ds_greece-webfont.woff') format('woff'), url('fonts/ds_greece-webfont.ttf') format('truetype'), url('fonts/ds_greece-webfont.svg#ds_greeceregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 html,
@@ -130,11 +137,14 @@ a.desc:after {
     font-weight: bold;
     margin: 20px 10px 10px;
 }
+
 .logo {
     text-decoration: none !important;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
+    font-family: "ds_greeceregular";
 }
+
 .logo img {
     width: 110px;
 }
@@ -151,6 +161,7 @@ a.desc:after {
 p.help-block.help-block-error {
     font-size: 13px;
 }
+
 .breadcrumb {
     background: none;
 }
