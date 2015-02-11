@@ -20,10 +20,6 @@ $this->params['breadcrumbs'][] = $this->title;
         Спасибо за Ваш вопрос. Мы обязательно ответим на него.
     </div>
 
-    <p>
-
-    </p>
-
     <?php else: ?>
 
     <p>
@@ -42,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
                 ]) ?>
                 <div class="form-group">
-                    <?= Html::submitButton(FA::icon('envelope-o') . ' Отправить', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                    <?= Html::submitButton(FA::icon('envelope-o') . ' Отправить', ['class' => 'btn btn-lg btn-greyblue', 'name' => 'contact-button']) ?>
                 </div>
             <?php ActiveForm::end(); ?>
         </div>

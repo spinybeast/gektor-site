@@ -34,19 +34,20 @@ AppAsset::register($this);
             <div class="container">
                 <a class="logo pull-left" href="<?= Url::home() ?>">
                     <?= Html::img('img/logo.png', array('alt' => Html::encode(Yii::$app->params['siteName']))) ?>
-                    <span class="beige">&nbsp;<?= Html::encode(Yii::$app->params['siteName']) ?></span>
+                    &nbsp;<?= Html::encode(Yii::$app->params['siteName']) ?>
                 </a>
 
-                <div class="pull-right text-center">
+                <div class="pull-right text-right" style="margin-right: 20px;">
                     <div class="call">
                         <?= FA::icon('phone')->size(FA::SIZE_LARGE) ?>
                         <span class="beige"><?= Html::encode(Yii::$app->params['sitePhone']) ?></span>
                     </div>
 
-                    <?= Html::button(
+                    <?=
+                    Html::button(
                         FA::icon('question') . '&nbsp;&nbsp;Задать вопрос',
                         [
-                            'class' => 'btn btn-success',
+                            'class' => 'btn btn-light-yellow btn-lg btn-question',
                             'value' => Url::to(['show-message-form']),
                             'id' => 'modalButton'
                         ]) ?>
@@ -59,18 +60,20 @@ AppAsset::register($this);
                 echo "<div id='modalContent'></div>";
                 Modal::end();
                 ?>
-                <!--Top Search -->
-                <div class="pull-right topsearch">
-                    <form class="form-inline">
-                        <input type="search" placeholder="Поиск по сайту" class="form-control">
-                        <button data-original-title="Search"
-                                class="btn btn-small btn-default"> <?= FA::icon('search')->size(FA::SIZE_LARGE) ?> </button>
-                    </form>
-                </div>
             </div>
         </div>
         <div class="navbar-wrapper">
             <?php
+            $this->beginBlock('search');
+
+            echo '<div class="pull-right topsearch">
+                    <form class="form-inline">
+                        <input type="search" placeholder="Поиск по сайту" class="form-control">
+                        <button class="btn btn-small btn-light-yellow">' . FA::icon("search")->size(FA::SIZE_LARGE) . '</button>
+                    </form>
+                </div>';
+
+            $this->endBlock();
             NavBar::begin([
                 'brandLabel' => '',
                 'brandUrl' => Yii::$app->homeUrl,
@@ -87,6 +90,7 @@ AppAsset::register($this);
                     ['label' => 'О компании', 'url' => ['/site/about']],
                 ],
             ]);
+            echo $this->blocks['search'];
             NavBar::end();
             ?>
         </div>
@@ -95,6 +99,10 @@ AppAsset::register($this);
         <?=
         Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            'homeLink' => [
+                'label' => 'Главная',
+                'url' => Url::home(),
+            ]
         ]) ?>
         <?= $content ?>
     </div>
