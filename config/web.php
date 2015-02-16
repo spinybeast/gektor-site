@@ -6,8 +6,10 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log', 'gii'],
+    'language' => 'ru-RU',
     'modules' => [
         'gii' => ['class' => 'yii\gii\Module'],
+        'test' => ['class' => 'app\modules\test\Module'],
     ],
     'components' => [
         'request' => [
@@ -45,6 +47,7 @@ $config = [
                 '' => 'site/index',
                 'login' => 'site/login',
                 'about' => 'site/about',
+                'catalog' => 'category/index',
                 'show-message-form' => 'site/show-message-form',
                 'submit-message' => 'site/submit-message',
             ],

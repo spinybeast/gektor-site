@@ -85,8 +85,8 @@ AppAsset::register($this);
                 'options' => ['class' => 'navbar-nav'],
                 'items' => [
                     ['label' => 'Главная', 'url' => ['/site/index']],
-                    ['label' => 'Каталог оборудования', 'url' => ['/site/catalog']],
-                    ['label' => 'Цены', 'url' => ['/site/price']],
+                    ['label' => 'Каталог оборудования', 'url' => ['/category/index']],
+                    ['label' => 'Цены', 'url' => ['/prices']],
                     ['label' => 'О компании', 'url' => ['/site/about']],
                 ],
             ]);
