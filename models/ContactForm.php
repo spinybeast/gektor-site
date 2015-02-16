@@ -12,7 +12,6 @@ class ContactForm extends Model
 {
     public $name;
     public $email;
-    public $subject;
     public $body;
     public $verifyCode;
 
@@ -23,7 +22,7 @@ class ContactForm extends Model
     {
         return [
             // name, email, subject and body are required
-            [['name', 'email', 'subject', 'body'], 'required', 'message' => 'Поле не может быть пустым'],
+            [['name', 'email', 'body'], 'required', 'message' => 'Поле не может быть пустым'],
             // email has to be a valid email address
             ['email', 'email', 'message' => 'Неверный формат email'],
             // verifyCode needs to be entered correctly
@@ -39,7 +38,6 @@ class ContactForm extends Model
         return [
             'name' => 'Ваше имя',
             'email' => 'Ваш E-mail адрес',
-            'subject' => 'Тема сообщения',
             'body' => 'Текст сообщения',
             'verifyCode' => 'Введите текст с картинки',
         ];

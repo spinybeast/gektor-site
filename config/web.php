@@ -9,7 +9,7 @@ $config = [
     'language' => 'ru-RU',
     'modules' => [
         'gii' => ['class' => 'yii\gii\Module'],
-        'test' => ['class' => 'app\modules\test\Module'],
+        'admin' => ['class' => 'app\modules\admin\Module'],
     ],
     'components' => [
         'request' => [
