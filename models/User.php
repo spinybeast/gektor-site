@@ -7,6 +7,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
     public $id;
     public $username;
     public $password;
+    public $group;
     public $authKey;
     public $accessToken;
 
@@ -15,6 +16,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
             'id' => '100',
             'username' => 'admin',
             'password' => 'admin',
+            'group' => 'admin',
             'authKey' => 'test100key',
             'accessToken' => '100-token',
         ],
@@ -22,6 +24,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
             'id' => '101',
             'username' => 'demo',
             'password' => 'demo',
+            'group' => 'guest',
             'authKey' => 'test101key',
             'accessToken' => '101-token',
         ],

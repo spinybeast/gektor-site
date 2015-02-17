@@ -52,6 +52,10 @@ $config = [
                 'submit-message' => 'site/submit-message',
             ],
         ],
+        'authManager' => [
+            'class' => yii\rbac\PhpManager::className(),
+            'defaultRoles' => ['guest', 'admin']
+        ],
     ],
     'params' => $params,
 ];
