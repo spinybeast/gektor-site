@@ -8,22 +8,17 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
     public $username;
     public $password;
     public $authKey;
+    public $group;
     public $accessToken;
 
     private static $users = [
         '100' => [
             'id' => '100',
-            'username' => 'admin',
-            'password' => 'admin',
+            'username' => 'gektor-admin',
+            'password' => 'G3kt0r@dmlN',
+            'group' => 'admin',
             'authKey' => 'test100key',
             'accessToken' => '100-token',
-        ],
-        '101' => [
-            'id' => '101',
-            'username' => 'demo',
-            'password' => 'demo',
-            'authKey' => 'test101key',
-            'accessToken' => '101-token',
         ],
     ];
 
