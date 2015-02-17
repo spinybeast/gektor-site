@@ -28,7 +28,7 @@ class DefaultController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    'logout' => ['post', 'get'],
                 ],
             ],
         ];
@@ -47,7 +47,7 @@ class DefaultController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            return $this->goHome();
         }
 
         return $this->render('login', [
@@ -67,7 +67,7 @@ class DefaultController extends Controller
         if (parent::beforeAction($action)) {
             if (!Yii::$app->user->can($action->id)) {
                 if (Yii::$app->user->isGuest && $action->id != 'login') {
-                    return $this->redirect(['login'], 302);
+                    return $this->redirect(['/login'], 302);
                 }
                 if ($action->id != 'login')
                 throw new ForbiddenHttpException(Yii::t('yii', 'Access denied'));
@@ -80,6 +80,6 @@ class DefaultController extends Controller
 
     public function goHome()
     {
-        return $this->redirect(['admin']);
+        return $this->redirect(['/admin']);
     }
 }
