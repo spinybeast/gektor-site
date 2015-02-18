@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'dataProvider' => new ArrayDataProvider(['allModels' => $model->children]),
             'layout' => '{items}',
             'itemView' => function ($model, $key, $index, $widget) {
-                    return Html::a($model->name, ['category/view', 'id' => $model->id]);
+                    return Html::a($model->name, ['view', 'id' => $model->id]);
                 },
         ]); ?>
     <?php } ?>

@@ -48,9 +48,9 @@ $config = [
                 '' => 'site/index',
                 'login' => 'admin/default/login',
                 'about' => 'site/about',
-                'catalog' => 'category/index',
                 'show-message-form' => 'site/show-message-form',
                 'submit-message' => 'site/submit-message',
+                '<controller:\w+>/<id>' => '<controller>/view'
             ],
         ],
         'authManager' => [
