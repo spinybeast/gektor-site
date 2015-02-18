@@ -1,5 +1,4 @@
 <?php
-
 namespace app\commands;
 
 use Yii;
@@ -19,22 +18,20 @@ class RbacController extends Controller
         // Create simple, based on action{$NAME} permissions
         $login  = $authManager->createPermission('login');
         $logout = $authManager->createPermission('logout');
-        $error  = $authManager->createPermission('error');
-        $signUp = $authManager->createPermission('sign-up');
         $index  = $authManager->createPermission('index');
         $view   = $authManager->createPermission('view');
         $update = $authManager->createPermission('update');
         $delete = $authManager->createPermission('delete');
+        $create = $authManager->createPermission('create');
 
         // Add permissions in Yii::$app->authManager
         $authManager->add($login);
         $authManager->add($logout);
-        $authManager->add($error);
-        $authManager->add($signUp);
         $authManager->add($index);
         $authManager->add($view);
         $authManager->add($update);
         $authManager->add($delete);
+        $authManager->add($create);
 
 
         // Add rule, based on UserExt->group === $user->group
@@ -52,13 +49,14 @@ class RbacController extends Controller
         // Add permission-per-role in Yii::$app->authManager
         // Guest
         $authManager->addChild($guest, $login);
-        $authManager->addChild($guest, $logout);
-        $authManager->addChild($guest, $error);
-        $authManager->addChild($guest, $signUp);
-        $authManager->addChild($guest, $index);
-        $authManager->addChild($guest, $view);
 
         // Admin
+        $authManager->addChild($admin, $index);
+        $authManager->addChild($admin, $logout);
+        $authManager->addChild($admin, $view);
+        $authManager->addChild($admin, $create);
         $authManager->addChild($admin, $delete);
+        $authManager->addChild($admin, $update);
+        $authManager->addChild($admin, $guest);
     }
 }

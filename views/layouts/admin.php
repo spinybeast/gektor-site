@@ -3,6 +3,7 @@ use yii\bootstrap\NavBar;
 use yii\bootstrap\Nav;
 use yii\helpers\Html;
 use app\assets\AppAsset;
+use rmrevin\yii\fontawesome\FA;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -23,7 +24,7 @@ AppAsset::register($this);
     <div class="wrap">
         <!-- Navigation -->
         <?php NavBar::begin([
-            'brandLabel' => '',
+            'brandLabel' => Html::encode(Yii::$app->params['siteName']),
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
                 'class' => 'navbar-inverse',
@@ -31,9 +32,11 @@ AppAsset::register($this);
         ]);
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav'],
+            'encodeLabels' => false,
             'items' => [
                 ['label' => 'Категории', 'url' => ['/admin/category']],
-                ['label' => 'Товары', 'url' => ['/admin/products']],
+                ['label' => 'Товары', 'url' => ['/admin/product']],
+                ['label' => FA::icon('sign-out') . ' Выход', 'url' => ['/admin/default/logout'], 'visible' => !Yii::$app->user->isGuest],
             ],
         ]);
         NavBar::end();

@@ -21,6 +21,7 @@ $config = [
         ],
         'user' => [
             'identityClass' => 'app\models\User',
+            'loginUrl' => ['admin/default/login'],
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
@@ -45,7 +46,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 '' => 'site/index',
-                'login' => 'site/login',
+                'login' => 'admin/default/login',
                 'about' => 'site/about',
                 'catalog' => 'category/index',
                 'show-message-form' => 'site/show-message-form',
@@ -53,9 +54,9 @@ $config = [
             ],
         ],
         'authManager' => [
-            'class' => yii\rbac\PhpManager::className(),
-            'defaultRoles' => ['guest', 'admin']
-        ],
+        'class' => 'yii\rbac\PhpManager',
+        'defaultRoles' => ['admin'], // Здесь нет роли "guest", т.к. эта роль виртуальная и не присутствует в модели UserExt
+    ],
     ],
     'params' => $params,
 ];
