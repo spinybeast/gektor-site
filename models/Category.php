@@ -45,4 +45,37 @@ class Category extends \yii\db\ActiveRecord
             'enabled' => 'Enabled',
         ];
     }
+
+    public function getProducts()
+    {
+        return $this->hasMany(Product::className(), ['category_id' => 'id']);
+    }
+
+    public function getChildren()
+    {
+        return $this->hasMany(self::className(), ['parent_id' => 'id']);
+    }
+
+    public function getParent()
+    {
+        return $this->hasMany(self::className(), ['id' => 'parent_id']);
+    }
+
+    public function breadCrumbs()
+    {
+        $breadcrumbs = [];
+        $parentId = $this->parent_id;
+
+        while ($parentId != 0) {
+            $parent = self::findOne($parentId);
+
+            if ($parent && $parent->enabled) {
+                array_unshift($breadcrumbs, $parent);
+                $parentId = $parent->parent_id;
+            } else {
+                $parentId = 0;
+            }
+        }
+        return $breadcrumbs;
+    }
 }
