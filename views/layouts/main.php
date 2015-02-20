@@ -35,14 +35,14 @@ AppAsset::register($this);
     <header>
         <div class="headerdetails">
             <div class="container">
-                <a class="logo pull-left" href="<?= Url::home() ?>">
+                <a class="logo text-left col-md-4 col-sm-12" href="<?= Url::home() ?>">
                     <?= Html::img('img/logo1.png', array('alt' => Html::encode(Yii::$app->params['siteName']))) ?>
-                    &nbsp;<?= Html::encode(Yii::$app->params['siteName']) ?>
+                    <?= Html::encode(Yii::$app->params['siteName']) ?>
                 </a>
-                <div class="slogan">
+                <div class="slogan col-md-5 col-sm-12">
                     Газовое оборудование, водоснабжение, <br/>отопительное оборудование, насосы
                 </div>
-                <div class="pull-right text-right" style="margin-right: 20px;">
+                <div class="text-right col-md-3 col-sm-12">
                     <div class="call">
                         <?= FA::icon('phone')->size(FA::SIZE_LARGE) ?>
                         <span class="beige"><?= Html::encode(Yii::$app->params['sitePhone']) ?></span>
@@ -92,7 +92,7 @@ AppAsset::register($this);
                     ['label' => 'Главная', 'url' => ['/site/index']],
                     ['label' => 'Каталог оборудования', 'url' => ['/catalog']],
                     ['label' => 'Цены', 'url' => ['/prices']],
-                    ['label' => 'О компании', 'url' => ['/site/about']],
+                    ['label' => 'О компании', 'url' => ['/about']],
                 ],
             ]);
             echo $this->blocks['search'];

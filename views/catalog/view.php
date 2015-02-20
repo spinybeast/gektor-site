@@ -8,7 +8,7 @@ use \yii\data\ArrayDataProvider;
 /* @var $model app\models\Category */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Каталог оборудования', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Каталог оборудования', 'url' => ['/catalog']];
 foreach ($model->breadCrumbs() as $crumb) {
     $this->params['breadcrumbs'][] = ['label' => $crumb->name, 'url' => ['view', 'id' => $crumb->id]];
 }
