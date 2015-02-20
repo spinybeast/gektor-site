@@ -30,12 +30,13 @@
 html,
 body {
     height: 100%;
-    font-family: "helveticaneuecyrroman", Helvetica, Arial, sans-serif;
-    background: #FDFBF4 url(../img/bg-81.png);
+    font-family: "Scada", Helvetica, Arial, sans-serif;
+    background: #FDFBF4 url(../img/bg-811.png);
+    font-size: 16px;
 }
 
 h1, .btn {
-    font-family: "helveticaneuecyrlight", Helvetica, Arial, sans-serif;
+    font-family: "Scada", Helvetica, Arial, sans-serif;
 }
 
 .wrap {
@@ -128,13 +129,15 @@ a.desc:after {
 
 .navbar-wrapper {
     padding: 1px 0;
-    border: 1px solid #443224;
 }
 
 .navbar-gektor {
-    background-color: #644336;
+    background-color: #025377;
     border-radius: 0;
     margin-bottom: 0;
+    padding: 10px;
+    font-size: 16px;
+    text-transform: uppercase;
 }
 
 .navbar-gektor a {
@@ -143,27 +146,38 @@ a.desc:after {
 
 .navbar-gektor a:hover, .navbar-gektor a:active {
     color: #594d4f;
+    font-weight: bold;
 }
 
 .beige {
-    color: #AF762F;
+    color: #025377;
 }
 
 .call {
     font-size: 19px;
     font-weight: bold;
     margin: 0px 10px 10px;
-    color: #644336;
+    color: #025377;
 }
 
 .logo {
     text-decoration: none !important;
-    font-size: 33px;
+    font-size: 40px;
     font-weight: bold;
     font-family: "postmodern_oneregular";
-    color: #644336 !important;
+    color: #02686F !important;
 }
 
+.slogan {
+    position: absolute;
+    left: 40%;
+    top: 51px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgba(4, 49, 69, 0.71);
+}
 .logo img {
     width: 130px;
 }
@@ -192,7 +206,9 @@ p.help-block.help-block-error {
 .btn-greyblue.active {
     color: rgba(255, 255, 255, 0.75);
 }
-
+.button-info {
+    background: #08CAC7;
+}
 .btn-greyblue {
     color: #ffffff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);

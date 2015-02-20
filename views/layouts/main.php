@@ -23,6 +23,9 @@ AppAsset::register($this);
     <meta name="description" content="<?= Html::encode(Yii::$app->params['description']) ?>">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode(Yii::$app->params['siteName'] . ' - ' . $this->title) ?></title>
+    <link href='http://fonts.googleapis.com/css?family=Cuprum&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Philosopher&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Scada&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <?php $this->head() ?>
 </head>
 <body>
@@ -33,10 +36,12 @@ AppAsset::register($this);
         <div class="headerdetails">
             <div class="container">
                 <a class="logo pull-left" href="<?= Url::home() ?>">
-                    <?= Html::img('img/logo.png', array('alt' => Html::encode(Yii::$app->params['siteName']))) ?>
+                    <?= Html::img('img/logo1.png', array('alt' => Html::encode(Yii::$app->params['siteName']))) ?>
                     &nbsp;<?= Html::encode(Yii::$app->params['siteName']) ?>
                 </a>
-
+                <div class="slogan">
+                    Газовое оборудование, водоснабжение, <br/>отопительное оборудование, насосы
+                </div>
                 <div class="pull-right text-right" style="margin-right: 20px;">
                     <div class="call">
                         <?= FA::icon('phone')->size(FA::SIZE_LARGE) ?>
@@ -47,7 +52,7 @@ AppAsset::register($this);
                     Html::button(
                         FA::icon('question') . '&nbsp;&nbsp;Задать вопрос',
                         [
-                            'class' => 'btn btn-light-yellow btn-lg btn-question',
+                            'class' => 'btn btn-info btn-lg btn-question',
                             'value' => Url::to(['show-message-form']),
                             'id' => 'modalButton'
                         ]) ?>
@@ -69,7 +74,7 @@ AppAsset::register($this);
             echo '<div class="pull-right topsearch">
                     <form class="form-inline">
                         <input type="search" placeholder="Поиск по сайту" class="form-control">
-                        <button class="btn btn-small btn-light-yellow">' . FA::icon("search")->size(FA::SIZE_LARGE) . '</button>
+                        <button class="btn btn-small btn-info">' . FA::icon("search")->size(FA::SIZE_LARGE) . '</button>
                     </form>
                 </div>';
 
@@ -85,7 +90,7 @@ AppAsset::register($this);
                 'options' => ['class' => 'navbar-nav'],
                 'items' => [
                     ['label' => 'Главная', 'url' => ['/site/index']],
-                    ['label' => 'Каталог оборудования', 'url' => ['/category/index']],
+                    ['label' => 'Каталог оборудования', 'url' => ['/catalog']],
                     ['label' => 'Цены', 'url' => ['/prices']],
                     ['label' => 'О компании', 'url' => ['/site/about']],
                 ],

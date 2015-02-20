@@ -34,8 +34,8 @@ AppAsset::register($this);
             'options' => ['class' => 'navbar-nav'],
             'encodeLabels' => false,
             'items' => [
-                ['label' => 'Категории', 'url' => ['/admin/category']],
-                ['label' => 'Товары', 'url' => ['/admin/product']],
+                ['label' => 'Категории', 'url' => ['/admin/category/index']],
+                ['label' => 'Товары', 'url' => ['/admin/product/index']],
                 ['label' => FA::icon('sign-out') . ' Выход', 'url' => ['/admin/default/logout'], 'visible' => !Yii::$app->user->isGuest],
             ],
         ]);
