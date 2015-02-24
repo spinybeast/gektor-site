@@ -28,8 +28,9 @@ $config = [
             'errorAction' => 'site/error',
         ],
         'mailer' => [
-            'class' => 'yii\swiftmailer\Mailer',
-            'useFileTransport' => false,
+            'mailer' => [
+                'class' => 'yii\swiftmailer\Mailer',
+            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -50,6 +51,7 @@ $config = [
                 'about' => 'site/about',
                 'show-message-form' => 'site/show-message-form',
                 'submit-message' => 'site/submit-message',
+                'captcha' => 'site/captcha',
                 '<controller:\w+>/<id>' => '<controller>/view'
             ],
         ],
