@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="item  col-xs-4 col-lg-4">
                     <div class="thumbnail">
                         <div class="post-img-content">
-                            <img src="http://placehold.it/460x250/e67e22/ffffff&amp;text=IMAGE" class="img-responsive">
+                            <?= Html::img($product->getThumbUploadUrl('image', 'preview')) ?>
                         </div>
                         <div class="caption" style="padding-bottom: 0">
                             <h4 class="group inner list-group-item-heading">

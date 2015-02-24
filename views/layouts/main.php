@@ -36,7 +36,7 @@ AppAsset::register($this);
         <div class="headerdetails">
             <div class="container">
                 <a class="logo text-left col-md-4 col-sm-12" href="<?= Url::home() ?>">
-                    <?= Html::img('img/logo1.png', array('alt' => Html::encode(Yii::$app->params['siteName']))) ?>
+                    <?= Html::img('/img/logo1.png', array('alt' => Html::encode(Yii::$app->params['siteName']))) ?>
                     <?= Html::encode(Yii::$app->params['siteName']) ?>
                 </a>
                 <div class="slogan col-md-5 col-sm-12">

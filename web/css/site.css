@@ -135,17 +135,18 @@ a.desc:after {
     background-color: #025377;
     border-radius: 0;
     margin-bottom: 0;
-    padding: 10px;
     font-size: 16px;
     text-transform: uppercase;
 }
 
 .navbar-gektor a {
     color: #FDFBF4;
+    padding-top: 25px !important;
+    padding-bottom: 25px !important;
 }
 
 .navbar-gektor a:hover, .navbar-gektor a:active {
-    color: #594d4f;
+    color: #025377;
     font-weight: bold;
 }
 
@@ -189,7 +190,7 @@ a.desc:after {
 }
 
 .topsearch {
-    margin: 9px 6px 0;
+    margin: 18px 6px 0;
 }
 
 p.help-block.help-block-error {
