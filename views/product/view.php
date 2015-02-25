@@ -7,20 +7,20 @@ use yii\helpers\Html;
 
 $this->title = $model->name;
 foreach ($model->category->breadCrumbs() as $crumb) {
-    $this->params['breadcrumbs'][] = ['label' => $crumb->name, 'url' => ['view', 'id' => $crumb->id]];
+    $this->params['breadcrumbs'][] = ['label' => $crumb->name, 'url' => ['catalog/view', 'id' => $crumb->id]];
 }
-$this->params['breadcrumbs'][] = ['label' => $model->category->name, 'url' => ['category/view', 'id' => $model->category->id]];
+$this->params['breadcrumbs'][] = ['label' => $model->category->name, 'url' => ['catalog/view', 'id' => $model->category->id]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="product-view">
-    <div class="row transitionfx">
+    <div class="row">
 
         <!-- left column -->
         <div class="col-lg-6 col-md-6 col-sm-6">
             <!-- product Image and Zoom -->
             <div class="main-image sp-wrap col-lg-12 no-padding" style="display: inline-block;">
-                <img src="" alt=""/>
-                </div>
+                <?= Html::img($model->getThumbUploadUrl('image')) ?>
+            </div>
         </div><!--/ left column end -->
 
 

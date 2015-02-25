@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\ListView;
 use \yii\data\ArrayDataProvider;
 
@@ -26,7 +27,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
         ]); ?>
     <?php } ?>
-    <?php if (!empty($model->products)) { ?>
+    <?php $products = $model->products();
+    if (!empty($products)) { ?>
         <div class="well well-sm">
             <strong>Режим просмотра</strong>
 
@@ -36,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
         </div>
         <div id="products" class="row list-group">
-            <?php foreach ($model->products as $product) { ?>
+            <?php foreach ($products as $product) { ?>
                 <div class="item  col-xs-4 col-lg-4">
                     <div class="thumbnail">
                         <div class="post-img-content">
@@ -55,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <?= $product->price ?> р.</p>
                                 </div>
                                 <div class="col-xs-12 col-md-6 text-right">
-                                    <a class="btn btn-greyblue" href="">Посмотреть</a>
+                                    <a class="btn btn-greyblue" href="<?= Url::to(['product/view', 'id' => $product->id])?>">Посмотреть</a>
                                 </div>
                             </div>
                         </div>

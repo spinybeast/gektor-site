@@ -53,7 +53,7 @@ AppAsset::register($this);
                         FA::icon('question') . '&nbsp;&nbsp;Задать вопрос',
                         [
                             'class' => 'btn btn-info btn-lg btn-question',
-                            'value' => Url::to(['show-message-form']),
+                            'value' => Url::to(['site/show-message-form']),
                             'id' => 'modalButton'
                         ]) ?>
                 </div>

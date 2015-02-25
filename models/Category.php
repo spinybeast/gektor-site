@@ -78,4 +78,13 @@ class Category extends \yii\db\ActiveRecord
         }
         return $breadcrumbs;
     }
+
+    public function products()
+    {
+        $products = $this->products;
+        foreach ($this->children as $child) {
+            $products = array_merge($products, $child->products);
+        }
+        return $products;
+    }
 }
