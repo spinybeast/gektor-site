@@ -15,7 +15,17 @@ foreach ($model->breadCrumbs() as $crumb) {
 }
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="category-view">
+<div class="col-md-3">
+    <?= ListView::widget([
+        'dataProvider' => $dataProvider,
+        'layout' => '{items}{pager}',
+        'itemView' => function ($model, $key, $index, $widget) {
+                return $this->render('_menu_item', ['model' => $model]);
+            },
+    ]); ?>
+
+</div>
+<div class="col-md-9 category-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php if (!empty($model->children)) { ?>

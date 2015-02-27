@@ -15,6 +15,17 @@ use yii\filters\VerbFilter;
 class CatalogController extends Controller
 {
 
+    /**
+     * @return ActiveDataProvider
+     */
+    private static function getDataProvider()
+    {
+        $dataProvider = new ActiveDataProvider([
+            'query' => Category::find()->where(['enabled' => 1, 'parent_id' => 0]),
+        ]);
+        return $dataProvider;
+    }
+
     public function behaviors()
     {
         return [
@@ -33,12 +44,8 @@ class CatalogController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Category::find()->where(['enabled' => 1, 'parent_id' => 0]),
-        ]);
-
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
+            'dataProvider' => self::getDataProvider(),
         ]);
     }
 
@@ -51,6 +58,7 @@ class CatalogController extends Controller
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'dataProvider' => self::getDataProvider(),
         ]);
     }
 
