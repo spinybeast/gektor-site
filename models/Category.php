@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use mongosoft\file\UploadImageBehavior;
 
 /**
  * This is the model class for table "categories".
@@ -11,6 +12,7 @@ use Yii;
  * @property integer $parent_id
  * @property string $name
  * @property integer $enabled
+ * @property string $image
  */
 class Category extends \yii\db\ActiveRecord
 {
@@ -29,7 +31,25 @@ class Category extends \yii\db\ActiveRecord
     {
         return [
             [['id', 'parent_id', 'enabled'], 'integer'],
-            [['name'], 'string', 'max' => 20]
+            [['name'], 'string', 'max' => 20],
+            ['image', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['default', 'create', 'update']],
+        ];
+    }
+    public function behaviors()
+    {
+        return [
+            'image' => [
+                'class' => UploadImageBehavior::className(),
+                'attribute' => 'image',
+                'scenarios' => ['default', 'create', 'update'],
+                'placeholder' => '@webroot/img/product/no-image.jpg',
+                'path' => '@webroot/img/category/{id}',
+                'url' => '@web/img/category/{id}',
+                'thumbs' => [
+                    'thumb' => ['width' => 400, 'quality' => 90],
+                    'preview' => ['width' => 200, 'height' => 200],
+                ],
+            ],
         ];
     }
 
@@ -43,6 +63,7 @@ class Category extends \yii\db\ActiveRecord
             'parent_id' => 'Parent ID',
             'name' => 'Name',
             'enabled' => 'Enabled',
+            'image' => 'Image'
         ];
     }
 
