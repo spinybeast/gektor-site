@@ -36,7 +36,7 @@ AppAsset::register($this);
         <div class="headerdetails">
             <div class="container">
                 <a class="logo text-left col-md-4 col-sm-12" href="<?= Url::home() ?>">
-                    <?= Html::img('/img/logo1.png', array('alt' => Html::encode(Yii::$app->params['siteName']))) ?>
+                    <?= Html::img('/img/logo2.png', array('alt' => Html::encode(Yii::$app->params['siteName']))) ?>
                     <?= Html::encode(Yii::$app->params['siteName']) ?>
                 </a>
                 <div class="slogan col-md-5 col-sm-12">
@@ -98,6 +98,12 @@ AppAsset::register($this);
             echo $this->blocks['search'];
             NavBar::end();
             ?>
+        </div>
+        <div class="logos text-center">
+            <span><?= Html::img('/img/logos/300x1001.jpg')?></span>
+            <span><?= Html::img('/img/logos/300x100.jpg')?></span>
+            <span><?= Html::img('/img/logos/banner-300x100-3.jpg')?></span>
+            <span><?= Html::img('/img/logos/ma_2011-banner-300x100px-option_2.jpg')?></span>
         </div>
     </header>
     <div class="container">

@@ -166,7 +166,7 @@ a.desc:after {
     font-size: 40px;
     font-weight: bold;
     font-family: "postmodern_oneregular";
-    color: #02686F !important;
+    color: #025377 !important;
     padding-right: 0;
 }
 
@@ -348,4 +348,15 @@ p.help-block.help-block-error {
 
 .list-group-item-text {
     margin: 0 0 11px;
+}
+.carousel-indicators .active {
+    background-color: #025377;
+}
+
+.carousel-indicators {
+    bottom: 0px;
+}
+
+.left-banners div {
+    margin-bottom: 25px;
 }

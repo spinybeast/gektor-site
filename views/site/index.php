@@ -1,48 +1,79 @@
-<?php use yii\helpers\Url;
+<?php
+use yii\helpers\Url;
+use yii\helpers\Html;
+use yii\bootstrap\Carousel;
+
 /* @var $this yii\web\View */
 $this->title = 'Главная';
 ?>
 <div class="site-index">
-
-    <div class="jumbotron">
-        <h1>Компания &laquo;Гектор&raquo;</h1>
+    <div class="col-md-3 left-banners">
+        <div><?= Html::img('/img/banners/250x250adPlaceholder.png') ?></div>
+        <div><?= Html::img('/img/banners/250x250adPlaceholder.png') ?></div>
     </div>
+    <div class="col-md-9">
+        <?=
+        Carousel::widget([
+            'items' => [
+                Html::img('/img/banners/devochka-shary-pole-nastroenie.jpg'),
+                Html::img('/img/banners/dom-mrachno-svet-lestnica.jpg'),
+                Html::img('/img/banners/semya-more-zakat-siluety.jpg'),
+            ],
+            'controls' => false,
+            'options' => [
+                'interval' => 2000,
+                'class' => 'slide',
+            ]
+        ]);?>
+        <div class="about">
+            <h1><?= Html::encode($this->title) ?></h1>
 
-    <div class="body-content">
+            <p class="text-justify">Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я
+                наслаждаюсь от всего сердца. Я совсем
+                один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так
+                упоен ощущением
+                покоя, что искусство мое страдает от этого. Ни одного штриха не мог бы я сделать, а никогда не был таким
+                большим
+                художником, как в эти минуты. </p>
 
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>О нас</h2>
+            <p class="text-justify">Когда от милой моей долины поднимается пар и полдневное солнце стоит над
+                непроницаемой
+                чащей темного леса и лишь редкий луч проскальзывает в его святая святых, а я лежу в высокой траве у
+                быстрого ручья
+                и, прильнув к земле, вижу тысячи всевозможных былинок и чувствую, как близок моему сердцу крошечный
+                мирок, что снует
+                между стебельками, наблюдаю эти неисчислимые, непостижимые разновидности червяков и мошек и чувствую
+                близость
+                всемогущего, создавшего нас по своему подобию, веяние вселюбящего, судившего нам парить в вечном
+                блаженстве, когда
+                взор мой туманится и все вокруг меня и небо надо мной запечатлены в моей душе, точно образ возлюбленной,
+                - тогда,
+                дорогой друг, меня часто томит мысль: "Ах! Как бы выразить, как бы вдохнуть в рисунок то, что так полно,
+                так
+                трепетно живет во мне, запечатлеть отражение моей души, как душа моя - отражение предвечного бога!"</p>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+            <p class="text-justify">Друг мой... Но нет! Мне не под силу это, меня подавляет величие этих явлений.Душа
+                моя озарена неземной радостью, как эти чудесные
+                весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю,
+                словно созданном
+                для таких, как я. Я так счастлив, мой друг, так упоен ощущением покоя, что искусство мое страдает от
+                этого. Ни
+                одного штриха не мог бы я сделать, а никогда не был таким большим художником, как в эти минуты. </p>
 
-                <p><a class="btn btn-default" href="<?= Url::to('about') ?>">Подробнее &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>О нас</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="<?= Url::to('about') ?>">Подробнее &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>О нас</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="<?= Url::to('about') ?>">Подробнее &raquo;</a></p>
-            </div>
-
+            <p class="text-justify">Когда от милой моей
+                долины поднимается пар и полдневное солнце стоит над непроницаемой чащей темного леса и лишь редкий луч
+                проскальзывает в его святая святых, а я лежу в высокой траве у быстрого ручья и, прильнув к земле, вижу
+                тысячи
+                всевозможных былинок и чувствую, как близок моему сердцу крошечный мирок, что снует между стебельками,
+                наблюдаю эти
+                неисчислимые, непостижимые разновидности червяков и мошек и чувствую близость всемогущего, создавшего
+                нас по своему
+                подобию, веяние вселюбящего, судившего нам парить в вечном блаженстве, когда взор мой туманится и все
+                вокруг меня и
+                небо надо мной запечатлены в моей душе, точно образ возлюбленной, - тогда, дорогой друг, меня часто
+                томит мысль:
+                "Ах! Как бы выразить, как бы вдохнуть в рисунок то, что так полно, так трепетно живет во</p>
         </div>
-
     </div>
+
 </div>
