@@ -19,7 +19,8 @@ foreach ($model->breadCrumbs() as $crumb) {
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="col-md-3">
-    <?= Nav::widget([
+    <?=
+    Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right navbar-gektor-right'],
         'items' => MenuHelper::getMenu()
     ]); ?>
@@ -28,17 +29,15 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="col-md-9 category-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php if (!empty($model->children)) { ?>
-        <?= ListView::widget([
-            'dataProvider' => new ArrayDataProvider(['allModels' => $model->children]),
-            'layout' => '{items}',
-            'itemView' => function ($model, $key, $index, $widget) {
-                    return Html::a($model->name, ['view', 'id' => $model->id]);
-                },
-        ]); ?>
-    <?php } ?>
+    <div class="children">
+        <?php $menu = MenuHelper::getMenu($model->id);
+        foreach ($menu as $item) { ?>
+            <span><?= Html::a($item['label'], $item['url']) ?></span>
+        <?php } ?>
+    </div>
     <?php $products = $model->products();
-    if (!empty($products)) { ?>
+    if (!empty($products)) {
+        ?>
         <div class="well well-sm">
             <strong>Режим просмотра</strong>
 
@@ -67,7 +66,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <?= $product->price ?> р.</p>
                                 </div>
                                 <div class="col-xs-12 col-md-6 text-right">
-                                    <a class="btn btn-greyblue" href="<?= Url::to(['product/view', 'id' => $product->id])?>">Посмотреть</a>
+                                    <a class="btn btn-greyblue"
+                                       href="<?= Url::to(['product/view', 'id' => $product->id]) ?>">Посмотреть</a>
                                 </div>
                             </div>
                         </div>
