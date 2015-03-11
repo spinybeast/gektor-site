@@ -3,7 +3,10 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ListView;
-use \yii\data\ArrayDataProvider;
+use yii\bootstrap\Nav;
+use yii\data\ArrayDataProvider;
+use app\components\MenuHelper;
+
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Category */
@@ -16,12 +19,9 @@ foreach ($model->breadCrumbs() as $crumb) {
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="col-md-3">
-    <?= ListView::widget([
-        'dataProvider' => $dataProvider,
-        'layout' => '{items}{pager}',
-        'itemView' => function ($model, $key, $index, $widget) {
-                return $this->render('_menu_item', ['model' => $model]);
-            },
+    <?= Nav::widget([
+        'options' => ['class' => 'navbar-nav navbar-right navbar-gektor-right'],
+        'items' => MenuHelper::getMenu()
     ]); ?>
 
 </div>

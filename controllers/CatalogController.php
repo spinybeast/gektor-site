@@ -58,7 +58,6 @@ class CatalogController extends Controller
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
-            'dataProvider' => self::getDataProvider(),
         ]);
     }
 
