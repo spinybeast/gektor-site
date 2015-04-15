@@ -91,8 +91,8 @@ AppAsset::register($this);
                 'items' => [
                     ['label' => 'Главная', 'url' => ['/site/index']],
                     ['label' => 'Каталог оборудования', 'url' => ['/catalog']],
-                    ['label' => 'Цены', 'url' => ['/prices']],
                     ['label' => 'О компании', 'url' => ['/about']],
+                    ['label' => 'Контакты', 'url' => ['/contact']],
                 ],
             ]);
             echo $this->blocks['search'];
@@ -100,10 +100,15 @@ AppAsset::register($this);
             ?>
         </div>
         <div class="logos text-center">
-            <span><?= Html::img('/img/logos/300x1001.jpg')?></span>
-            <span><?= Html::img('/img/logos/300x100.jpg')?></span>
-            <span><?= Html::img('/img/logos/banner-300x100-3.jpg')?></span>
-            <span><?= Html::img('/img/logos/ma_2011-banner-300x100px-option_2.jpg')?></span>
+            <div class="logos-carousel container">
+                <div><?= Html::img('/img/logos/Angara.jpg')?></div>
+                <div><?= Html::img('/img/logos/atlantic-logo.jpg')?></div>
+                <div><?= Html::img('/img/logos/DirectiveLVD.jpg')?></div>
+                <div><?= Html::img('/img/logos/IMMERGAS.jpg')?></div>
+                <div><?= Html::img('/img/logos/logo-navien.png')?></div>
+                <div><?= Html::img('/img/logos/logo_danko1.jpg')?></div>
+                <div><?= Html::img('/img/logos/Logo_etalon.png')?></div>
+            </div>
         </div>
     </header>
     <div class="container">
@@ -121,7 +126,9 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="text-center">&copy; <?= Yii::$app->params['siteName'] ?> 2011-<?= date('Y') ?></p>
+        <p class="text-center">&copy; <?= Yii::$app->params['siteName'] ?> 2011-<?= date('Y') ?>
+            <span><br/>designed by spiny.beast</span>
+        </p>
     </div>
 </footer>
 

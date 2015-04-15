@@ -5,24 +5,56 @@ $('#modalButton').click(function () {
         .load($(this).attr('value'));
 });
 
-    $(document).on('submit', '#contact-form', function (e) {
-        e.preventDefault();
-        var form = $(this);
-        $.ajax({
-            url: "/submit-message",
-            type: "POST",
-            data: form.serialize(),
-            success: function (result) {
-                if (result == 'true') {
-                    var modalContainer = $('#modal');
-                    var modalBody = modalContainer.find('.modal-body');
-                    modalBody.html(result).hide().fadeIn();
-                } else {
-                    var modalContainer = $('#modal');
-                    var modalBody = modalContainer.find('.modal-body');
-                    modalBody.html(result).hide().fadeIn();
-                }
+$(document).on('submit', '#contact-form', function (e) {
+    e.preventDefault();
+    var form = $(this);
+    $.ajax({
+        url: "/submit-message",
+        type: "POST",
+        data: form.serialize(),
+        success: function (result) {
+            if (result == 'true') {
+                var modalContainer = $('#modal');
+                var modalBody = modalContainer.find('.modal-body');
+                modalBody.html(result).hide().fadeIn();
+            } else {
+                var modalContainer = $('#modal');
+                var modalBody = modalContainer.find('.modal-body');
+                modalBody.html(result).hide().fadeIn();
             }
-        });
+        }
     });
+});
 
+$('.logos-carousel').owlCarousel({
+    pagination: false,
+    items: 7,
+    loop: true,
+    autoplay: true,
+    autoplayTimeout: 2000,
+    autoplaySpeed: 1000,
+    responsive: {
+        0: {
+            items: 1
+        },
+        600: {
+            items: 3
+        },
+        1000: {
+            items: 6
+        }
+    }
+
+});
+
+$(window).load(function () {
+    var maxH = 0;
+    var item = $('div.owl-item > div');
+    item.each(function () {
+        if ($(this).height() > maxH) {
+            maxH = $(this).height()
+        }
+        $(this).width($(this).parent().width());
+    });
+    item.height(maxH);
+});
