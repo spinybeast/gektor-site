@@ -20,14 +20,20 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
             'id',
-            'category_id',
-            'price',
             'name',
+            'price',
+            [
+                'header' => 'Категория',
+                'value' => function($data) { return $data->category->name; },
+                'format' => ['text'],
+            ],
             'description:ntext',
-            'image',
+            [
+                'header' => 'Превью',
+                'value' => function($data) { return $data->getThumbUploadUrl('image'); },
+                'format' => ['image', ['width' => 100]],
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

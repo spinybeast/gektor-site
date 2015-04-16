@@ -64,11 +64,11 @@ class Product extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'category_id' => 'Category ID',
-            'price' => 'Price',
-            'name' => 'Name',
-            'description' => 'Description',
-            'image' => 'Image',
+            'category_id' => 'Категория',
+            'price' => 'Цена',
+            'name' => 'Название',
+            'description' => 'Описание',
+            'image' => 'Картинка',
         ];
     }
 
