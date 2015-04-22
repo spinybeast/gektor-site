@@ -17,6 +17,8 @@ use mongosoft\file\UploadImageBehavior;
  */
 class Product extends \yii\db\ActiveRecord
 {
+    const DESC_LENGTH = 130;
+
     /**
      * @inheritdoc
      */
@@ -75,5 +77,13 @@ class Product extends \yii\db\ActiveRecord
     public function getCategory()
     {
         return $this->hasOne(Category::className(), ['id' => 'category_id']);
+    }
+
+    public function getShortDescription()
+    {
+        if (strlen($this->description) > self::DESC_LENGTH){
+            return iconv_substr($this->description, 0, self::DESC_LENGTH, 'utf-8') . '...';
+        }
+        return $this->description;
     }
 }

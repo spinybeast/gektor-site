@@ -148,7 +148,7 @@ a.desc:after {
     font-weight: bold;
 }
 
-.beige {
+.text-blue {
     color: #025377;
 }
 
@@ -373,4 +373,17 @@ div.owl-item > div {
 }
 .logos-carousel {
     /*max-width: 1170px;*/
+}
+
+.item div.post-img-content {
+    height: 190px;
+}
+.item.list-group-item div.post-img-content {
+    height: auto;
+}
+.item .thumbnail {
+    height: 400px;
+}
+.item.list-group-item .thumbnail {
+    height: 200px;
 }

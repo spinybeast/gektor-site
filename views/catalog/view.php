@@ -27,9 +27,11 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="col-md-9 category-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
+
     <div class="children">
         <?php $menu = MenuHelper::getMenu($model->id);
-        foreach ($menu as $item) { ?>
+        foreach ($menu as $item) {
+            ?>
             <span><?= Html::a($item['label'], $item['url']) ?></span>
         <?php } ?>
     </div>
@@ -49,14 +51,18 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="item  col-xs-4 col-lg-4">
                     <div class="thumbnail">
                         <div class="post-img-content">
-                            <?= Html::img($product->getThumbUploadUrl('image', 'preview')) ?>
+                            <?=
+                            Html::a(
+                                Html::img($product->getThumbUploadUrl('image', 'preview'), ['class' => 'img-responsive']),
+                                ['product/view', 'id' => $product->id]
+                            ) ?>
                         </div>
                         <div class="caption" style="padding-bottom: 0">
                             <h4 class="group inner list-group-item-heading">
-                                <?= $product->name ?></h4>
+                                <?= Html::a($product->name, ['product/view', 'id' => $product->id], ['class' => 'text-blue']) ?></h4>
 
                             <p class="group inner list-group-item-text">
-                                <?= $product->description ?></p>
+                                <?= $product->shortDescription ?></p>
 
                             <div class="row">
                                 <div class="col-xs-12 col-md-6 text-left">
@@ -64,7 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <?= $product->price ?> р.</p>
                                 </div>
                                 <div class="col-xs-12 col-md-6 text-right">
-                                    <a class="btn btn-greyblue"
+                                    <a class="btn btn-info"
                                        href="<?= Url::to(['product/view', 'id' => $product->id]) ?>">Посмотреть</a>
                                 </div>
                             </div>

@@ -45,7 +45,7 @@ AppAsset::register($this);
                 <div class="text-right col-md-3 col-sm-12">
                     <div class="call">
                         <?= FA::icon('phone')->size(FA::SIZE_LARGE) ?>
-                        <span class="beige"><?= Html::encode(Yii::$app->params['sitePhone']) ?></span>
+                        <span class="text-blue"><?= Html::encode(Yii::$app->params['sitePhone']) ?></span>
                     </div>
 
                     <?=
@@ -99,17 +99,19 @@ AppAsset::register($this);
             NavBar::end();
             ?>
         </div>
-        <div class="logos text-center">
-            <div class="logos-carousel container">
-                <div><?= Html::img('/img/logos/Angara.jpg')?></div>
-                <div><?= Html::img('/img/logos/atlantic-logo.jpg')?></div>
-                <div><?= Html::img('/img/logos/DirectiveLVD.jpg')?></div>
-                <div><?= Html::img('/img/logos/IMMERGAS.jpg')?></div>
-                <div><?= Html::img('/img/logos/logo-navien.png')?></div>
-                <div><?= Html::img('/img/logos/logo_danko1.jpg')?></div>
-                <div><?= Html::img('/img/logos/Logo_etalon.png')?></div>
+        <?php if (Yii::$app->controller->getRoute() == 'site/index') {?>
+            <div class="logos text-center">
+                <div class="logos-carousel container">
+                    <div><?= Html::img('/img/logos/Angara.jpg')?></div>
+                    <div><?= Html::img('/img/logos/atlantic-logo.jpg')?></div>
+                    <div><?= Html::img('/img/logos/DirectiveLVD.jpg')?></div>
+                    <div><?= Html::img('/img/logos/IMMERGAS.jpg')?></div>
+                    <div><?= Html::img('/img/logos/logo-navien.png')?></div>
+                    <div><?= Html::img('/img/logos/logo_danko1.jpg')?></div>
+                    <div><?= Html::img('/img/logos/Logo_etalon.png')?></div>
+                </div>
             </div>
-        </div>
+        <?php } ?>
     </header>
     <div class="container">
         <?=

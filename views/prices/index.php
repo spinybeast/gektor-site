@@ -10,7 +10,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php if (!empty($categories)) { ?>
         <?php foreach ($categories as $category) { ?>
             <?php if (!empty($category->products)) { ?>
-                <h3 class="beige text-center"><?= $category->name ?></h3>
+                <h3 class="text-blue text-center"><?= $category->name ?></h3>
                 <table class="table table-responsive table-hover table-bordered">
                 <tr>
                     <th class="text-center">Товар</th>
