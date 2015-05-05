@@ -15,9 +15,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Редактировать', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?=
-        Html::a('Delete', ['delete', 'id' => $model->id], [
+        Html::a('Удалить', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -26,21 +26,28 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 
-    <?=
-    DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'category_id',
-            'price',
-            'name',
-            'description:ntext',
-            [
-                'attribute' => 'image',
-                'value' => $model->getThumbUploadUrl('image'),
-                'format' => ['image'],
+    <div class="well">
+        <?=
+        DetailView::widget([
+            'model' => $model,
+            'attributes' => [
+                'id',
+                'category_id',
+                'price',
+                'trade_price',
+                'name',
+                'description:ntext',
+                [
+                    'attribute' => 'properties',
+                    'value' => $model->rawProperties,
+                    'format' => ['html'],
+                ],
+                [
+                    'attribute' => 'image',
+                    'value' => $model->getThumbUploadUrl('image'),
+                    'format' => ['image'],
+                ],
             ],
-        ],
-    ]) ?>
-
+        ]) ?>
+    </div>
 </div>

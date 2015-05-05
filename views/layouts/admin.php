@@ -50,7 +50,7 @@ AppAsset::register($this);
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                 'homeLink' => [
                     'label' => 'Главная',
-                    'url' => Url::home(),
+                    'url' => ['/admin'],
                 ]
             ]) ?>
             <?= $content ?>
