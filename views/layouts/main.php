@@ -24,7 +24,8 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode(Yii::$app->params['siteName'] . ' - ' . $this->title) ?></title>
     <link href='http://fonts.googleapis.com/css?family=Cuprum&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Philosopher&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Philosopher&subset=latin,cyrillic' rel='stylesheet'
+          type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Scada&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <?php $this->head() ?>
 </head>
@@ -39,6 +40,7 @@ AppAsset::register($this);
                     <?= Html::img('/img/logo2.png', array('alt' => Html::encode(Yii::$app->params['siteName']))) ?>
                     <?= Html::encode(Yii::$app->params['siteName']) ?>
                 </a>
+
                 <div class="slogan col-md-5 col-sm-12">
                     Газовое оборудование, водоснабжение, <br/>отопительное оборудование, насосы
                 </div>
@@ -89,26 +91,26 @@ AppAsset::register($this);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav'],
                 'items' => [
-                    ['label' => 'Главная', 'url' => ['/site/index']],
-                    ['label' => 'Каталог оборудования', 'url' => ['/catalog']],
-                    ['label' => 'О компании', 'url' => ['/about']],
-                    ['label' => 'Контакты', 'url' => ['/contact']],
+                    ['label' => 'Главная', 'url' => ['/site/index'], 'active' => false],
+                    ['label' => 'Каталог оборудования', 'url' => ['/catalog'], 'active' => Yii::$app->controller->id == 'catalog' || Yii::$app->controller->id == 'product'],
+                    ['label' => 'О компании', 'url' => ['/about'], 'active' => Yii::$app->controller->id == 'site' && Yii::$app->controller->action->id == 'about'],
+                    ['label' => 'Контакты', 'url' => ['/contact'], 'active' => Yii::$app->controller->id == 'site' && Yii::$app->controller->action->id == 'contact'],
                 ],
             ]);
             echo $this->blocks['search'];
             NavBar::end();
             ?>
         </div>
-        <?php if (Yii::$app->controller->getRoute() == 'site/index') {?>
+        <?php if (Yii::$app->controller->getRoute() == 'site/index') { ?>
             <div class="logos text-center">
                 <div class="logos-carousel container">
-                    <div><?= Html::img('/img/logos/Angara.jpg')?></div>
-                    <div><?= Html::img('/img/logos/atlantic-logo.jpg')?></div>
-                    <div><?= Html::img('/img/logos/DirectiveLVD.jpg')?></div>
-                    <div><?= Html::img('/img/logos/IMMERGAS.jpg')?></div>
-                    <div><?= Html::img('/img/logos/logo-navien.png')?></div>
-                    <div><?= Html::img('/img/logos/logo_danko1.jpg')?></div>
-                    <div><?= Html::img('/img/logos/Logo_etalon.png')?></div>
+                    <div><?= Html::img('/img/logos/Angara.jpg') ?></div>
+                    <div><?= Html::img('/img/logos/atlantic-logo.jpg') ?></div>
+                    <div><?= Html::img('/img/logos/DirectiveLVD.jpg') ?></div>
+                    <div><?= Html::img('/img/logos/IMMERGAS.jpg') ?></div>
+                    <div><?= Html::img('/img/logos/logo-navien.png') ?></div>
+                    <div><?= Html::img('/img/logos/logo_danko1.jpg') ?></div>
+                    <div><?= Html::img('/img/logos/Logo_etalon.png') ?></div>
                 </div>
             </div>
         <?php } ?>

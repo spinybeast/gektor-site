@@ -42,7 +42,7 @@ h1, .btn {
 .wrap {
     min-height: 100%;
     height: auto;
-    margin: 0 auto -60px;
+    margin: 0 auto -75px;
     padding: 0 0 60px;
     background: rgba(250, 250, 250, 0.3);
 }
@@ -146,6 +146,12 @@ a.desc:after {
 .navbar-gektor a:hover, .navbar-gektor a:active {
     color: #025377;
     font-weight: bold;
+}
+
+.navbar-gektor li.active a {
+    color: #025377;
+    font-weight: bold;
+    background-color: #eee;
 }
 
 .text-blue {
@@ -304,10 +310,7 @@ p.help-block.help-block-error {
     width: 100%;
     background-color: #fff;
     margin-bottom: 10px;
-}
-
-.item.list-group-item:nth-of-type(odd):hover, .item.list-group-item:hover {
-    background: #428bca;
+    padding: 0;
 }
 
 .item.list-group-item .list-group-image {
@@ -320,10 +323,6 @@ p.help-block.help-block-error {
 
 .item.list-group-item .caption {
     padding: 9px 9px 0px 9px;
-}
-
-.item.list-group-item:nth-of-type(odd) {
-    background: #eeeeee;
 }
 
 .item.list-group-item:before, .item.list-group-item:after {
@@ -384,6 +383,21 @@ div.owl-item > div {
 .item .thumbnail {
     height: 400px;
 }
+.item .thumbnail .caption {
+    height: 210px;
+}
 .item.list-group-item .thumbnail {
     height: 200px;
+}
+.list-group-item-heading {
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+}
+.list-group-item-text {
+    line-height: 1.1;
+    height: 100px;
+}
+.thumbnail a > img {
+    height: 100%;
 }

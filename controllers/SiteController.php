@@ -33,10 +33,15 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
+    public function actionContact()
+    {
+        return $this->render('contact');
+    }
+
     public function actionShowMessageForm()
     {
         $model = new ContactForm();
-        return $this->renderPartial('contact', [
+        return $this->renderPartial('contact_form', [
             'model' => $model,
         ]);
     }

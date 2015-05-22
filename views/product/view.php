@@ -28,13 +28,30 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-lg-6 col-md-6 col-sm-5">
 
             <h1 class="product-title"><?= Html::encode($this->title) ?></h1>
-            <h3 class="product-code">Product Code : <?= Html::encode($model->id) ?></h3>
             <div class="product-price">
-                <span class="price-standard"><?= Html::encode($model->price) ?> р.</span>
+                <?php if (!empty($model->price)) {?>
+                    <span class="price-standard">Цена: <?= Html::encode($model->price) ?> р.</span>
+                <?php } ?>
+                <?php if (!empty($model->trade_price)) {?>
+                    <span class="price-trade">Оптовая цена: <?= Html::encode($model->trade_price) ?> р.</span>
+                <?php } ?>
             </div>
 
             <div class="details-description">
                 <p><?= Html::encode($model->description) ?></p>
+                <div class="properties">
+                    <?php if (!empty($model->properties)) {?>
+                        <h3>Характеристики</h3>
+                        <table class="table table-bordered">
+                            <?php foreach ($model->properties as $property) { ?>
+                                <tr>
+                                    <th><?= $property->name ?></th>
+                                    <td><?= $property->value ?></td>
+                                </tr>
+                            <?php } ?>
+                        </table>
+                    <?php } ?>
+                </div>
             </div>
 
        </div><!--/ right column end -->

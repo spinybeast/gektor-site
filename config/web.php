@@ -48,6 +48,7 @@ $config = [
                 '' => 'site/index',
                 'login' => 'admin/default/login',
                 'about' => 'site/about',
+                'contact' => 'site/contact',
                 'show-message-form' => 'site/show-message-form',
                 'submit-message' => 'site/submit-message',
                 'captcha' => 'site/captcha',
