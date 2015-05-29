@@ -20,7 +20,8 @@
         "yiisoft/yii2-swiftmailer": "*",
         "rmrevin/yii2-fontawesome": "2.7.*",
         "mongosoft/yii2-upload-behavior": "*",
-        "Sersid/yii2-owl-carousel-asset": "*"
+        "Sersid/yii2-owl-carousel-asset": "*",
+        "kartik-v/yii2-widget-select2": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

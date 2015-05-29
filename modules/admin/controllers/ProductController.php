@@ -2,6 +2,8 @@
 
 namespace app\modules\admin\controllers;
 
+use app\models\ProductProperties;
+use app\models\Property;
 use Yii;
 use app\models\Product;
 use yii\data\ActiveDataProvider;
@@ -82,6 +84,24 @@ class ProductController extends DefaultController
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            if ($properties = Yii::$app->request->post('Property', false)) {
+
+                foreach ($properties as $property) {
+                    if ($propertyName = Property::findOne('name=' . $property['name'])) {
+                        var_dump(3); die();
+                    } else {
+                        $propertyName = new Property();
+                        $propertyName->name = $property['name'];
+                        $propertyName->save();
+
+                        $propertyVal = new ProductProperties();
+                        $propertyVal->product_id = $model->id;
+                        $propertyVal->property_id = $propertyName->id;
+                        $propertyVal->value = $property['value'];
+                        $propertyVal->save();
+                    }
+                }
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [

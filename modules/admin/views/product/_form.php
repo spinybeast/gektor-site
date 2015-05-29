@@ -29,9 +29,13 @@ use rmrevin\yii\fontawesome\FA;
     <hr/>
     <div class="properties">
         <?php if (!empty($model->properties)) {
-            foreach ($model->properties as $property) {
+            foreach ($model->properties as $key => $property) {
                 $id = 'property' . $property->id;
-                echo Html::tag('p', Html::label($property->name, $id) . '  ' . Html::textInput($property->name, $property->value, ['id' => $id]));
+                echo Html::tag('p',
+                    Html::label($property->name, $id) . '  ' .
+                    Html::textInput('Property[' . ($key + 1) . '][value]', $property->value, ['id' => $id, 'class' => 'property']) . '  ' .
+                    Html::button(FA::icon('minus'), ['class' => 'btn btn-danger', 'onclick' => 'deleteProperty(' . $property->id . ')'])
+                );
             }
         } ?>
     </div>
@@ -57,6 +61,7 @@ use rmrevin\yii\fontawesome\FA;
 
 <script>
     function createProperty() {
-        $('.properties').append('<input type="text"><br>');
+        var index = $('.property').length;
+        $('.properties').append('Название <input class="property" type="text" name="Property[' + index + '][name]"> Значение <input type="text" name="Property[' + index + '][value]"><br>');
     }
 </script>

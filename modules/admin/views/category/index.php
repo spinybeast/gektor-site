@@ -22,8 +22,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
 
             'id',
-            'parent_id',
             'name',
+            [
+                'attribute' => 'parent_id',
+                'value' => function($data) { return $data->parent ? $data->parent->name : '<span class="not-set">(не задано)</span>'; },
+                'format' => ['html']
+            ],
             'enabled',
 
             ['class' => 'yii\grid\ActionColumn'],

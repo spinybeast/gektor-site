@@ -60,10 +60,10 @@ class Category extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'parent_id' => 'Parent ID',
-            'name' => 'Name',
-            'enabled' => 'Enabled',
-            'image' => 'Image'
+            'parent_id' => 'Родительская категория',
+            'name' => 'Название',
+            'enabled' => 'Включена',
+            'image' => 'Изображение (выводится для корневой категории)'
         ];
     }
 
@@ -79,7 +79,7 @@ class Category extends \yii\db\ActiveRecord
 
     public function getParent()
     {
-        return $this->hasMany(self::className(), ['id' => 'parent_id']);
+        return $this->hasOne(self::className(), ['id' => 'parent_id']);
     }
 
     public function breadCrumbs()
