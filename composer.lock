@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "404a84c2b3c9a4a947eb469ac255dea3",
+    "hash": "3c660d824b6efc4a306e91c10c7bef5f",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -573,6 +573,43 @@
                 "yii2"
             ],
             "time": "2014-11-29 21:42:21"
+        },
+        {
+            "name": "petrabarus/yii2-eithervalidator",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/petrabarus/yii2-eithervalidator.git",
+                "reference": "cf1ae48cfb43be5b66b1ed0705f6bc3873337055"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/petrabarus/yii2-eithervalidator/zipball/cf1ae48cfb43be5b66b1ed0705f6bc3873337055",
+                "reference": "cf1ae48cfb43be5b66b1ed0705f6bc3873337055",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0",
+                "yiisoft/yii2": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PetraBarus\\Yii2\\Validators\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Petra Barus",
+                    "email": "petra.barus@gmail.com"
+                }
+            ],
+            "description": "Yii2 validator to force one of certain attributes to be filled",
+            "time": "2015-02-12 04:56:28"
         },
         {
             "name": "rmrevin/yii2-fontawesome",

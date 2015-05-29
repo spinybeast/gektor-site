@@ -21,7 +21,8 @@
         "rmrevin/yii2-fontawesome": "2.7.*",
         "mongosoft/yii2-upload-behavior": "*",
         "Sersid/yii2-owl-carousel-asset": "*",
-        "kartik-v/yii2-widget-select2": "*"
+        "kartik-v/yii2-widget-select2": "*",
+        "petrabarus/yii2-eithervalidator": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

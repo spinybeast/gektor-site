@@ -85,9 +85,9 @@ class ProductController extends DefaultController
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             if ($properties = Yii::$app->request->post('Property', false)) {
-
+var_dump($properties); die();
                 foreach ($properties as $property) {
-                    if ($propertyName = Property::findOne('name=' . $property['name'])) {
+                    if ($propertyName = Property::findOne(['name', $property['name']])) {
                         var_dump(3); die();
                     } else {
                         $propertyName = new Property();

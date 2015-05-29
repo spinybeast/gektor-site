@@ -1,8 +1,11 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
 use rmrevin\yii\fontawesome\FA;
+use app\models\Category;
+use kartik\select2\Select2;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Product */
@@ -13,15 +16,17 @@ use rmrevin\yii\fontawesome\FA;
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
-    <?= $form->field($model, 'id')->textInput() ?>
+    <?= $form->field($model, 'name')->textInput(['maxlength' => 200]) ?>
 
-    <?= $form->field($model, 'category_id')->textInput() ?>
+    <?= $form->field($model, 'category_id')->widget(Select2::classname(), [
+        'data' => ArrayHelper::map(Category::find()->all(), 'id', 'name'),
+        'language' => 'ru',
+        'options' => ['placeholder' => 'Начните вводить категорию']
+    ]); ?>
 
     <?= $form->field($model, 'price')->textInput() ?>
 
     <?= $form->field($model, 'trade_price')->textInput() ?>
-
-    <?= $form->field($model, 'name')->textInput(['maxlength' => 200]) ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 

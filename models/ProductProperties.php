@@ -29,7 +29,8 @@ class ProductProperties extends \yii\db\ActiveRecord
     {
         return [
             [['id', 'product_id', 'property_id'], 'integer'],
-            [['value'], 'string']
+            [['value'], 'string'],
+            [['product_id', 'property_id', 'value'], 'required']
         ];
     }
 
