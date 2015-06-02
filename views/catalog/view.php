@@ -28,12 +28,16 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
+    <div class="description">
+        <?= Html::encode($model->description) ?>
+    </div>
     <div class="children">
         <?php $menu = MenuHelper::getMenu($model->id);
         foreach ($menu as $item) { ?>
             <span><?= Html::a($item['label'], $item['url']) ?></span>
         <?php } ?>
     </div>
+    <br/>
     <?php $products = $model->products();
     if (!empty($products)) {
         ?>
@@ -60,8 +64,20 @@ $this->params['breadcrumbs'][] = $this->title;
                             <h4 class="group inner list-group-item-heading">
                                 <?= Html::a($product->name, ['product/view', 'id' => $product->id], ['class' => 'text-blue']) ?></h4>
 
-                            <p class="group inner list-group-item-text">
-                                <?= $product->shortDescription ?></p>
+                            <div class="group inner list-group-item-text">
+                                <?php if (!empty($product->properties)) {?>
+                                    <table class="table table-responsive table-properties">
+                                        <?php foreach ($product->properties as $property) { ?>
+                                            <tr>
+                                                <th><?= Html::encode($property->name) ?></th>
+                                                <td><?= Html::encode($property->value) ?></td>
+                                            </tr>
+                                        <?php } ?>
+                                    </table>
+                                <?php } else { ?>
+                                    <?= Html::encode($product->shortDescription) ?>
+                                <?php } ?>
+                            </div>
 
                             <div class="row">
                                 <div class="col-xs-6 col-md-6 text-left">

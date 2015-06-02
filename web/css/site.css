@@ -397,7 +397,11 @@ div.owl-item > div {
 .list-group-item-text {
     line-height: 1.1;
     height: 100px;
+    overflow: hidden;
 }
 .thumbnail a > img {
     height: 100%;
+}
+.table-properties td, .table-properties th{
+    padding: 4px !important;
 }

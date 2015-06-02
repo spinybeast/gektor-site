@@ -6,6 +6,7 @@ use yii\widgets\ActiveForm;
 use rmrevin\yii\fontawesome\FA;
 use app\models\Category;
 use kartik\select2\Select2;
+use wbraganca\dynamicform\DynamicFormWidget;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Product */
@@ -14,7 +15,7 @@ use kartik\select2\Select2;
 
 <div class="product-form well">
 
-    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
+    <?php $form = ActiveForm::begin(['id' => 'dynamic-form', 'options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => 200]) ?>
 
@@ -30,22 +31,58 @@ use kartik\select2\Select2;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <h4>Характеристики</h4>
-    <hr/>
     <div class="properties">
-        <?php if (!empty($model->properties)) {
-            foreach ($model->properties as $key => $property) {
-                $id = 'property' . $property->id;
-                echo Html::tag('p',
-                    Html::label($property->name, $id) . '  ' .
-                    Html::textInput('Property[' . ($key + 1) . '][value]', $property->value, ['id' => $id, 'class' => 'property']) . '  ' .
-                    Html::button(FA::icon('minus'), ['class' => 'btn btn-danger', 'onclick' => 'deleteProperty(' . $property->id . ')'])
-                );
-            }
-        } ?>
+        <?php DynamicFormWidget::begin([
+            'widgetContainer' => 'dynamicform_wrapper', // required: only alphanumeric characters plus "_" [A-Za-z0-9_]
+            'widgetBody' => '.container-items', // required: css class selector
+            'widgetItem' => '.item', // required: css class
+            'min' => 0, // 0 or 1 (default 1)
+            'insertButton' => '.add-item', // css class
+            'deleteButton' => '.remove-item', // css class
+            'model' => $model,
+            'formId' => 'dynamic-form',
+            'formFields' => [
+                'name',
+                'value',
+            ],
+        ]); ?>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>
+                    <i class="glyphicon glyphicon-tags"></i> Характеристики
+                    <button type="button" class="add-item btn btn-success btn-sm pull-right"><i class="glyphicon glyphicon-plus"></i></button>
+                </h4>
+            </div>
+            <div class="panel-body">
+                <div class="container-items"><!-- widgetBody -->
+                    <?php foreach ($model->properties as $i => $modelAddress): ?>
+                        <div class="item panel panel-default"><!-- widgetItem -->
+                            <div class="panel-heading">
+                                <h3 class="panel-title pull-left">Характеристика <?= $i + 1 ?></h3>
+                                <div class="pull-right">
+                                    <button type="button" class="remove-item btn btn-danger btn-xs"><i class="glyphicon glyphicon-minus"></i></button>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="panel-body">
+                                <?php
+                                // necessary for update action.
+                                if (! $modelAddress->isNewRecord) {
+                                    echo Html::activeHiddenInput($modelAddress, "[{$i}]id");
+                                }
+                                ?>
+                                <?= $form->field($modelAddress, "[{$i}]name")->textInput(['maxlength' => true]) ?>
+                                <?= $form->field($modelAddress, "[{$i}]value")->textInput(['maxlength' => true]) ?>
+
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+        <?php DynamicFormWidget::end(); ?>
     </div>
-    <?= Html::button(FA::icon('plus'), ['class' => 'btn btn-success', 'onclick' => 'createProperty()']) ?>
-    <hr/>
 
     <div class="form-group">
         <div class="row">
@@ -64,9 +101,5 @@ use kartik\select2\Select2;
 
 </div>
 
-<script>
-    function createProperty() {
-        var index = $('.property').length;
-        $('.properties').append('Название <input class="property" type="text" name="Property[' + index + '][name]"> Значение <input type="text" name="Property[' + index + '][value]"><br>');
-    }
-</script>
+
+

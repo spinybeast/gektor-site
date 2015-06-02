@@ -13,6 +13,7 @@ use mongosoft\file\UploadImageBehavior;
  * @property string $name
  * @property integer $enabled
  * @property string $image
+ * @property string $description
  */
 class Category extends \yii\db\ActiveRecord
 {
@@ -31,7 +32,8 @@ class Category extends \yii\db\ActiveRecord
     {
         return [
             [['id', 'parent_id', 'enabled'], 'integer'],
-            [['name'], 'string', 'max' => 20],
+            [['name'], 'string', 'max' => 70],
+            [['description'], 'string'],
             ['image', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['default', 'create', 'update']],
         ];
     }
@@ -63,7 +65,8 @@ class Category extends \yii\db\ActiveRecord
             'parent_id' => 'Родительская категория',
             'name' => 'Название',
             'enabled' => 'Включена',
-            'image' => 'Изображение (выводится для корневой категории)'
+            'image' => 'Изображение (выводится для корневой категории)',
+            'description' => 'Описание'
         ];
     }
 

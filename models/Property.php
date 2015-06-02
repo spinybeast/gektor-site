@@ -28,7 +28,8 @@ class Property extends \yii\db\ActiveRecord
         return [
             [['id'], 'integer'],
             [['name'], 'string', 'max' => 200],
-            [['name'], 'required']
+            [['name'], 'required'],
+            [['name'], 'unique']
         ];
     }
 

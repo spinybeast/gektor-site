@@ -27,6 +27,7 @@ class AppAsset extends AssetBundle
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
         '\rmrevin\yii\fontawesome\AssetBundle',
-        'sersid\owlcarousel\Asset'
+        'sersid\owlcarousel\Asset',
+        'wbraganca\dynamicform\DynamicFormAsset',
     ];
 }

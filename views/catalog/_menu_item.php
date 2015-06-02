@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+/* @var $model app\models\Category */
 ?>
 
 <?= Html::a($model->name, ['category/view', 'id' => $model->id]) ?>
