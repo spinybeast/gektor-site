@@ -89,6 +89,15 @@ class Product extends \yii\db\ActiveRecord
         return $this->hasMany(ProductProperties::className(), ['product_id' => 'id']);
     }
 
+    public function clearProperties()
+    {
+        if (!empty($this->properties)) {
+            foreach($this->properties as $property) {
+                $property->delete();
+            }
+        }
+    }
+
     public function getRawProperties()
     {
         $content = '';

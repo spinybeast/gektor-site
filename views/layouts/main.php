@@ -23,10 +23,10 @@ AppAsset::register($this);
     <meta name="description" content="<?= Html::encode(Yii::$app->params['description']) ?>">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode(Yii::$app->params['siteName'] . ' - ' . $this->title) ?></title>
-    <link href='http://fonts.googleapis.com/css?family=Cuprum&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Philosopher&subset=latin,cyrillic' rel='stylesheet'
-          type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Scada&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+<!--    <link href='http://fonts.googleapis.com/css?family=Cuprum&subset=latin,cyrillic' rel='stylesheet' type='text/css'>-->
+<!--    <link href='http://fonts.googleapis.com/css?family=Philosopher&subset=latin,cyrillic' rel='stylesheet'-->
+<!--          type='text/css'>-->
+<!--    <link href='http://fonts.googleapis.com/css?family=Scada&subset=latin,cyrillic' rel='stylesheet' type='text/css'>-->
     <?php $this->head() ?>
 </head>
 <body>
@@ -131,7 +131,7 @@ AppAsset::register($this);
 <footer class="footer">
     <div class="container">
         <p class="text-center">&copy; <?= Yii::$app->params['siteName'] ?> 2011-<?= date('Y') ?>
-            <span><br/>designed by spiny.beast</span>
+            <span class="designed"><br/>designed by spiny.beast</span>
         </p>
     </div>
 </footer>

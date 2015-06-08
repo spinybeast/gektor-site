@@ -84,13 +84,20 @@ class ProductController extends DefaultController
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            if ($properties = Yii::$app->request->post('Property', false)) {
+            $model->clearProperties();
+            if ($properties = Yii::$app->request->post('ProductProperties', false)) {
                 foreach ($properties as $property) {
                     if ($propertyName = Property::find()->where(['name' => $property['name']])->one()) {
                         if ($propertyVal = ProductProperties::find()->where([
                             'property_id' => $propertyName['id'],
                             'product_id' => $model->id
                         ])->one()) {
+                            $propertyVal->value = $property['value'];
+                            $propertyVal->save();
+                        } else {
+                            $propertyVal = new ProductProperties();
+                            $propertyVal->product_id = $model->id;
+                            $propertyVal->property_id = $propertyName->id;
                             $propertyVal->value = $property['value'];
                             $propertyVal->save();
                         }

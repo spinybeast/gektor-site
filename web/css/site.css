@@ -405,3 +405,18 @@ div.owl-item > div {
 .table-properties td, .table-properties th{
     padding: 4px !important;
 }
+span.designed {
+    color: #bebebe;
+    font-size: 14px;
+}
+div.children {
+    margin-top: 25px;
+}
+.children a {
+    color: #025377;
+    border-left: 1px solid grey;
+    padding: 0 10px;
+}
+.children a.first {
+    border-left: none;
+}

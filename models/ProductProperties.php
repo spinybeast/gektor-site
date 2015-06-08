@@ -43,7 +43,7 @@ class ProductProperties extends \yii\db\ActiveRecord
             'id' => 'ID',
             'product_id' => 'Product ID',
             'property_id' => 'Property ID',
-            'value' => 'Value',
+            'value' => 'Значение',
         ];
     }
 

@@ -18,7 +18,7 @@ use kartik\select2\Select2;
     <?= $form->field($model, 'name')->textInput() ?>
 
     <?= $form->field($model, 'parent_id')->widget(Select2::classname(), [
-        'data' => ArrayHelper::map(Category::find()->where(['not in', 'id', [$model->id]])->all(), 'id', 'name'),
+        'data' => ArrayHelper::map($model->id ? Category::find()->where(['not in', 'id', [$model->id]])->all() : Category::find()->all(), 'id', 'name'),
         'language' => 'ru',
         'options' => ['placeholder' => 'Начните вводить категорию'],
         'pluginOptions' => [

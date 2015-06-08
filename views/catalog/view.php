@@ -33,8 +33,8 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
     <div class="children">
         <?php $menu = MenuHelper::getMenu($model->id);
-        foreach ($menu as $item) { ?>
-            <span><?= Html::a($item['label'], $item['url']) ?></span>
+        foreach ($menu as $key => $item) { ?>
+            <span><?= Html::a($item['label'], $item['url'], ['class' => $key == 0 ? 'first' : '']) ?></span>
         <?php } ?>
     </div>
     <br/>

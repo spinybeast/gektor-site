@@ -5,6 +5,7 @@ use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
 use rmrevin\yii\fontawesome\FA;
 use app\models\Category;
+use app\models\ProductProperties;
 use kartik\select2\Select2;
 use wbraganca\dynamicform\DynamicFormWidget;
 
@@ -33,12 +34,12 @@ use wbraganca\dynamicform\DynamicFormWidget;
 
     <div class="properties">
         <?php DynamicFormWidget::begin([
-            'widgetContainer' => 'dynamicform_wrapper', // required: only alphanumeric characters plus "_" [A-Za-z0-9_]
-            'widgetBody' => '.container-items', // required: css class selector
-            'widgetItem' => '.item', // required: css class
-            'min' => 0, // 0 or 1 (default 1)
-            'insertButton' => '.add-item', // css class
-            'deleteButton' => '.remove-item', // css class
+            'widgetContainer' => 'dynamicform_wrapper',
+            'widgetBody' => '.container-items',
+            'widgetItem' => '.item',
+            'min' => 0,
+            'insertButton' => '.add-item',
+            'deleteButton' => '.remove-item',
             'model' => $model,
             'formId' => 'dynamic-form',
             'formFields' => [
@@ -51,29 +52,38 @@ use wbraganca\dynamicform\DynamicFormWidget;
             <div class="panel-heading">
                 <h4>
                     <i class="glyphicon glyphicon-tags"></i> Характеристики
-                    <button type="button" class="add-item btn btn-success btn-sm pull-right"><i class="glyphicon glyphicon-plus"></i></button>
+                    <button type="button" class="add-item btn btn-success btn-sm pull-right">
+                        <?= FA::icon('plus') ?>
+                    </button>
                 </h4>
             </div>
             <div class="panel-body">
                 <div class="container-items"><!-- widgetBody -->
-                    <?php foreach ($model->properties as $i => $modelAddress): ?>
+                    <?php if (!empty($model->properties)){
+                        $properties = $model->properties;
+                    } else {
+                        $properties = [new ProductProperties()];
+                    } ?>
+                    <?php foreach ($properties as $i => $property): ?>
                         <div class="item panel panel-default"><!-- widgetItem -->
                             <div class="panel-heading">
                                 <h3 class="panel-title pull-left">Характеристика <?= $i + 1 ?></h3>
                                 <div class="pull-right">
-                                    <button type="button" class="remove-item btn btn-danger btn-xs"><i class="glyphicon glyphicon-minus"></i></button>
+                                    <button type="button" class="remove-item btn btn-danger btn-xs">
+                                        <?= FA::icon('minus') ?>
+                                    </button>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="panel-body">
                                 <?php
                                 // necessary for update action.
-                                if (! $modelAddress->isNewRecord) {
-                                    echo Html::activeHiddenInput($modelAddress, "[{$i}]id");
+                                if (! $property->isNewRecord) {
+                                    echo Html::activeHiddenInput($property, "[{$i}]id");
                                 }
                                 ?>
-                                <?= $form->field($modelAddress, "[{$i}]name")->textInput(['maxlength' => true]) ?>
-                                <?= $form->field($modelAddress, "[{$i}]value")->textInput(['maxlength' => true]) ?>
+                                <?= $form->field($property, "[{$i}]name")->textInput(['maxlength' => true]) ?>
+                                <?= $form->field($property, "[{$i}]value")->textInput(['maxlength' => true]) ?>
 
                             </div>
                         </div>
