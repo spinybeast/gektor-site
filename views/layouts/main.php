@@ -23,10 +23,6 @@ AppAsset::register($this);
     <meta name="description" content="<?= Html::encode(Yii::$app->params['description']) ?>">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode(Yii::$app->params['siteName'] . ' - ' . $this->title) ?></title>
-<!--    <link href='http://fonts.googleapis.com/css?family=Cuprum&subset=latin,cyrillic' rel='stylesheet' type='text/css'>-->
-<!--    <link href='http://fonts.googleapis.com/css?family=Philosopher&subset=latin,cyrillic' rel='stylesheet'-->
-<!--          type='text/css'>-->
-<!--    <link href='http://fonts.googleapis.com/css?family=Scada&subset=latin,cyrillic' rel='stylesheet' type='text/css'>-->
     <?php $this->head() ?>
 </head>
 <body>
@@ -72,15 +68,14 @@ AppAsset::register($this);
         <div class="navbar-wrapper">
             <?php
             $this->beginBlock('search');
-
-            echo '<div class="pull-right topsearch">
-                    <form class="form-inline">
-                        <input type="search" placeholder="Поиск по сайту" class="form-control">
-                        <button class="btn btn-small btn-info">' . FA::icon("search")->size(FA::SIZE_LARGE) . '</button>
-                    </form>
-                </div>';
-
+                echo Html::beginTag('div', ['class' => 'pull-right topsearch']);
+                echo Html::beginForm(['site/search'], 'get', ['class' => 'form-inline']);
+                echo Html::textInput('q', null, ['placeholder' => 'Поиск по сайту', 'class' => 'form-control', 'id' => 'query']);
+                echo Html::submitButton(FA::icon("search")->size(FA::SIZE_LARGE), ['class' => 'btn btn-small btn-info', 'id' => 'searchButton']);
+                echo Html::endForm();
+                echo Html::endTag('div');
             $this->endBlock();
+
             NavBar::begin([
                 'brandLabel' => '',
                 'brandUrl' => Yii::$app->homeUrl,

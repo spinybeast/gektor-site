@@ -5,6 +5,7 @@ namespace app\models;
 use Yii;
 use mongosoft\file\UploadImageBehavior;
 use PetraBarus\Yii2\Validators\EitherValidator;
+use yii\data\ActiveDataProvider;
 
 /**
  * This is the model class for table "products".

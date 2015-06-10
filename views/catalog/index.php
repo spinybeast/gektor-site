@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="category-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-
+    <br/>
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
         'layout' => '{items}{pager}',

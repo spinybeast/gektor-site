@@ -5,6 +5,10 @@ $('#modalButton').click(function () {
         .load($(this).attr('value'));
 });
 
+$('#searchButton').click(function () {
+    return $('#query').is(':empty');
+});
+
 $(document).on('submit', '#contact-form', function (e) {
     e.preventDefault();
     var form = $(this);
@@ -26,27 +30,6 @@ $(document).on('submit', '#contact-form', function (e) {
     });
 });
 
-$('.logos-carousel').owlCarousel({
-    pagination: false,
-    items: 7,
-    loop: true,
-    autoplay: true,
-    autoplayTimeout: 2000,
-    autoplaySpeed: 1000,
-    responsive: {
-        0: {
-            items: 1
-        },
-        600: {
-            items: 3
-        },
-        1000: {
-            items: 6
-        }
-    }
-
-});
-
 $(window).load(function () {
     var maxH = 0;
     var item = $('div.owl-item > div');
@@ -59,6 +42,27 @@ $(window).load(function () {
     item.height(maxH);
 });
 $(function() {
+    $('.logos-carousel').owlCarousel({
+        pagination: false,
+        items: 7,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 2000,
+        autoplaySpeed: 1000,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 6
+            }
+        }
+
+    });
+
     $(".dynamicform_wrapper").on("beforeInsert", function(e, item) {
         console.log("beforeInsert");
     });

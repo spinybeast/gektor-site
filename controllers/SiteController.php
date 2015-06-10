@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Product;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -56,5 +57,10 @@ class SiteController extends Controller
         return $this->renderPartial('contact', [
             'model' => $model,
         ]);
+    }
+
+    public function actionSearch()
+    {
+        return $this->render('search');
     }
 }
