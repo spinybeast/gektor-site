@@ -399,9 +399,14 @@ div.owl-item > div {
 
 .item .thumbnail {
     height: 400px;
+    background: #fff;
+    border: 1px solid #eeeeee;
+    -webkit-box-shadow: 0 4px 1px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 4px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 1px rgba(0, 0, 0, 0.05);
 }
 
-.item .thumbnail .caption {
+.item.grid-group-item .thumbnail .caption {
     height: 210px;
 }
 

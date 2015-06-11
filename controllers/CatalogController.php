@@ -58,6 +58,7 @@ class CatalogController extends Controller
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'mode' => $this->getViewMode()
         ]);
     }
 
@@ -75,5 +76,12 @@ class CatalogController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    protected function getViewMode()
+    {
+        $cookies = Yii::$app->request->cookies;
+        $mode = $cookies->getValue('mode', 'grid');
+        return $mode;
     }
 }

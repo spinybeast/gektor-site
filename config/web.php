@@ -52,6 +52,7 @@ $config = [
                 'contact' => 'site/contact',
                 'show-message-form' => 'site/show-message-form',
                 'submit-message' => 'site/submit-message',
+                'view-mode' => 'site/view-mode',
                 'captcha' => 'site/captcha',
                 '<controller:\w+>/<id>' => '<controller>/view'
             ],

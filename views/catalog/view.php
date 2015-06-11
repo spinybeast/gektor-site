@@ -45,8 +45,8 @@ $this->params['breadcrumbs'][] = $this->title;
             <strong>Режим просмотра</strong>
 
             <div class="btn-group">
-                <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list"></span>Список</a>
-                <a href="#" id="grid" class="btn btn-default btn-sm active"><span class="glyphicon glyphicon-th"></span>Плитка</a>
+                <a href="#" id="list" class="btn btn-default btn-sm view-mode <?= $mode == 'list' ? 'active' : ''?>"><span class="glyphicon glyphicon-th-list"></span>Список</a>
+                <a href="#" id="grid" class="btn btn-default btn-sm view-mode <?= $mode == 'grid' ? 'active' : ''?>"><span class="glyphicon glyphicon-th"></span>Плитка</a>
             </div>
         </div>
         <div id="products" class="row list-group">
@@ -103,8 +103,13 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 <?php $this->registerJs(
     "$(document).ready(function() {
-            $('#list').click(function(event){event.preventDefault();$('.active').removeClass('active');$(this).addClass('active');$('#products .item').addClass('list-group-item');});
-            $('#grid').click(function(event){event.preventDefault();$('.active').removeClass('active');$(this).addClass('active');$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
-        });"
+        if($('#list').is('.active')){
+            setListMode();
+        } else {
+            setGridMode();
+        }
+        $('#list').click(function(event){event.preventDefault(); setListMode(); setViewMode('list')});
+        $('#grid').click(function(event){event.preventDefault(); setGridMode(); setViewMode('grid')});
+    });"
 );?>
 

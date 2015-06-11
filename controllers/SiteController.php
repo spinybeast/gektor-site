@@ -6,6 +6,7 @@ use app\models\Product;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use yii\db\Query;
 use yii\filters\VerbFilter;
 use app\models\ContactForm;
 
@@ -61,6 +62,30 @@ class SiteController extends Controller
 
     public function actionSearch()
     {
-        return $this->render('search');
+        $products = [];
+
+        $q = Yii::$app->request->get('q');
+        if (!empty($q)) {
+            $products = Product::find()
+                ->where(['enabled', 1])
+                ->where(['like', 'name', [$q]])
+                ->all();
+        }
+
+        return $this->render('search', [
+            'products' => $products,
+            'query' => $q
+        ]);
+    }
+
+    public function actionViewMode()
+    {
+        if ($mode = Yii::$app->request->post('mode')) {
+            $cookies = Yii::$app->response->cookies;
+            $cookies->add(new \yii\web\Cookie([
+                'name' => 'mode',
+                'value' => $mode,
+            ]));
+        }
     }
 }

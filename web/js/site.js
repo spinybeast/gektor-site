@@ -86,3 +86,23 @@ $(function() {
         alert("Limit reached");
     });
 });
+
+function setViewMode(mode) {
+    $.ajax({
+        url: '/view-mode',
+        data: {'mode': mode},
+        type: 'POST',
+        dataType: 'JSON'
+    });
+}
+function setGridMode(){
+    $('.view-mode.active').removeClass('active');
+    $('#grid').addClass('active');
+    $('#products .item').removeClass('list-group-item').addClass('grid-group-item');
+}
+
+function setListMode(){
+    $('.view-mode.active').removeClass('active');
+    $('#list').addClass('active');
+    $('#products .item').removeClass('grid-group-item').addClass('list-group-item');
+}
