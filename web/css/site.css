@@ -175,22 +175,22 @@ a.desc:after {
 
 .logo {
     text-decoration: none !important;
-    font-size: 40px;
+    font-size: 36px;
     font-weight: bold;
     font-family: "postmodern_oneregular";
     color: #025377 !important;
     padding-right: 0;
 }
 
-.slogan {
-    left: 30px;
+.slogan span {
+    left: 65px;
     top: 32px;
-    font-size: 20px;
+    font-size: 19px;
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
     color: rgba(4, 49, 69, 0.71);
-    padding-left: 0;
+    position: absolute;
 }
 
 .logo img {
@@ -201,7 +201,9 @@ a.desc:after {
     padding: 20px 0;
     background: none;
 }
-
+.headerdetails .row div {
+    padding: 0;
+}
 .topsearch {
     margin: 18px 6px 0;
 }
@@ -392,7 +394,9 @@ div.owl-item > div {
 .item div.post-img-content {
     height: 190px;
 }
-
+.category-index .item {
+    margin-bottom: 15px;
+}
 .item.list-group-item div.post-img-content {
     height: auto;
 }
@@ -463,4 +467,10 @@ div.children {
 
 .category-index .item .content {
     padding: 15px 30px;
+}
+
+@media (max-width: 767px) {
+    .slogan span { padding: 29px 0;
+        display: block;
+         position: relative;left:0;top:0;s }
 }

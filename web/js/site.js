@@ -6,7 +6,7 @@ $('#modalButton').click(function () {
 });
 
 $('#searchButton').click(function () {
-    return $('#query').is(':empty');
+    return $('#query').val() != '';
 });
 
 $(document).on('submit', '#contact-form', function (e) {

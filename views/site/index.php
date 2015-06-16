@@ -7,7 +7,7 @@ use yii\bootstrap\Carousel;
 $this->title = 'Главная';
 ?>
 <div class="site-index">
-    <div class="col-md-3 left-banners">
+    <div class="col-md-3 hidden-xs left-banners">
         <div><?= Html::img('/img/banners/250x250adPlaceholder.png') ?></div>
         <div><?= Html::img('/img/banners/250x250adPlaceholder.png') ?></div>
     </div>

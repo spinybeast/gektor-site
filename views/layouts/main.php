@@ -32,13 +32,15 @@ AppAsset::register($this);
     <header>
         <div class="headerdetails">
             <div class="container">
-                <a class="logo text-left col-md-4 col-sm-12" href="<?= Url::home() ?>">
+                <div class="row">
+                    <div class=" col-md-4 col-sm-12">
+                <a class="logo text-left-md" href="<?= Url::home() ?>">
                     <?= Html::img('/img/logo2.png', array('alt' => Html::encode(Yii::$app->params['siteName']))) ?>
                     <?= Html::encode(Yii::$app->params['siteName']) ?>
                 </a>
-
-                <div class="slogan col-md-5 col-sm-12">
-                    Газовое оборудование, водоснабжение, <br/>отопительное оборудование, насосы
+                </div>
+                <div class="slogan col-md-5 col-sm-12 text-center">
+                    <span>Газовое оборудование, водоснабжение, <br/>отопительное оборудование, насосы</span>
                 </div>
                 <div class="text-right col-md-3 col-sm-12">
                     <div class="call">
@@ -63,12 +65,13 @@ AppAsset::register($this);
                 echo "<div id='modalContent'></div>";
                 Modal::end();
                 ?>
+                </div>
             </div>
         </div>
         <div class="navbar-wrapper">
             <?php
             $this->beginBlock('search');
-                echo Html::beginTag('div', ['class' => 'pull-right topsearch']);
+                echo Html::beginTag('div', ['class' => 'pull-right topsearch hidden-xs']);
                 echo Html::beginForm(['site/search'], 'get', ['class' => 'form-inline']);
                 echo Html::textInput('q', null, ['placeholder' => 'Поиск по сайту', 'class' => 'form-control', 'id' => 'query']);
                 echo Html::submitButton(FA::icon("search")->size(FA::SIZE_LARGE), ['class' => 'btn btn-small btn-info', 'id' => 'searchButton']);

@@ -41,14 +41,14 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php $products = $model->products();
     if (!empty($products)) {
         ?>
-        <div class="well well-sm">
-            <strong>Режим просмотра</strong>
-
-            <div class="btn-group">
-                <a href="#" id="list" class="btn btn-default btn-sm view-mode <?= $mode == 'list' ? 'active' : ''?>"><span class="glyphicon glyphicon-th-list"></span>Список</a>
-                <a href="#" id="grid" class="btn btn-default btn-sm view-mode <?= $mode == 'grid' ? 'active' : ''?>"><span class="glyphicon glyphicon-th"></span>Плитка</a>
-            </div>
-        </div>
+<!--        <div class="well well-sm">-->
+<!--            <strong>Режим просмотра</strong>-->
+<!---->
+<!--            <div class="btn-group">-->
+<!--                <a href="#" id="list" class="btn btn-default btn-sm view-mode --><?//= $mode == 'list' ? 'active' : ''?><!--"><span class="glyphicon glyphicon-th-list"></span>Список</a>-->
+<!--                <a href="#" id="grid" class="btn btn-default btn-sm view-mode --><?//= $mode == 'grid' ? 'active' : ''?><!--"><span class="glyphicon glyphicon-th"></span>Плитка</a>-->
+<!--            </div>-->
+<!--        </div>-->
         <div id="products" class="row list-group">
             <?php foreach ($products as $product) { ?>
                 <div class="item  col-xs-12 col-lg-4">
@@ -101,15 +101,15 @@ $this->params['breadcrumbs'][] = $this->title;
         <h4 class="text-default">Товаров пока нет</h4>
     <?php } ?>
 </div>
-<?php $this->registerJs(
-    "$(document).ready(function() {
-        if($('#list').is('.active')){
-            setListMode();
-        } else {
-            setGridMode();
-        }
-        $('#list').click(function(event){event.preventDefault(); setListMode(); setViewMode('list')});
-        $('#grid').click(function(event){event.preventDefault(); setGridMode(); setViewMode('grid')});
-    });"
-);?>
+<?php //$this->registerJs(
+//    "$(document).ready(function() {
+//        if($('#list').is('.active')){
+//            setListMode();
+//        } else {
+//            setGridMode();
+//        }
+//        $('#list').click(function(event){event.preventDefault(); setListMode(); setViewMode('list')});
+//        $('#grid').click(function(event){event.preventDefault(); setGridMode(); setViewMode('grid')});
+//    });"
+//);?>
 
