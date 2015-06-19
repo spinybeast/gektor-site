@@ -41,7 +41,7 @@ class Product extends \yii\db\ActiveRecord
             [['description'], 'string'],
             [['name'], 'string', 'max' => 200],
             ['image', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['default', 'create', 'update']],
-            [['price'], EitherValidator::className(),'otherAttributes' => ['trade_price']]
+            [['price'], EitherValidator::className(), 'otherAttributes' => ['trade_price']]
         ];
     }
 

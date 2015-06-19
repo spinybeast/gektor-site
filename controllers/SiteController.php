@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Product;
+use app\models\StaticPage;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -12,6 +13,8 @@ use app\models\ContactForm;
 
 class SiteController extends Controller
 {
+    const MAIN_PAGEKEY = 'main';
+
     public function actions()
     {
         return [
@@ -27,17 +30,26 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $page = StaticPage::findOne(['pagekey' => self::MAIN_PAGEKEY, 'enabled' => 1]);
+        return $this->render('index', [
+            'page' => $page
+        ]);
     }
 
     public function actionAbout()
     {
-        return $this->render('about');
+        $page = StaticPage::findOne(['pagekey' => 'about', 'enabled' => 1]);
+        return $this->render('about', [
+            'page' => $page
+        ]);
     }
 
     public function actionContact()
     {
-        return $this->render('contact');
+        $page = StaticPage::findOne(['pagekey' => 'contact', 'enabled' => 1]);
+        return $this->render('about', [
+            'page' => $page
+        ]);
     }
 
     public function actionShowMessageForm()

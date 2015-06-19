@@ -475,5 +475,6 @@ div.children {
 @media (max-width: 767px) {
     .slogan span { padding: 29px 0;
         display: block;
-         position: relative;left:0;top:0;s }
+         position: relative;left:0;top:0;
+    }
 }
