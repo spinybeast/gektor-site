@@ -31,12 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="product-price">
                 <?php if (!empty($model->price)) {?>
                     <span class="price-standard">
-                        <b class="text-blue">Цена:</b> <?= Html::encode($model->price) ?> р.
-                    </span><br/>
-                <?php } ?>
-                <?php if (!empty($model->trade_price)) {?>
-                    <span class="price-trade">
-                        <b class="text-blue">Оптовая цена:</b> <?= Html::encode($model->trade_price) ?> р.
+                        <b class="text-blue">Розничная цена:</b> <?= Html::encode($model->price) ?> р.
                     </span><br/>
                 <?php } ?>
             </div>

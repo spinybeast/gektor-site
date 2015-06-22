@@ -147,8 +147,7 @@ a.desc:after {
 
 .navbar-gektor a {
     color: #FDFBF4;
-    padding-top: 25px !important;
-    padding-bottom: 25px !important;
+    height: 70px;
 }
 
 .navbar-gektor a:hover, .navbar-gektor a:active {

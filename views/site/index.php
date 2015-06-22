@@ -3,6 +3,7 @@ use yii\helpers\Html;
 use yii\bootstrap\Carousel;
 
 /* @var $page app\models\StaticPage */
+$this->title = !empty($page) ? $page->title : 'Главная'
 ?>
 <div class="site-index">
     <div class="col-md-3 hidden-xs left-banners">
@@ -13,9 +14,10 @@ use yii\bootstrap\Carousel;
         <?=
         Carousel::widget([
             'items' => [
-                Html::img('/img/banners/devochka-shary-pole-nastroenie.jpg'),
-                Html::img('/img/banners/dom-mrachno-svet-lestnica.jpg'),
-                Html::img('/img/banners/semya-more-zakat-siluety.jpg'),
+                Html::img('/img/banners/IMG_6093.JPG'),
+                Html::img('/img/banners/IMG_6094.JPG'),
+                Html::img('/img/banners/IMG_6096.JPG'),
+                Html::img('/img/banners/IMG_6100.JPG'),
             ],
             'controls' => false,
             'options' => [
@@ -25,7 +27,7 @@ use yii\bootstrap\Carousel;
         ]);?>
         <div class="about">
             <?php if (!empty($page)) { ?>
-                <h1><?= Html::encode($page->title) ?></h1>
+                <h1><?= Html::encode($this->title) ?></h1>
                 <?= Html::decode($page->text) ?>
             <?php } else { ?>
                 <h1>Извините, страница не найдена.</h1>

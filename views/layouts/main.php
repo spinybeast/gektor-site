@@ -34,49 +34,50 @@ AppAsset::register($this);
             <div class="container">
                 <div class="row">
                     <div class=" col-md-4 col-sm-12">
-                <a class="logo text-left-md" href="<?= Url::home() ?>">
-                    <?= Html::img('/img/logo2.png', array('alt' => Html::encode(Yii::$app->params['siteName']))) ?>
-                    <?= Html::encode(Yii::$app->params['siteName']) ?>
-                </a>
-                </div>
-                <div class="slogan col-md-5 col-sm-12 text-center">
-                    <span>Газовое оборудование, водоснабжение, <br/>отопительное оборудование, насосы</span>
-                </div>
-                <div class="text-right col-md-3 col-sm-12">
-                    <div class="call">
-                        <?= FA::icon('phone')->size(FA::SIZE_LARGE) ?>
-                        <span class="text-blue"><?= Html::encode(Yii::$app->params['sitePhone']) ?></span>
+                        <a class="logo text-left-md" href="<?= Url::home() ?>">
+                            <?= Html::img('/img/logo2.png', array('alt' => Html::encode(Yii::$app->params['siteName']))) ?>
+                            <?= Html::encode(Yii::$app->params['siteName']) ?>
+                        </a>
                     </div>
+                    <div class="slogan col-md-5 col-sm-12 text-center">
+                        <span>оптовые поставки оборудования <br/>для отопления и водоснабжения</span>
+                    </div>
+                    <div class="text-right col-md-3 col-sm-12">
+                        <div class="call">
+                            <?= FA::icon('phone')->size(FA::SIZE_LARGE) ?>
+                            <span class="text-blue"><?= Html::encode(Yii::$app->params['sitePhone']) ?></span><br/>
+                            <span class="text-blue"><?= Html::encode(Yii::$app->params['sitePhone2']) ?></span>
+                        </div>
 
-                    <?=
-                    Html::button(
-                        FA::icon('question') . '&nbsp;&nbsp;Задать вопрос',
-                        [
-                            'class' => 'btn btn-info btn-lg btn-question',
-                            'value' => Url::to(['site/show-message-form']),
-                            'id' => 'modalButton'
-                        ]) ?>
-                </div>
-                <?php
-                Modal::begin([
-                    'id' => 'modal',
-                    'header' => 'Обратная связь'
-                ]);
-                echo "<div id='modalContent'></div>";
-                Modal::end();
-                ?>
+                        <?=
+                        Html::button(
+                            FA::icon('question') . '&nbsp;&nbsp;Задать вопрос',
+                            [
+                                'class' => 'btn btn-info btn-lg btn-question',
+                                'value' => Url::to(['site/show-message-form']),
+                                'id' => 'modalButton'
+                            ]) ?>
+                    </div>
+                    <?php
+                    Modal::begin([
+                        'id' => 'modal',
+                        'header' => 'Обратная связь'
+                    ]);
+                    echo "<div id='modalContent'></div>";
+                    Modal::end();
+                    ?>
                 </div>
             </div>
         </div>
         <div class="navbar-wrapper">
             <?php
             $this->beginBlock('search');
-                echo Html::beginTag('div', ['class' => 'pull-right topsearch hidden-xs']);
-                echo Html::beginForm(['site/search'], 'get', ['class' => 'form-inline']);
-                echo Html::textInput('q', null, ['placeholder' => 'Поиск по сайту', 'class' => 'form-control', 'id' => 'query']);
-                echo Html::submitButton(FA::icon("search")->size(FA::SIZE_LARGE), ['class' => 'btn btn-small btn-info', 'id' => 'searchButton']);
-                echo Html::endForm();
-                echo Html::endTag('div');
+            echo Html::beginTag('div', ['class' => 'pull-right topsearch hidden-xs']);
+            echo Html::beginForm(['site/search'], 'get', ['class' => 'form-inline']);
+            echo Html::textInput('q', null, ['placeholder' => 'Поиск по сайту', 'class' => 'form-control', 'id' => 'query']);
+            echo Html::submitButton(FA::icon("search")->size(FA::SIZE_LARGE), ['class' => 'btn btn-small btn-info', 'id' => 'searchButton']);
+            echo Html::endForm();
+            echo Html::endTag('div');
             $this->endBlock();
 
             NavBar::begin([
@@ -87,12 +88,23 @@ AppAsset::register($this);
                 ],
             ]);
             echo Nav::widget([
-                'options' => ['class' => 'navbar-nav'],
+                'options' => ['class' => 'navbar-nav'], 'encodeLabels' => false,
                 'items' => [
                     ['label' => 'Главная', 'url' => ['/site/index'], 'active' => false],
                     ['label' => 'Каталог оборудования', 'url' => ['/catalog'], 'active' => Yii::$app->controller->id == 'catalog' || Yii::$app->controller->id == 'product'],
                     ['label' => 'О компании', 'url' => ['/about'], 'active' => Yii::$app->controller->id == 'site' && Yii::$app->controller->action->id == 'about'],
                     ['label' => 'Контакты', 'url' => ['/contact'], 'active' => Yii::$app->controller->id == 'site' && Yii::$app->controller->action->id == 'contact'],
+                    ['label' => 'Условия<br>сотрудничества', 'url' => ['/contact'], 'active' => Yii::$app->controller->id == 'site' && Yii::$app->controller->action->id == 'contact', 'items' => [
+                        ['label' => 'Цены'],
+                        ['label' => 'Доставка и оплата'],
+                        ['label' => 'Поставщикам'],
+                        ['label' => 'Партнерам'],
+                    ]],
+                    ['label' => 'Сервис <br>и гарантия', 'url' => ['/contact'], 'active' => Yii::$app->controller->id == 'site' && Yii::$app->controller->action->id == 'contact', 'items' => [
+                        ['label' => 'Условия гарантии'],
+                        ['label' => 'Запчасти'],
+                        ['label' => 'Сервисное обслуживание'],
+                    ]],
                 ],
             ]);
             echo $this->blocks['search'];
@@ -128,6 +140,9 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
+        <div class="text-center"><span class="designed">Данный информационный ресурс не является публичной офертой. Наличие и стоимость товаров уточняйте по телефону.
+        Производители оставляют за собой право изменять технические характеристики и внешний вид товаров без
+        предварительного уведомления.</span></div>
         <p class="text-center">&copy; <?= Yii::$app->params['siteName'] ?> 2011-<?= date('Y') ?>
             <span class="designed"><br/>designed by spiny.beast</span>
         </p>
