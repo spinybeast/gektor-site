@@ -203,7 +203,7 @@ a.desc:after {
     padding: 20px 0;
     background: none;
 }
-.headerdetails .row div {
+.headerdetails .row > div.col-sm-12 {
     padding: 0;
 }
 .topsearch {
@@ -470,7 +470,9 @@ div.children {
 .category-index .item .content {
     padding: 15px 30px;
 }
-
+div.owl-item > div {
+    height: 65px;
+}
 @media (max-width: 767px) {
     .slogan span { padding: 29px 0;
         display: block;

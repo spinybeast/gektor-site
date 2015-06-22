@@ -16,4 +16,4 @@ $production = [
     'charset' => 'utf8',
 ];
 
-return $production;
+return YII_ENV == 'dev' ? $local : $production;

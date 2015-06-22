@@ -30,17 +30,7 @@ $(document).on('submit', '#contact-form', function (e) {
     });
 });
 
-$(window).load(function () {
-    var maxH = 0;
-    var item = $('div.owl-item > div');
-    item.each(function () {
-        if ($(this).height() > maxH) {
-            maxH = $(this).height()
-        }
-        $(this).width($(this).parent().width());
-    });
-    item.height(maxH);
-});
+
 $(function() {
     $('.logos-carousel').owlCarousel({
         pagination: false,

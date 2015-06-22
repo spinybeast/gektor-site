@@ -67,7 +67,8 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
             Yii::$app->session->setFlash('contactFormSubmitted');
         }
-        return $this->renderPartial('contact', [
+
+        return $this->renderPartial('contact_form', [
             'model' => $model,
         ]);
     }
