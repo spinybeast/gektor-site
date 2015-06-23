@@ -93,18 +93,18 @@ AppAsset::register($this);
                     ['label' => 'Главная', 'url' => ['/site/index'], 'active' => false],
                     ['label' => 'Каталог оборудования', 'url' => ['/catalog'], 'active' => Yii::$app->controller->id == 'catalog' || Yii::$app->controller->id == 'product'],
                     ['label' => 'О компании', 'url' => ['/about'], 'active' => Yii::$app->controller->id == 'site' && Yii::$app->controller->action->id == 'about'],
-                    ['label' => 'Контакты', 'url' => ['/contact'], 'active' => Yii::$app->controller->id == 'site' && Yii::$app->controller->action->id == 'contact'],
                     ['label' => 'Условия<br>сотрудничества', 'url' => ['/contact'],  'items' => [
-                        ['label' => 'Цены'],
-                        ['label' => 'Доставка и оплата'],
-                        ['label' => 'Поставщикам'],
-                        ['label' => 'Партнерам'],
+                        ['label' => 'Цены', 'url' => ['/prices']],
+                        ['label' => 'Доставка и оплата', 'url' => ['/delivery']],
+                        ['label' => 'Поставщикам', 'url' => ['/suppliers']],
+                        ['label' => 'Партнерам', 'url' => ['/partners']]
                     ]],
-                    ['label' => 'Сервис <br>и гарантия', 'url' => ['/contact'], 'items' => [
-                        ['label' => 'Условия гарантии'],
-                        ['label' => 'Запчасти'],
-                        ['label' => 'Сервисное обслуживание'],
+                    ['label' => 'Сервис <br>и гарантия', 'items' => [
+                        ['label' => 'Условия гарантии', 'url' => ['/guarantee']],
+                        ['label' => 'Запчасти', 'url' => ['/spares']],
+                        ['label' => 'Сервисное обслуживание', 'url' => ['/service']],
                     ]],
+                    ['label' => 'Контакты', 'url' => ['/contact'], 'active' => Yii::$app->controller->id == 'site' && Yii::$app->controller->action->id == 'contact'],
                 ],
             ]);
             echo $this->blocks['search'];

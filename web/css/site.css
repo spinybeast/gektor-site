@@ -144,13 +144,15 @@ a.desc:after {
     font-size: 16px;
     text-transform: uppercase;
 }
-
-.navbar-gektor a {
+.navbar-gektor .navbar-nav > li > a {
     color: #FDFBF4;
     height: 70px;
+    line-height: 40px !important;
 }
-
-.navbar-gektor a:hover, .navbar-gektor a:active {
+.navbar-gektor li.dropdown  > a {
+    line-height: 20px !important;
+}
+.navbar-gektor .navbar-nav > li > a:hover, .navbar-gektor .navbar-nav > li > a:active {
     color: #025377;
     font-weight: bold;
 }
@@ -472,6 +474,26 @@ div.children {
 }
 div.owl-item > div {
     height: 65px;
+}
+
+.tooltip {
+    position: absolute;
+    z-index: 1070;
+    display: block;
+     font-family: "scadaregular", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 1.4;
+    visibility: visible;
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+.tooltip.top .tooltip-arrow {
+    border-top-color: #506E86;
+}
+.tooltip-inner {
+    background-color: #506E86;
+    border-radius: 0px;
 }
 @media (max-width: 767px) {
     .slogan span { padding: 29px 0;

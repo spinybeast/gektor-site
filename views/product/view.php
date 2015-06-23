@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use rmrevin\yii\fontawesome\FA;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Product */
@@ -32,8 +33,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php if (!empty($model->price)) {?>
                     <span class="price-standard">
                         <b class="text-blue">Розничная цена:</b> <?= Html::encode($model->price) ?> р.
-                    </span><br/>
-                <?php } ?>
+                    </span>
+                <?php echo Html::tag('span', FA::icon('question-circle'), [
+                            'title'=>'Для уточнения оптовой цены свяжитесь с нами по телефону ' . Yii::$app->params['sitePhone'],
+                            'data-toggle'=>'tooltip',
+                            'style' => 'border-bottom: 1px dashed #025377; 506E86: pointer; color: #506E86'
+                        ]);
+                } ?><br/>
             </div>
 
             <div class="details-description">
@@ -58,3 +64,9 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
 </div>
+<?php $this->registerJs('
+    $(function () {
+        $("[data-toggle=\'tooltip\']").tooltip();
+    });
+');
+?>
