@@ -495,6 +495,8 @@ div.owl-item > div {
     background-color: #506E86;
     border-radius: 0px;
 }
+
+.prices table tr td {background: #ffffff}
 @media (max-width: 767px) {
     .slogan span { padding: 29px 0;
         display: block;
