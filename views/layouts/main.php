@@ -6,6 +6,7 @@ use yii\bootstrap\NavBar;
 use yii\bootstrap\Modal;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use app\components\MenuHelper;
 use rmrevin\yii\fontawesome\FA;
 
 /* @var $this \yii\web\View */
@@ -89,23 +90,7 @@ AppAsset::register($this);
             ]);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav'], 'encodeLabels' => false,
-                'items' => [
-                    ['label' => 'Главная', 'url' => ['/site/index'], 'active' => false],
-                    ['label' => 'Каталог оборудования', 'url' => ['/catalog'], 'active' => Yii::$app->controller->id == 'catalog' || Yii::$app->controller->id == 'product'],
-                    ['label' => 'О компании', 'url' => ['/about'], 'active' => Yii::$app->controller->id == 'site' && Yii::$app->controller->action->id == 'about'],
-                    ['label' => 'Условия<br>сотрудничества', 'url' => ['/contact'],  'items' => [
-                        ['label' => 'Цены', 'url' => ['/prices']],
-                        ['label' => 'Доставка и оплата', 'url' => ['/delivery']],
-                        ['label' => 'Поставщикам', 'url' => ['/suppliers']],
-                        ['label' => 'Партнерам', 'url' => ['/partners']]
-                    ]],
-                    ['label' => 'Сервис <br>и гарантия', 'items' => [
-                        ['label' => 'Условия гарантии', 'url' => ['/guarantee']],
-                        ['label' => 'Запчасти', 'url' => ['/spares']],
-                        ['label' => 'Сервисное обслуживание', 'url' => ['/service']],
-                    ]],
-                    ['label' => 'Контакты', 'url' => ['/contact'], 'active' => Yii::$app->controller->id == 'site' && Yii::$app->controller->action->id == 'contact'],
-                ],
+                'items' => MenuHelper::getMainMenu()
             ]);
             echo $this->blocks['search'];
             NavBar::end();

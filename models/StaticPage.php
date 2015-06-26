@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
 /**
@@ -47,7 +48,7 @@ class StaticPage extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'text' => 'Текст',
-            'pagekey' => 'Код страницы',
+            'pagekey' => 'Url',
             'title' => 'Заголовок',
             'enabled' => 'Включена',
         ];
@@ -71,5 +72,12 @@ class StaticPage extends \yii\db\ActiveRecord
     {
         $this->text = Html::decode($this->text);
         return parent::afterFind();
+    }
+
+    public static function getAliases()
+    {
+        $all = self::find()->all();
+        $map = ArrayHelper::map($all, 'id', 'pagekey');
+        return implode('|', $map);
     }
 }

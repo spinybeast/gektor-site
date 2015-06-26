@@ -4,7 +4,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $page app\models\StaticPage */
 
-$this->title = !empty($page) ? $page->title : 'О компании';
+$this->title = !empty($page) ? $page->title : 'Ошибка 404';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-about">

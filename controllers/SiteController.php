@@ -13,7 +13,7 @@ use app\models\ContactForm;
 
 class SiteController extends Controller
 {
-    const MAIN_PAGEKEY = 'main';
+    const MAIN_PAGEKEY = 'index';
 
     public function actions()
     {
@@ -28,26 +28,21 @@ class SiteController extends Controller
         ];
     }
 
+    public function actionStatic()
+    {
+        $pageKey = Yii::$app->getRequest()->getQueryParam('action');
+
+        $page = StaticPage::findOne(['pagekey' => $pageKey, 'enabled' => 1]);
+        $view = file_exists($this->viewPath . DIRECTORY_SEPARATOR . $pageKey . '.php') ? $pageKey : 'static';
+        return $this->render($view, [
+            'page' => $page
+        ]);
+    }
+
     public function actionIndex()
     {
         $page = StaticPage::findOne(['pagekey' => self::MAIN_PAGEKEY, 'enabled' => 1]);
         return $this->render('index', [
-            'page' => $page
-        ]);
-    }
-
-    public function actionAbout()
-    {
-        $page = StaticPage::findOne(['pagekey' => 'about', 'enabled' => 1]);
-        return $this->render('about', [
-            'page' => $page
-        ]);
-    }
-
-    public function actionContact()
-    {
-        $page = StaticPage::findOne(['pagekey' => 'contact', 'enabled' => 1]);
-        return $this->render('about', [
             'page' => $page
         ]);
     }

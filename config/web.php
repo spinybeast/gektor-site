@@ -48,14 +48,15 @@ $config = [
             'rules' => [
                 '' => 'site/index',
                 'login' => 'admin/default/login',
-                'about' => 'site/about',
                 'search' => 'site/search',
-                'contact' => 'site/contact',
+                'prices' => 'prices/index',
                 'show-message-form' => 'site/show-message-form',
                 'submit-message' => 'site/submit-message',
                 'view-mode' => 'site/view-mode',
                 'captcha' => 'site/captcha',
-                '<controller:\w+>/<id>' => '<controller>/view'
+                'catalog' => 'catalog/index',
+                '<controller:\w+>/<id>' => '<controller>/view',
+                '<action:\w+>' => 'site/static',
             ],
         ],
         'authManager' => [
