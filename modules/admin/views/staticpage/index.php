@@ -20,12 +20,13 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
             'pagekey',
             'title',
-            'enabled',
+            [
+                'attribute' => 'enabled',
+                'value' => function($data) { return $data->enabled == 1 ? 'Да' : 'Нет'; },
+                'format' => ['text'],
+            ],
             'shortText:html',
 
             ['class' => 'yii\grid\ActionColumn'],
