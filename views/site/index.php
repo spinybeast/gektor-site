@@ -14,10 +14,10 @@ $this->title = !empty($page) ? $page->title : 'Главная'
         <?=
         Carousel::widget([
             'items' => [
-                Html::img('/img/banners/IMG_6093.JPG'),
-                Html::img('/img/banners/IMG_6094.JPG'),
-                Html::img('/img/banners/IMG_6096.JPG'),
-                Html::img('/img/banners/IMG_6100.JPG'),
+                Html::img('/img/banners/Angara.jpg'),
+                Html::img('/img/banners/Danko.jpg'),
+                Html::img('/img/banners/Ferroli-cap.jpg'),
+                Html::img('/img/banners/Navyen.jpg'),
             ],
             'controls' => false,
             'options' => [
