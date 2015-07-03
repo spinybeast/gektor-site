@@ -34,7 +34,7 @@ class Category extends \yii\db\ActiveRecord
             [['id', 'parent_id', 'enabled'], 'integer'],
             [['name'], 'string', 'max' => 70],
             [['description'], 'string'],
-            ['image', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['default', 'create', 'update']],
+            ['image', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'checkExtensionByMimeType' => false, 'on' => ['default', 'create', 'update']],
         ];
     }
     public function behaviors()
@@ -107,7 +107,7 @@ class Category extends \yii\db\ActiveRecord
     {
         $products = $this->products;
         foreach ($this->children as $child) {
-            $products = array_merge($products, $child->products);
+            $products = array_merge($products, $child->products());
         }
         return $products;
     }

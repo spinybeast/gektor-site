@@ -469,6 +469,9 @@ div.children {
     box-shadow: 0 4px 1px rgba(0, 0, 0, 0.05);
 }
 
+.category-index .item .img {
+    padding-top: 15px;
+}
 .category-index .item .content {
     padding: 15px 30px;
 }
@@ -495,8 +498,19 @@ div.owl-item > div {
     background-color: #506E86;
     border-radius: 0px;
 }
+div.details-description {
+    margin-top: 15px;
+}
 
+div.details-description p {
+    text-align: justify;
+    text-indent: 20px;
+}
 .prices table tr td {background: #ffffff}
+.price-standard {
+    font-size: 19px;
+}
+
 @media (max-width: 767px) {
     .slogan span { padding: 29px 0;
         display: block;

@@ -48,6 +48,7 @@ $config = [
             'rules' => [
                 '' => 'site/index',
                 'login' => 'admin/default/login',
+                'admin' => 'admin/default/index',
                 'search' => 'site/search',
                 'prices' => 'prices/index',
                 'show-message-form' => 'site/show-message-form',

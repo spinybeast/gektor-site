@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="product-price">
                 <?php if (!empty($model->price)) {?>
                     <span class="price-standard">
-                        <b class="text-blue">Розничная цена:</b> <?= Html::encode($model->price) ?> р.
+                        <b class="text-blue">Розничная цена:</b> <?= number_format(Html::encode($model->price), 0, '', ' ') ?> р.
                     </span>
                 <?php echo Html::tag('span', FA::icon('question-circle'), [
                             'title'=>'Для уточнения оптовой цены свяжитесь с нами по телефону ' . Yii::$app->params['sitePhone'],

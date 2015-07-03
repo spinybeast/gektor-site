@@ -83,7 +83,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <div class="col-xs-6 col-md-6 text-left">
                                     <?php if (!empty($product->price)) { ?>
                                         <p class="lead">
-                                            <?= $product->price ?> р.
+                                            <?= number_format(Html::encode($product->price), 0, '', ' ') ?> р.
                                         </p>
                                     <?php } ?>
                                 </div>
