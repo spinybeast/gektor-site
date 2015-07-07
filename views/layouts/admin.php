@@ -39,6 +39,7 @@ AppAsset::register($this);
                 ['label' => 'Категории', 'url' => ['/admin/category/index']],
                 ['label' => 'Товары', 'url' => ['/admin/product/index']],
                 ['label' => 'Страницы', 'url' => ['/admin/staticpage/index']],
+                ['label' => 'Баннеры', 'url' => ['/admin/banner/index']],
                 ['label' => 'Главное меню', 'url' => ['/admin/mainmenu/index']],
                 ['label' => FA::icon('sign-out') . ' Выход', 'url' => ['/admin/default/logout'], 'visible' => !Yii::$app->user->isGuest],
             ],

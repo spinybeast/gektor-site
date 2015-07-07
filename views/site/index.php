@@ -1,24 +1,26 @@
 <?php
 use yii\helpers\Html;
 use yii\bootstrap\Carousel;
+use app\models\Banner;
+use app\models\StaticPage;
 
 /* @var $page app\models\StaticPage */
-$this->title = !empty($page) ? $page->title : 'Главная'
+$this->title = !empty($page) ? $page->title : 'Главная';
+$leftBanners = Banner::getLeftItems(StaticPage::MAIN_PAGEKEY);
+
 ?>
 <div class="site-index">
-    <div class="col-md-3 hidden-xs left-banners">
-        <div><?= Html::img('/img/banners/250x250adPlaceholder.png') ?></div>
-        <div><?= Html::img('/img/banners/250x250adPlaceholder.png') ?></div>
-    </div>
-    <div class="col-md-9">
+    <?php if (!empty($leftBanners)) {?>
+        <div class="col-md-3 hidden-xs left-banners">
+            <?php foreach ($leftBanners as $leftBanner) { ?>
+                <div><?= $leftBanner ?></div>
+            <?php } ?>
+        </div>
+    <?php } ?>
+    <div class="<?= !empty($leftBanners) ? 'col-md-9' : 'col-md-12' ?>">
         <?=
         Carousel::widget([
-            'items' => [
-                Html::img('/img/banners/Angara_mini_mini.jpg'),
-                Html::img('/img/banners/Danko_mini.jpg'),
-                Html::img('/img/banners/Ferroli_mini.jpg'),
-                Html::img('/img/banners/Navyen_mini.jpg'),
-            ],
+            'items' => Banner::getSliderItems(),
             'controls' => false,
             'options' => [
                 'interval' => 2000,

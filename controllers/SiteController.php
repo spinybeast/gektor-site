@@ -13,7 +13,6 @@ use app\models\ContactForm;
 
 class SiteController extends Controller
 {
-    const MAIN_PAGEKEY = 'index';
 
     public function actions()
     {
@@ -41,7 +40,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $page = StaticPage::findOne(['pagekey' => self::MAIN_PAGEKEY, 'enabled' => 1]);
+        $page = StaticPage::findOne(['pagekey' => StaticPage::MAIN_PAGEKEY, 'enabled' => 1]);
         return $this->render('index', [
             'page' => $page
         ]);

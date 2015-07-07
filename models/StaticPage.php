@@ -18,6 +18,7 @@ use yii\helpers\Html;
 class StaticPage extends \yii\db\ActiveRecord
 {
     const TEXT_LENGTH = 300;
+    const MAIN_PAGEKEY = 'index';
 
     /**
      * @inheritdoc
