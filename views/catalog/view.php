@@ -61,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             ) ?>
                         </div>
                         <div class="caption">
-                            <h4 class="group inner list-group-item-heading">
+                            <h4 class="group inner list-group-item-heading text-center">
                                 <?= Html::a($product->name, ['product/view', 'id' => $product->id], ['class' => 'text-blue']) ?></h4>
 
                             <div class="group inner list-group-item-text">
@@ -88,7 +88,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <?php } ?>
                                 </div>
                                 <div class="col-xs-6 col-md-6 text-right">
-                                    <a class="btn btn-info"
+                                    <a class="btn btn-sample"
                                        href="<?= Url::to(['product/view', 'id' => $product->id]) ?>">Посмотреть</a>
                                 </div>
                             </div>

@@ -22,6 +22,20 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="main-image sp-wrap col-lg-12 no-padding" style="display: inline-block;">
                 <?= Html::img($model->getThumbUploadUrl('image')) ?>
             </div>
+            <div class="properties sp-wrap col-lg-12">
+                <?php if (!empty($model->properties)) {?>
+                    <br/>
+                    <h3>Характеристики</h3>
+                    <table class="table table-bordered">
+                        <?php foreach ($model->properties as $property) { ?>
+                            <tr>
+                                <th><?= $property->name ?></th>
+                                <td><?= $property->value ?></td>
+                            </tr>
+                        <?php } ?>
+                    </table>
+                <?php } ?>
+            </div>
         </div><!--/ left column end -->
 
 
@@ -44,19 +58,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <div class="details-description">
                 <p><?= Html::encode($model->description) ?></p>
-                <div class="properties">
-                    <?php if (!empty($model->properties)) {?>
-                        <h3>Характеристики</h3>
-                        <table class="table table-bordered">
-                            <?php foreach ($model->properties as $property) { ?>
-                                <tr>
-                                    <th><?= $property->name ?></th>
-                                    <td><?= $property->value ?></td>
-                                </tr>
-                            <?php } ?>
-                        </table>
-                    <?php } ?>
-                </div>
             </div>
 
        </div><!--/ right column end -->

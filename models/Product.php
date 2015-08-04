@@ -20,7 +20,7 @@ use yii\data\ActiveDataProvider;
  */
 class Product extends \yii\db\ActiveRecord
 {
-    const DESC_LENGTH = 130;
+    const DESC_LENGTH = 160;
 
     /**
      * @inheritdoc

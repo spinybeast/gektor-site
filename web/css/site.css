@@ -396,22 +396,25 @@ div.owl-item > div {
 }
 
 .item div.post-img-content {
-    height: 190px;
+    height: 220px;
+    padding-top: 20px;
 }
 .category-index .item {
     margin-bottom: 15px;
 }
 .item.list-group-item div.post-img-content {
-    height: auto;
+    height: 220px;
+    padding-top: 20px;
 }
 
 .item .thumbnail {
-    height: 400px;
-    background: #fff;
-    border: 1px solid #eeeeee;
-    -webkit-box-shadow: 0 4px 1px rgba(0, 0, 0, 0.05);
-    -moz-box-shadow: 0 4px 1px rgba(0, 0, 0, 0.05);
-    box-shadow: 0 4px 1px rgba(0, 0, 0, 0.05);
+    height: 434px;
+    border: none;
+    background: rgba(80, 110, 134, 0.3);
+    /* border: 1px solid #eeeeee; */
+    /* -webkit-box-shadow: 0 4px 1px rgba(0, 0, 0, 0.05); */
+    /*-moz-box-shadow: 0 4px 1px rgba(0, 0, 0, 0.05);*/
+    /* box-shadow: 0 4px 1px rgba(0, 0, 0, 0.05); */
 }
 
 .item.grid-group-item .thumbnail .caption {
@@ -428,10 +431,15 @@ div.owl-item > div {
     overflow: hidden;
 }
 
+.list-group-item-text table {
+    background-color: #fff;
+}
+
 .list-group-item-text {
     line-height: 1.1;
-    height: 100px;
+    height: 105px;
     overflow: hidden;
+    font-size: 14px;
 }
 
 .thumbnail a > img {
@@ -440,6 +448,8 @@ div.owl-item > div {
 
 .table-properties td, .table-properties th {
     padding: 4px !important;
+    border-bottom: 1px solid rgba(80, 110, 134, 0.3) !important;
+    font-weight: normal;
 }
 
 span.designed {
@@ -462,13 +472,23 @@ div.children {
 }
 
 .category-index .item .inner {
-    background: #fff;
-    border: 1px solid #eeeeee;
-    -webkit-box-shadow: 0 4px 1px rgba(0, 0, 0, 0.05);
-    -moz-box-shadow: 0 4px 1px rgba(0, 0, 0, 0.05);
-    box-shadow: 0 4px 1px rgba(0, 0, 0, 0.05);
+    background: rgba(80, 110, 134, 0.3);
 }
-
+.category-index .item .description {
+    text-align: center;
+    font-size: 13px;
+}
+.category-index .item .title {
+    text-align: center;
+}
+.category-index .item .title a {
+font-weight: bold;
+color: #025377;
+text-align: center;
+}
+.category-index .item hr {
+margin: 10px -30px;
+}
 .category-index .item .img {
     padding-top: 15px;
 }
@@ -506,11 +526,58 @@ div.details-description p {
     text-align: justify;
     text-indent: 20px;
 }
-.prices table tr td {background: #ffffff}
+.prices table tr th { background: rgba(80, 110, 134, 0.3);}
 .price-standard {
     font-size: 19px;
 }
+.btn-sample {
+    color: #ffffff;
+    background-color: #025377;
+    border-color: #044f6e;
+}
 
+.btn-sample:hover,
+.btn-sample:focus,
+.btn-sample:active,
+.btn-sample.active,
+.open .dropdown-toggle.btn-sample {
+    color: #ffffff;
+    background-color: #107BA8;
+    border-color: #044f6e;
+}
+
+.btn-sample:active,
+.btn-sample.active,
+.open .dropdown-toggle.btn-sample {
+    background-image: none;
+}
+
+.btn-sample.disabled,
+.btn-sample[disabled],
+fieldset[disabled] .btn-sample,
+.btn-sample.disabled:hover,
+.btn-sample[disabled]:hover,
+fieldset[disabled] .btn-sample:hover,
+.btn-sample.disabled:focus,
+.btn-sample[disabled]:focus,
+fieldset[disabled] .btn-sample:focus,
+.btn-sample.disabled:active,
+.btn-sample[disabled]:active,
+fieldset[disabled] .btn-sample:active,
+.btn-sample.disabled.active,
+.btn-sample[disabled].active,
+fieldset[disabled] .btn-sample.active {
+    background-color: #025377;
+    border-color: #044f6e;
+}
+
+.btn-sample .badge {
+    color: #025377;
+    background-color: #ffffff;
+}
+.prices table td, .prices table th {
+    border: 1px solid #939CC7 !important;
+}
 @media (max-width: 767px) {
     .slogan span { padding: 29px 0;
         display: block;

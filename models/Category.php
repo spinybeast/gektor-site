@@ -72,7 +72,7 @@ class Category extends \yii\db\ActiveRecord
 
     public function getProducts()
     {
-        return $this->hasMany(Product::className(), ['category_id' => 'id']);
+        return $this->hasMany(Product::className(), ['category_id' => 'id'])->orderBy(['name' => SORT_ASC]);
     }
 
     public function getChildren()

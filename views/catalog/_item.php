@@ -14,6 +14,7 @@ use yii\helpers\Html;
             <?= Html::a($model->name, ['view', 'id' => $model->id]) ?>
         </div>
         <?php if (!empty($model->description)) { ?>
+            <hr/>
             <div class="description">
                 <?= Html::encode($model->description) ?>
             </div>
