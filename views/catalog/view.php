@@ -31,12 +31,15 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="description">
         <?= Html::encode($model->description) ?>
     </div>
-    <div class="children">
+
         <?php $menu = MenuHelper::getMenu($model->id);
-        foreach ($menu as $key => $item) { ?>
-            <span><?= Html::a($item['label'], $item['url'], ['class' => $key == 0 ? 'first' : '']) ?></span>
+        if (!empty($menu)) { ?>
+            <div class="children">
+                <?php foreach ($menu as $key => $item) { ?>
+                    <span><?= Html::a($item['label'], $item['url'], ['class' => $key == 0 ? 'first' : '']) ?></span>
+                <?php } ?>
+            </div>
         <?php } ?>
-    </div>
     <br/>
     <?php $products = $model->products();
     if (!empty($products)) {

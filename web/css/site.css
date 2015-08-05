@@ -459,6 +459,8 @@ span.designed {
 
 div.children {
     margin-top: 25px;
+    background: rgba(2, 83, 119, 0.5);
+    padding: 10px 0;
 }
 
 .children a {
