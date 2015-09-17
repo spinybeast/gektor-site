@@ -105,7 +105,6 @@ AppAsset::register($this);
                     <div><?= Html::img('/img/logos/DirectiveLVD.jpg') ?></div>
                     <div><?= Html::img('/img/logos/IMMERGAS.jpg') ?></div>
                     <div><?= Html::img('/img/logos/logo-navien.png') ?></div>
-                    <div><?= Html::img('/img/logos/logo_danko1.jpg') ?></div>
                     <div><?= Html::img('/img/logos/Logo_etalon.png') ?></div>
                 </div>
             </div>
