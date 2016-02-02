@@ -26,11 +26,34 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode(Yii::$app->params['siteName'] . ' - ' . $this->title) ?></title>
     <?php $this->head() ?>
+    <style>
+        html, body, .container-table {
+            height: 100%;
+        }
+        .container-table {
+            display: table;
+        }
+        .vertical-center-row {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    </style>
 </head>
 <body>
 
 <?php $this->beginBody() ?>
-<div class="wrap">
+<div class="container container-table">
+    <div class="row vertical-center-row">
+        <div class="text-center col-md-12">
+            <h1>
+                Уважаемые пользователи!<br/>
+                Сайт временно находится на реконструкции. <br/>
+                <h2>Приносим извинения за неудобства.</h2>
+            </h1>
+        </div>
+    </div>
+</div>
+<?php /*<div class="wrap">
     <header>
         <div class="headerdetails">
             <div class="container">
@@ -131,7 +154,7 @@ AppAsset::register($this);
             <span class="designed"><br/>designed by spiny.beast</span>
         </p>
     </div>
-</footer>
+</footer> */?>
 
 <?php $this->endBody() ?>
 </body>
