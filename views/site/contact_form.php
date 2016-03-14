@@ -12,8 +12,6 @@ $this->title = 'Задать вопрос';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-contact">
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
 
     <div class="alert alert-success">
@@ -24,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         Если у Вас есть к нам вопросы, отправьте нам письмо, заполнив эту форму. <br/>
-        <sup class="text-error">*</sup> Все поля обязательные.
+        <small><sup class="text-error">*</sup> Все поля обязательные.</small>
     </p>
 
     <div class="row">
@@ -38,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
                 ]) ?>
                 <div class="form-group">
-                    <?= Html::submitButton(FA::icon('envelope-o') . ' Отправить', ['class' => 'btn btn-lg btn-info', 'name' => 'contact-button']) ?>
+                    <?= Html::submitButton('Отправить', ['class' => 'btn btn-lg btn-blue', 'name' => 'contact-button']) ?>
                 </div>
             <?php ActiveForm::end(); ?>
         </div>

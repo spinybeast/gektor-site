@@ -4,7 +4,9 @@ namespace app\components;
 
 use app\models\Category;
 use app\models\MainMenu;
+use app\models\StaticPage;
 use yii\helpers\Url;
+use Yii;
 
 class MenuHelper
 {
@@ -45,13 +47,14 @@ class MenuHelper
         if (!empty($item->category_id)) {
             $url = Url::to(['catalog/view', 'id' => $item->category_id]);
         } elseif (!empty($item->staticpage_id)) {
-            $pagekey = $item->staticPage->pagekey == 'index' ? '' : $item->staticPage->pagekey ;
+            $pagekey = $item->staticPage->pagekey == StaticPage::MAIN_PAGEKEY ? '' : $item->staticPage->pagekey ;
             $url = Url::to('/' . $pagekey);
         } elseif (!empty($item->url)) {
             $url = Url::to($item->url);
         } else {
             $url = false;
         }
+
         return $url;
     }
 
@@ -65,9 +68,22 @@ class MenuHelper
         $result = [];
 
         foreach ($items as $item) {
+            $url = self::getUrl($item);
+            $active = false;
+            if (Url::current() == $url){
+                $active = true;
+            } elseif (!empty($item->children)) {
+                foreach ($item->children as $child) {
+                    if (Url::current() == self::getUrl($child)) {
+                        $active = true;
+                        break;
+                    }
+                }
+            }
             $menuItem = [
                 'label' => $item->name,
-                'url' => self::getUrl($item),
+                'url' => $url,
+                'active' => $active,
             ];
             if (!empty($item->children)) {
                 $menuItem['items'] = static::getMainMenuRecursive($item->id);

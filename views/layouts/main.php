@@ -22,62 +22,37 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="<?= Html::encode(Yii::$app->params['keywords']) ?>">
     <meta name="description" content="<?= Html::encode(Yii::$app->params['description']) ?>">
-    <link rel="shortcut icon" href="/web/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode(Yii::$app->params['siteName'] . ' - ' . $this->title) ?></title>
     <?php $this->head() ?>
-    <style>
-        html, body, .container-table {
-            height: 100%;
-        }
-        .container-table {
-            display: table;
-        }
-        .vertical-center-row {
-            display: table-cell;
-            vertical-align: middle;
-        }
-    </style>
 </head>
 <body>
 
 <?php $this->beginBody() ?>
-<div class="container container-table">
-    <div class="row vertical-center-row">
-        <div class="text-center col-md-12">
-            <h1>
-                Уважаемые пользователи!<br/>
-                Сайт временно находится на реконструкции. <br/>
-                <h2>Приносим извинения за неудобства.</h2>
-            </h1>
-        </div>
-    </div>
-</div>
-<?php /*<div class="wrap">
+<div class="wrap">
     <header>
         <div class="headerdetails">
-            <div class="container">
-                <div class="row">
-                    <div class=" col-md-4 col-sm-12">
+                <div class="col-md-12">
+                    <div class=" col-md-3 col-sm-12">
                         <a class="logo text-left-md" href="<?= Url::home() ?>">
-                            <?= Html::img('/img/logo4.png', array('alt' => Html::encode(Yii::$app->params['siteName']))) ?>
+                            <?= Html::img('/img/logo.png', array('alt' => Html::encode(Yii::$app->params['siteName']), 'class' => 'img-responsive')) ?>
                         </a>
                     </div>
-                    <div class="slogan col-md-5 col-sm-12 text-center">
-                        <span>оптовые поставки оборудования <br/>для отопления и водоснабжения</span>
+                    <div class="slogan col-md-7 col-sm-12 text-center">
+                        <p>оптовые поставки газового и водонагревательного оборудования</p>
                     </div>
-                    <div class="text-right col-md-3 col-sm-12">
+                    <div class="text-right col-md-2 col-sm-12">
                         <div class="call">
-                            <?= FA::icon('phone')->size(FA::SIZE_LARGE) ?>
-                            <span class="text-blue"><?= Html::encode(Yii::$app->params['sitePhone']) ?></span><br/>
-                            <span class="text-blue"><?= Html::encode(Yii::$app->params['sitePhone2']) ?></span>
+                            <span><?= Html::encode(Yii::$app->params['sitePhone']) ?></span><br/>
+                            <span><?= Html::encode(Yii::$app->params['sitePhone2']) ?></span>
                         </div>
 
                         <?=
                         Html::button(
-                            FA::icon('question') . '&nbsp;&nbsp;Задать вопрос',
+                            'Задать вопрос',
                             [
-                                'class' => 'btn btn-info btn-lg btn-question',
+                                'class' => 'btn btn-lg btn-blue btn-question',
                                 'value' => Url::to(['site/show-message-form']),
                                 'id' => 'modalButton'
                             ]) ?>
@@ -85,13 +60,13 @@ AppAsset::register($this);
                     <?php
                     Modal::begin([
                         'id' => 'modal',
-                        'header' => 'Обратная связь'
+                        'header' => 'Задать вопрос'
                     ]);
                     echo "<div id='modalContent'></div>";
                     Modal::end();
                     ?>
                 </div>
-            </div>
+            <div style="clear:both;"></div>
         </div>
         <div class="navbar-wrapper">
             <?php
@@ -99,7 +74,7 @@ AppAsset::register($this);
             echo Html::beginTag('div', ['class' => 'pull-right topsearch hidden-xs']);
             echo Html::beginForm(['site/search'], 'get', ['class' => 'form-inline']);
             echo Html::textInput('q', null, ['placeholder' => 'Поиск по сайту', 'class' => 'form-control', 'id' => 'query']);
-            echo Html::submitButton(FA::icon("search")->size(FA::SIZE_LARGE), ['class' => 'btn btn-small btn-info', 'id' => 'searchButton']);
+            echo Html::submitButton(FA::icon("search")->size(FA::SIZE_LARGE), ['class' => 'btn btn-small btn-blue', 'id' => 'searchButton']);
             echo Html::endForm();
             echo Html::endTag('div');
             $this->endBlock();
@@ -119,18 +94,6 @@ AppAsset::register($this);
             NavBar::end();
             ?>
         </div>
-        <?php if (Yii::$app->controller->getRoute() == 'site/index') { ?>
-            <div class="logos text-center">
-                <div class="logos-carousel container">
-                    <div><?= Html::img('/img/logos/Angara.jpg') ?></div>
-                    <div><?= Html::img('/img/logos/atlantic-logo.jpg') ?></div>
-                    <div><?= Html::img('/img/logos/DirectiveLVD.jpg') ?></div>
-                    <div><?= Html::img('/img/logos/IMMERGAS.jpg') ?></div>
-                    <div><?= Html::img('/img/logos/logo-navien.png') ?></div>
-                    <div><?= Html::img('/img/logos/Logo_etalon.png') ?></div>
-                </div>
-            </div>
-        <?php } ?>
     </header>
     <div class="container">
         <?=
@@ -147,14 +110,14 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <div class="text-center"><span class="designed">Данный информационный ресурс не является публичной офертой. Наличие и стоимость товаров уточняйте по телефону.
+        <div class="text-center designed"><p>Данный информационный ресурс не является публичной офертой. Наличие и стоимость товаров уточняйте по телефону.
         Производители оставляют за собой право изменять технические характеристики и внешний вид товаров без
-        предварительного уведомления.</span></div>
+        предварительного уведомления.</p></div>
         <p class="text-center">&copy; <?= Yii::$app->params['siteName'] ?> 2011-<?= date('Y') ?>
-            <span class="designed"><br/>designed by spiny.beast</span>
+            designed by spiny.beast
         </p>
     </div>
-</footer> */?>
+</footer>
 
 <?php $this->endBody() ?>
 </body>
