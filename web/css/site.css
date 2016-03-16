@@ -116,7 +116,7 @@ a.desc:after {
 }
 
 .navbar-wrapper {
-    padding: 1px 0;
+    padding: 15px 0 25px;
 }
 
 .navbar-gektor {
@@ -135,6 +135,12 @@ a.desc:after {
 
 .navbar-gektor li.dropdown > a {
     line-height: 20px !important;
+}
+
+.navbar-gektor li.dropdown > ul {
+    border-radius: 0;
+    border: 0;
+    background: rgba(37, 48, 59, 0.8);
 }
 
 .navbar-gektor .navbar-nav > li > a:hover, .navbar-gektor .navbar-nav > li > a:active {
@@ -177,7 +183,7 @@ a.desc:after {
     text-align: center;
     text-transform: uppercase;
     color: #4a78bb;
-    padding-top: 35px;
+    padding-top: 55px;
 }
 
 .headerdetails {
@@ -189,7 +195,6 @@ a.desc:after {
 }
 
 .topsearch {
-    margin: 18px 6px 0;
 }
 
 p.help-block.help-block-error {

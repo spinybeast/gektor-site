@@ -40,7 +40,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $files = [];
+        /*$files = [];
         if ($handle = opendir(Yii::getAlias('@webroot/data'))) {
             while (false !== ($file = readdir($handle))) {
                 if ($file != "." && $file != "..") {
@@ -54,7 +54,7 @@ class SiteController extends Controller
         foreach ($expression as $id)
         fwrite($fp, $id);
         fclose($fp);
-        die();
+        die();*/
         $page = StaticPage::findOne(['pagekey' => StaticPage::MAIN_PAGEKEY, 'enabled' => 1]);
         return $this->render('index', [
             'page' => $page
