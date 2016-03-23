@@ -10,21 +10,15 @@ use app\components\MenuHelper;
 /* @var $model app\models\Category */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Каталог оборудования', 'url' => ['/catalog']];
+$this->params['breadcrumbs'][] = ['label' => 'Продукция', 'url' => ['/catalog']];
 foreach ($model->breadCrumbs() as $crumb) {
     $this->params['breadcrumbs'][] = ['label' => $crumb->name, 'url' => ['view', 'id' => $crumb->id]];
 }
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="col-md-3">
-    <?=
-    Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right navbar-gektor-right'],
-        'items' => MenuHelper::getMenu()
-    ]); ?>
-
-</div>
-<div class="col-md-9 category-view">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+      rel="stylesheet" type="text/css" />
+<div class="col-md-12 category-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -54,8 +48,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <!--        </div>-->
         <div id="products" class="row list-group">
             <?php foreach ($products as $product) { ?>
-                <div class="item  col-xs-12 col-lg-4">
-                    <div class="thumbnail">
+                <div class="item  col-xs-12 col-lg-2 col-md-3">
+                    <div class="item-content">
                         <div class="post-img-content">
                             <?=
                             Html::a(
@@ -65,7 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
                         <div class="caption">
                             <h4 class="group inner list-group-item-heading text-center">
-                                <?= Html::a($product->name, ['product/view', 'id' => $product->id], ['class' => 'text-blue']) ?></h4>
+                                <?= Html::a($product->name, ['product/view', 'id' => $product->id], ['class' => 'item-name']) ?></h4>
 
                             <div class="group inner list-group-item-text">
                                 <?php if (!empty($product->properties)) {?>
@@ -73,6 +67,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <?php foreach ($product->properties as $property) { ?>
                                             <tr>
                                                 <th><?= Html::encode($property->name) ?></th>
+                                            </tr>
+                                            <tr>
                                                 <td><?= Html::encode($property->value) ?></td>
                                             </tr>
                                         <?php } ?>
@@ -85,8 +81,8 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="row">
                                 <div class="col-xs-6 col-md-6 text-left">
                                     <?php if (!empty($product->price)) { ?>
-                                        <p class="lead">
-                                            <?= number_format(Html::encode($product->price), 0, '', ' ') ?> р.
+                                        <p class="price">
+                                            <?= number_format(Html::encode($product->price), 0, '', ',') ?><span class="lead">&#8399;</span>
                                         </p>
                                     <?php } ?>
                                 </div>

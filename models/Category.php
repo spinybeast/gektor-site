@@ -37,6 +37,7 @@ class Category extends \yii\db\ActiveRecord
             ['image', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'checkExtensionByMimeType' => false, 'on' => ['default', 'create', 'update']],
         ];
     }
+
     public function behaviors()
     {
         return [
@@ -111,4 +112,14 @@ class Category extends \yii\db\ActiveRecord
         }
         return $products;
     }
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            $this->parent_id = (int)$this->parent_id;
+            return true;
+        }
+        return false;
+    }
+
 }

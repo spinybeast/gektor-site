@@ -112,10 +112,14 @@ AppAsset::register($this);
 <footer class="footer">
     <div class="container">
         <div class="text-center designed"><p>Данный информационный ресурс не является публичной офертой. Наличие и стоимость товаров уточняйте по телефону.
-        Производители оставляют за собой право изменять технические характеристики и внешний вид товаров без
+                <br>
+        Производители оставляют за собой право изменять технические характеристики <br>и внешний вид товаров без
         предварительного уведомления.</p></div>
         <p class="text-center">&copy; <?= Yii::$app->params['siteName'] ?> 2011-<?= date('Y') ?>
-            designed by spiny.beast
+
+        </p>
+        <p class="text-center">
+            Designed by fivesixeight. Developed by spiny.beast
         </p>
     </div>
 </footer>

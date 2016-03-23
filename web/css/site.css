@@ -44,7 +44,8 @@ h1, .btn {
 
 .footer {
     background: #232934;
-    padding-top: 20px;
+    padding: 50px 0;
+    font-size: 13px;
 }
 
 header {
@@ -262,7 +263,12 @@ p.help-block.help-block-error {
     margin-bottom: 10px;
     padding: 0;
 }
-
+.item .lead {
+    font-family: 'PT Sans', serif;
+}
+.item .price {
+    font-size: 20px;
+}
 .item.list-group-item .list-group-image {
     margin-right: 10px;
 }
@@ -367,7 +373,6 @@ div.owl-item > div {
 }
 
 .list-group-item-text table {
-    background-color: #fff;
 }
 
 .list-group-item-text {
@@ -381,9 +386,18 @@ div.owl-item > div {
     height: 100%;
 }
 
+.item-name {
+    color: #fff;
+    text-transform: uppercase;
+}
+.item-name:hover, .item-name:active, .item-name:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
 .table-properties td, .table-properties th {
     padding: 4px !important;
-    border-bottom: 1px solid rgba(80, 110, 134, 0.3) !important;
+    border: none !important;
     font-weight: normal;
 }
 
@@ -484,8 +498,8 @@ div.details-description p {
 
 .btn-sample {
     color: #ffffff;
-    background-color: #025377;
-    border-color: #044f6e;
+    background-color: #4a78bb;
+    border-color: #4a78bb;
 }
 
 .btn-sample:hover,
@@ -494,8 +508,8 @@ div.details-description p {
 .btn-sample.active,
 .open .dropdown-toggle.btn-sample {
     color: #ffffff;
-    background-color: #107BA8;
-    border-color: #044f6e;
+    background-color: #4a78bb;
+    border-color: #4a78bb;
 }
 
 .btn-sample:active,
@@ -531,7 +545,9 @@ fieldset[disabled] .btn-sample.active {
 .prices table td, .prices table th {
     border: 1px solid #939CC7 !important;
 }
-
+.no-padding {
+    padding: 0 !important;
+}
 @media (max-width: 767px) {
     .slogan span {
         padding: 29px 0;

@@ -21,7 +21,7 @@ class CatalogController extends Controller
     private static function getDataProvider()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Category::find()->where(['enabled' => 1, 'parent_id' => 0]),
+            'query' => Category::find()->where(['enabled' => 1, 'parent_id' => 0])->orderBy(['id' => 'desc']),
         ]);
         return $dataProvider;
     }

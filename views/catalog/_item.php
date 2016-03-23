@@ -3,11 +3,15 @@ use yii\helpers\Html;
 
 /* @var $model app\models\Category */
 ?>
-
-<div class="item col-md-3 col-sm-6 col-xs-12">
+<style>
+    .wrap .body {
+        padding: 0;
+    }
+</style>
+<div class="item col-md-12 no-padding">
     <div class="inner">
-    <div class="img text-center">
-        <?= Html::a(Html::img($model->getThumbUploadUrl('image', 'preview')), ['view', 'id' => $model->id]) ?>
+    <div class="img text-center" style="width: 100%; max-height: 300px">
+        <?= Html::a(Html::img($model->getUploadUrl('image'), ['class' => 'img-responsive']), ['view', 'id' => $model->id]) ?>
     </div>
     <div class="content">
         <div class="title">
