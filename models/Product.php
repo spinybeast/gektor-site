@@ -3,9 +3,8 @@
 namespace app\models;
 
 use Yii;
-use mongosoft\file\UploadImageBehavior;
 use PetraBarus\Yii2\Validators\EitherValidator;
-use yii\data\ActiveDataProvider;
+use zxbodya\yii2\galleryManager\GalleryBehavior;
 
 /**
  * This is the model class for table "products".
@@ -16,7 +15,6 @@ use yii\data\ActiveDataProvider;
  * @property integer $trade_price
  * @property string $name
  * @property string $description
- * @property string $image
  */
 class Product extends \yii\db\ActiveRecord
 {
@@ -40,7 +38,6 @@ class Product extends \yii\db\ActiveRecord
             [['id', 'category_id', 'price', 'trade_price'], 'integer'],
             [['description'], 'string'],
             [['name'], 'string', 'max' => 200],
-            ['image', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'checkExtensionByMimeType' => false, 'on' => ['default', 'create', 'update']],
             [['price'], EitherValidator::className(), 'otherAttributes' => ['trade_price']]
         ];
     }
@@ -48,18 +45,16 @@ class Product extends \yii\db\ActiveRecord
     public function behaviors()
     {
         return [
-            'image' => [
-                'class' => UploadImageBehavior::className(),
-                'attribute' => 'image',
-                'scenarios' => ['default', 'create', 'update'],
-                'placeholder' => '@webroot/img/product/no-image.jpg',
-                'path' => '@webroot/img/product/{id}',
-                'url' => '@web/img/product/{id}',
-                'thumbs' => [
-                    'thumb' => ['width' => 400, 'quality' => 90],
-                    'preview' => ['width' => 200, 'height' => 200],
-                ],
-            ],
+            'galleryBehavior' => [
+                'class' => GalleryBehavior::className(),
+                'type' => 'product',
+                'extension' => 'jpg',
+                'directory' => Yii::getAlias('@webroot/img/product'),
+                'url' => Yii::getAlias('@web/img/product'),
+                'hasName' => false,
+                'hasDescription' => false,
+                'versions' => []
+            ]
         ];
     }
 
@@ -114,5 +109,24 @@ class Product extends \yii\db\ActiveRecord
             return iconv_substr($this->description, 0, self::DESC_LENGTH, 'utf-8') . '...';
         }
         return $this->description;
+    }
+
+    public function getImages()
+    {
+        return $this->getBehavior('galleryBehavior')->getImages();
+    }
+
+    public function getImageUrl($type = 'preview')
+    {
+        if ($images = $this->getImages()) {
+            return current($images)->getUrl($type);
+        }
+
+        return self::noImage();
+    }
+
+    public static function noImage()
+    {
+        return Yii::getAlias('@web/img/product/no-image.jpg');
     }
 }

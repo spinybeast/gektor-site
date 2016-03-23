@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="post-img-content">
                         <?=
                         Html::a(
-                            Html::img($product->getThumbUploadUrl('image', 'preview'), ['class' => 'img-responsive']),
+                            Html::img($product->getImageUrl(), ['class' => 'img-responsive']),
                             ['product/view', 'id' => $product->id]
                         ) ?>
                     </div>

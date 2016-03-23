@@ -3,13 +3,13 @@ use yii\bootstrap\NavBar;
 use yii\bootstrap\Nav;
 use yii\helpers\Url;
 use yii\helpers\Html;
-use app\assets\AppAsset;
+use app\assets\AdminAsset;
 use rmrevin\yii\fontawesome\FA;
 use yii\widgets\Breadcrumbs;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
-AppAsset::register($this);
+AdminAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
     <!DOCTYPE html>

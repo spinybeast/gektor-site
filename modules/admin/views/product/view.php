@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 [
                     'attribute' => 'image',
-                    'value' => $model->getThumbUploadUrl('image'),
+                    'value' => $model->getImageUrl(),
                     'format' => ['image'],
                 ],
             ],

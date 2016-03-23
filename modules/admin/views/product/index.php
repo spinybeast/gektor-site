@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'description:ntext',
             [
                 'header' => 'Превью',
-                'value' => function($data) { return $data->getThumbUploadUrl('image'); },
+                'value' => function($data) { return $data->getImageUrl(); },
                 'format' => ['image', ['width' => 100]],
             ],
 

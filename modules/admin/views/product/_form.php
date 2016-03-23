@@ -8,6 +8,7 @@ use app\models\Category;
 use app\models\ProductProperties;
 use kartik\select2\Select2;
 use wbraganca\dynamicform\DynamicFormWidget;
+use zxbodya\yii2\galleryManager\GalleryManager;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Product */
@@ -94,14 +95,11 @@ use wbraganca\dynamicform\DynamicFormWidget;
         <?php DynamicFormWidget::end(); ?>
     </div>
 
-    <div class="form-group">
-        <div class="row">
-            <div class="col-lg-2">
-                <?= Html::img($model->getThumbUploadUrl('image', 'preview'), ['class' => 'img-thumbnail']) ?>
-            </div>
-        </div>
-    </div>
-    <?= $form->field($model, 'image')->fileInput(['accept' => 'image/*']) ?>
+    <?= GalleryManager::widget([
+        'model' => $model,
+        'behaviorName' => 'galleryBehavior',
+        'apiRoute' => 'product/galleryApi'
+    ]);?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Сохранить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

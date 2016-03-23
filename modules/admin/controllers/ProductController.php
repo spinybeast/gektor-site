@@ -10,11 +10,12 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use zxbodya\yii2\galleryManager\GalleryManagerAction;
 
 /**
  * ProductController implements the CRUD actions for Product model.
  */
-class ProductController extends DefaultController
+class ProductController extends Controller
 {
     public function behaviors()
     {
@@ -24,6 +25,19 @@ class ProductController extends DefaultController
                 'actions' => [
                     'delete' => ['post'],
                 ],
+            ],
+        ];
+    }
+
+    public function actions()
+    {
+        return [
+            'galleryApi' => [
+                'class' => GalleryManagerAction::className(),
+                // mappings between type names and model classes (should be the same as in behaviour)
+                'types' => [
+                    'product' => Product::className()
+                ]
             ],
         ];
     }

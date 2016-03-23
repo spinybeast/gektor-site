@@ -95,7 +95,7 @@ AppAsset::register($this);
             ?>
         </div>
     </header>
-    <div class="container">
+    <div class="body col-md-12">
         <?=
         Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
@@ -106,6 +106,7 @@ AppAsset::register($this);
         ]) ?>
         <?= $content ?>
     </div>
+    <div class="clear"></div>
 </div>
 
 <footer class="footer">

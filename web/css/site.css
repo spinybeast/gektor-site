@@ -34,18 +34,24 @@ h1, .btn {
     padding: 0 0 60px;
 }
 
-.wrap > .container {
+.wrap > .body {
     padding: 20px 30px;
+}
+
+.clear {
+    clear: both;
 }
 
 .footer {
     background: #232934;
     padding-top: 20px;
 }
+
 header {
     background: #232934 url(../img/Untitled-1.gif) 0 0 no-repeat;
     background-size: cover;
 }
+
 .jumbotron {
     text-align: center;
     background-color: transparent;
@@ -126,9 +132,11 @@ a.desc:after {
     font-size: 15px;
     text-transform: uppercase;
 }
-.navbar-gektor .container{
+
+.navbar-gektor .container {
     width: 100%;
 }
+
 .navbar-gektor .navbar-nav > li > a {
     color: #FDFBF4;
 }
@@ -190,6 +198,7 @@ a.desc:after {
     padding: 35px 0 0px;
     background: none;
 }
+
 .headerdetails:after {
     clear: both;
 }
@@ -211,28 +220,33 @@ p.help-block.help-block-error {
 
 .btn-question {
 
-
 }
+
 .btn-blue {
     padding: 3px 5px;
     text-transform: uppercase;
     background-color: #4a77bb;
     color: #ffffff;
 }
+
 .btn-blue:hover {
     color: #ffffff;
     background-color: #3d639c;
 }
+
 .glyphicon {
     margin-right: 5px;
 }
+
 .modal-content {
     border-radius: 0;
     color: #000;
 }
+
 #searchButton {
     padding: 6px 10px;
 }
+
 .thumbnail {
     margin-bottom: 20px;
     padding: 0px;

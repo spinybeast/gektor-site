@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-lg-6 col-md-6 col-sm-6">
             <!-- product Image and Zoom -->
             <div class="main-image sp-wrap col-lg-12 no-padding" style="display: inline-block;">
-                <?= Html::img($model->getThumbUploadUrl('image')) ?>
+                <?= Html::img($model->getImageUrl('original')) ?>
             </div>
             <div class="properties sp-wrap col-lg-12">
                 <?php if (!empty($model->properties)) {?>
