@@ -46,6 +46,8 @@ h1, .btn {
     background: #232934;
     padding: 50px 0;
     font-size: 13px;
+    z-index: 1;
+    position: relative;
 }
 
 header {

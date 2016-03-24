@@ -28,6 +28,11 @@ use kartik\select2\Select2;
 
     <?= $form->field($model, 'enabled')->checkbox() ?>
 
+    <?php echo Html::label($model->getAttributeLabel('description'));
+    echo yii\imperavi\Widget::widget([
+        'model' => $model,
+        'attribute' => 'description',
+    ]); ?>
     <div class="form-group">
         <div class="row">
             <div class="col-lg-2">
@@ -37,8 +42,6 @@ use kartik\select2\Select2;
         </div>
     </div>
     <?= $form->field($model, 'image')->fileInput(['accept' => 'image/*']) ?>
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
-
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

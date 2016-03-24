@@ -11,15 +11,17 @@ $this->params['breadcrumbs'][] = $this->title;
 $leftBanners = !empty($page) ? Banner::getLeftItems($page->pagekey) : [];
 ?>
 
-<?php if (!empty($leftBanners)) {?>
-    <div class="col-md-3 hidden-xs left-banners">
-        <?php foreach ($leftBanners as $leftBanner) { ?>
-            <div><?= $leftBanner ?></div>
-        <?php } ?>
+<?php if (!empty($page)) { ?>
+    <div style="width: 35%; position: absolute; right: 0; top: 0;z-index: 0">
+        <?= Html::img($page->getUploadUrl('background'), ['class' => 'img-responsive']) ?>
     </div>
+    <style>
+        .body {background: #262626}
+    </style>
 <?php } ?>
-<div class="<?= !empty($leftBanners) ? 'col-md-9' : 'col-md-12' ?>">
+<div class="col-md-12 page">
     <?php if (!empty($page)) { ?>
+
         <h1><?= Html::encode($page->title) ?></h1>
         <?= Html::decode($page->text) ?>
     <?php } else { ?>

@@ -5,6 +5,7 @@ namespace app\models;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
+use mongosoft\file\UploadImageBehavior;
 
 /**
  * This is the model class for table "staticpages".
@@ -14,6 +15,7 @@ use yii\helpers\Html;
  * @property string $pagekey
  * @property string $title
  * @property boolean $enabled
+ * @property string $background
  */
 class StaticPage extends \yii\db\ActiveRecord
 {
@@ -38,6 +40,21 @@ class StaticPage extends \yii\db\ActiveRecord
             [['text'], 'string'],
             [['pagekey'], 'string', 'max' => 200],
             [['title'], 'string', 'max' => 250],
+            ['background', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'checkExtensionByMimeType' => false, 'on' => ['default', 'create', 'update']],
+        ];
+    }
+
+    public function behaviors()
+    {
+        return [
+            'image' => [
+                'class' => UploadImageBehavior::className(),
+                'attribute' => 'background',
+                'scenarios' => ['default', 'create', 'update'],
+                'path' => '@webroot/img/pages/{id}',
+                'url' => '@web/img/pages/{id}',
+                'thumbs' => [],
+            ],
         ];
     }
 
@@ -52,6 +69,7 @@ class StaticPage extends \yii\db\ActiveRecord
             'pagekey' => 'Url',
             'title' => 'Заголовок',
             'enabled' => 'Включена',
+            'background' => 'Фон',
         ];
     }
 

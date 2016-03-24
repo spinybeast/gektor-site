@@ -9,7 +9,7 @@ use yii\helpers\Html;
     <div class="content col-md-6">
         <?php if (!empty($model->description)) { ?>
             <div class="description">
-                <?= Html::encode($model->description) ?>
+                <?= $model->description ?>
             </div>
         <?php } ?>
     </div>
@@ -23,7 +23,7 @@ use yii\helpers\Html;
         <div class="content col-md-6">
             <?php if (!empty($model->description)) { ?>
                 <div class="description">
-                    <?= Html::encode($model->description) ?>
+                    <?= $model->description ?>
                 </div>
             <?php } ?>
         </div>
