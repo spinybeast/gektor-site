@@ -335,8 +335,11 @@ div.owl-item > div {
 }
 
 .item div.post-img-content {
-    height: 220px;
     padding-top: 20px;
+}
+
+.item div.post-img-content img{
+    margin: 0 auto;
 }
 
 .category-index .item {
@@ -427,26 +430,8 @@ div.children {
 }
 
 .category-index .item .description {
-    text-align: center;
-    font-size: 13px;
-}
-
-.category-index .item .title {
-    text-align: center;
-}
-
-.category-index .item .title a {
-    font-weight: bold;
-    color: #025377;
-    text-align: center;
-}
-
-.category-index .item hr {
-    margin: 10px -30px;
-}
-
-.category-index .item .img {
-    padding-top: 15px;
+    font-size: 14px;
+    padding: 70px 50px;
 }
 
 .category-index .item .content {

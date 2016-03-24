@@ -57,14 +57,7 @@ class CatalogController extends Controller
     public function actionView($id)
     {
         $model = $this->findModel($id);
-        if ($model->parent_id == 0) {
-            $dataProvider = new ActiveDataProvider([
-                'query' => Category::find()->where(['enabled' => 1, 'parent_id' => $id]),
-            ]);
-            return $this->render('index', [
-                'dataProvider' => $dataProvider,
-            ]);
-        }
+
         return $this->render('view', [
             'model' => $model,
             'mode' => $this->getViewMode()

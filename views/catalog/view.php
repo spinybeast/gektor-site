@@ -88,7 +88,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </div>
                                 <div class="col-xs-6 col-md-6 text-right">
                                     <a class="btn btn-sample"
-                                       href="<?= Url::to(['product/view', 'id' => $product->id]) ?>">Посмотреть</a>
+                                       href="<?= Url::to(['product/view', 'id' => $product->id]) ?>">Подробнее</a>
                                 </div>
                             </div>
                         </div>
