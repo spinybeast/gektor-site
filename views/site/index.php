@@ -5,8 +5,13 @@ use app\models\Banner;
 /* @var $page app\models\StaticPage */
 $this->title = !empty($page) ? $page->title : 'Главная';
 ?>
+<style>
+    .wrap .body{
+        padding: 0;
+    }
+</style>
 <div class="site-index">
-    <div class="col-md-12">
+    <div class="col-md-12 no-padding">
         <?=
         Carousel::widget([
             'items' => Banner::getSliderItems(),

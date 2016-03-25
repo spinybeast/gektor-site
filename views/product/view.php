@@ -19,22 +19,22 @@ $this->params['breadcrumbs'][] = $this->title;
         <!-- left column -->
         <div class="col-lg-6 col-md-6 col-sm-6">
             <!-- product Image and Zoom -->
-            <div class="main-image sp-wrap col-lg-12 no-padding" style="display: inline-block;">
-                <?= Html::img($model->getImageUrl('original')) ?>
-            </div>
-            <div class="properties sp-wrap col-lg-12">
-                <?php if (!empty($model->properties)) {?>
-                    <br/>
-                    <h3>Характеристики</h3>
-                    <table class="table table-bordered">
-                        <?php foreach ($model->properties as $property) { ?>
-                            <tr>
-                                <th><?= $property->name ?></th>
-                                <td><?= $property->value ?></td>
-                            </tr>
-                        <?php } ?>
-                    </table>
-                <?php } ?>
+            <div class="col-md-12">
+                <?php
+                    $images = $model->getImages();
+                    $big = array_shift($images);
+                ?>
+                <div class="main-image sp-wrap col-md-7 no-padding">
+                    <?= Html::img($big->getUrl('original'), ['class' => 'img-responsive']) ?>
+                </div>
+                <div class="second-images col-md-5">
+                    <?php foreach ($images as $image) {
+                        echo Html::beginTag('div', ['class' => 'small-img']);
+                        echo Html::img($image->getUrl('preview'), ['class' => 'img-responsive']);
+                        echo Html::endTag('div');
+                        echo Html::tag('br');
+                    }?>
+                </div>
             </div>
         </div><!--/ left column end -->
 
@@ -58,6 +58,20 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <div class="details-description">
                 <p><?= Html::encode($model->description) ?></p>
+            </div>
+            <div class="properties sp-wrap col-lg-12">
+                <?php if (!empty($model->properties)) {?>
+                    <br/>
+                    <h3>Характеристики</h3>
+                    <table class="table">
+                        <?php foreach ($model->properties as $property) { ?>
+                            <tr>
+                                <th><?= $property->name ?></th>
+                                <td><?= $property->value ?></td>
+                            </tr>
+                        <?php } ?>
+                    </table>
+                <?php } ?>
             </div>
 
        </div><!--/ right column end -->

@@ -13,10 +13,11 @@ $leftBanners = !empty($page) ? Banner::getLeftItems($page->pagekey) : [];
 
 <?php if (!empty($page)) { ?>
     <div style="width: 35%; position: absolute; right: 0; top: 0;z-index: 0">
-        <?= Html::img($page->getUploadUrl('background'), ['class' => 'img-responsive']) ?>
+
     </div>
     <style>
-        .body {background: #262626}
+        .wrap {background: #262626 url(<?= $page->getUploadUrl('background') ?>) top right no-repeat;
+        background-size: contain}
     </style>
 <?php } ?>
 <div class="col-md-12 page">

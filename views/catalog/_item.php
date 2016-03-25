@@ -7,7 +7,7 @@ use yii\helpers\Html;
 <div class="item col-md-12 no-padding">
     <?php if ($even) {?>
     <div class="content col-md-6">
-        <?php if (!empty($model->description)) { ?>
+        <?php if ($model->description) { ?>
             <div class="description">
                 <?= $model->description ?>
             </div>
@@ -21,7 +21,7 @@ use yii\helpers\Html;
             <?= Html::a(Html::img($model->getUploadUrl('image'), ['class' => 'img-responsive']), ['view', 'id' => $model->id]) ?>
         </div>
         <div class="content col-md-6">
-            <?php if (!empty($model->description)) { ?>
+            <?php if ($model->description) { ?>
                 <div class="description">
                     <?= $model->description ?>
                 </div>

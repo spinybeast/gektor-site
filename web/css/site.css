@@ -52,7 +52,7 @@ h1, .btn {
 
 header {
     background: #232934 url(../img/Untitled-1.gif) 0 0 no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 
 .jumbotron {
@@ -69,7 +69,9 @@ header {
     color: #c55;
     font-style: italic;
 }
-
+.small-img {
+    max-width: 159px;
+}
 /* add sorting icons to gridview sort links */
 a.asc:after, a.desc:after {
     position: relative;
@@ -196,6 +198,14 @@ a.desc:after {
     color: #4a78bb;
     padding-top: 55px;
 }
+.slide .item  {
+    background: #262626;
+}
+.slide .item img
+{
+    width: 60%;
+    margin-left: 40%;
+}
 
 .headerdetails {
     padding: 35px 0 0px;
@@ -306,7 +316,7 @@ p.help-block.help-block-error {
 }
 
 .carousel-indicators .active {
-    background-color: #025377;
+    background-color: #000000;
 }
 
 .carousel-indicators {
@@ -536,11 +546,7 @@ fieldset[disabled] .btn-sample.active {
     padding: 0 !important;
 }
 @media (max-width: 767px) {
-    .slogan span {
-        padding: 29px 0;
-        display: block;
-        position: relative;
-        left: 0;
-        top: 0;
+    header {
+        background-size: cover;
     }
 }
