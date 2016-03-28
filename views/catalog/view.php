@@ -23,7 +23,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <div class="description">
-        <?= Html::encode($model->description) ?>
     </div>
 
         <?php $menu = MenuHelper::getMenu($model->id);

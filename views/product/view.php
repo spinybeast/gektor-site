@@ -25,7 +25,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     $big = array_shift($images);
                 ?>
                 <div class="main-image sp-wrap col-md-7 no-padding">
-                    <?= Html::img($big->getUrl('original'), ['class' => 'img-responsive']) ?>
+                    <?php $src = $big ? $big->getUrl('original') : \app\models\Product::noImage();
+                    echo Html::img($src, ['class' => 'img-responsive']) ?>
                 </div>
                 <div class="second-images col-md-5">
                     <?php foreach ($images as $image) {

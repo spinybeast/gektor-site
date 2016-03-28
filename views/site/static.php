@@ -21,11 +21,14 @@ $leftBanners = !empty($page) ? Banner::getLeftItems($page->pagekey) : [];
     </style>
 <?php } ?>
 <div class="col-md-12 page">
+    <div class="col-md-8">
     <?php if (!empty($page)) { ?>
 
-        <h1><?= Html::encode($page->title) ?></h1>
+        <h3><?= Html::encode($page->title) ?></h3>
         <?= Html::decode($page->text) ?>
     <?php } else { ?>
         <h1>Извините, страница не найдена.</h1>
     <?php } ?>
+    <hr>
+    </div>
 </div>

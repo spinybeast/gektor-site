@@ -35,9 +35,12 @@ h1, .btn {
 }
 
 .wrap > .body {
-    padding: 20px 30px;
+    padding: 20px 30px 50px;
 }
+.page {
 
+    font-size: 14px;
+}
 .clear {
     clear: both;
 }
@@ -127,7 +130,7 @@ a.desc:after {
 }
 
 .navbar-wrapper {
-    padding: 15px 0 25px;
+    padding: 15px 0 20px;
 }
 
 .navbar-gektor {
@@ -148,8 +151,17 @@ a.desc:after {
 
 .navbar-gektor li.dropdown > a {
     line-height: 20px !important;
+    color: #fff;
 }
-
+.dropdown-menu > li > a {
+    color: #eaeaea;
+    text-decoration: none;
+    background: none;
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    color: #4a77bb;
+    background: none;
+}
 .navbar-gektor li.dropdown > ul {
     border-radius: 0;
     border: 0;
@@ -250,7 +262,10 @@ p.help-block.help-block-error {
 .glyphicon {
     margin-right: 5px;
 }
-
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+     background-color: inherit;
+    border-color: inherit;
+}
 .modal-content {
     border-radius: 0;
     color: #000;
@@ -387,12 +402,17 @@ div.owl-item > div {
     overflow: hidden;
 }
 
-.list-group-item-text table {
+.list-group-item-text table th{
+    line-height: 1 !important;
+}
+.list-group-item-text table td{
+    font-size: 19px;
+    line-height: 1 !important;
 }
 
 .list-group-item-text {
     line-height: 1.1;
-    height: 105px;
+    height: 120px;
     overflow: hidden;
     font-size: 14px;
 }
