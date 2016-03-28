@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use yii\helpers\Html;
+use yii\db\ActiveRecord;
 use mongosoft\file\UploadImageBehavior;
 
 /**
@@ -14,9 +15,12 @@ use mongosoft\file\UploadImageBehavior;
  * @property integer $page_id
  * @property string $image
  * @property integer $enabled
+ * @property string $template
  */
-class Banner extends \yii\db\ActiveRecord
+class Banner extends ActiveRecord
 {
+    const IMAGE_TEMPLATE = '{image}';
+
     /**
      * @inheritdoc
      */
@@ -33,16 +37,19 @@ class Banner extends \yii\db\ActiveRecord
         return [
             [['enabled'], 'integer'],
             [['page_id'], 'checkPage'],
-            [['position_id', 'page_id'], 'string'],
+            [['position_id', 'page_id', 'template'], 'string'],
             [['image'], 'required'],
             ['image', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'checkExtensionByMimeType' => false, 'on' => ['default', 'create', 'update']],
         ];
     }
-    public function checkPage($attribute, $params)
+
+    public function checkPage($attribute)
     {
-        if ($this->position_id != BannerPosition::LEFT)
-        $this->addError($attribute, 'Страницу можно выбрать только для позиции "' . BannerPosition::$types[BannerPosition::LEFT] . '"');
+        if ($this->position_id !== BannerPosition::LEFT) {
+            $this->addError($attribute, 'Страницу можно выбрать только для позиции "' . BannerPosition::$types[BannerPosition::LEFT] . '"');
+        }
     }
+
     public function behaviors()
     {
         return [
@@ -60,6 +67,7 @@ class Banner extends \yii\db\ActiveRecord
             ],
         ];
     }
+
     /**
      * @inheritdoc
      */
@@ -71,7 +79,22 @@ class Banner extends \yii\db\ActiveRecord
             'page_id' => 'Страница',
             'image' => 'Картинка',
             'enabled' => 'Включен',
+            'template' => 'Шаблон',
         ];
+    }
+
+    public function getHtml()
+    {
+        if ($this->template) {
+            return str_replace(self::IMAGE_TEMPLATE, $this->getImg(), $this->template);
+        }
+
+        return $this->getImg();
+    }
+
+    private function getImg()
+    {
+        return Html::img($this->getUploadUrl('image'));
     }
 
     public function getPosition()
@@ -81,7 +104,7 @@ class Banner extends \yii\db\ActiveRecord
 
     public function getPage()
     {
-        return self::hasOne(StaticPage::className(), ['pagekey' => 'page_id']);
+        return $this->hasOne(StaticPage::className(), ['pagekey' => 'page_id']);
     }
 
     public static function getSliderItems()
@@ -97,13 +120,13 @@ class Banner extends \yii\db\ActiveRecord
     private static function getItems($position, $page = false)
     {
         $slider = [];
-        if (!empty($page)) {
+        if ($page) {
             $items = Banner::findAll(['position_id' => $position, 'enabled' => 1, 'page_id' => $page]);
         } else {
             $items = Banner::findAll(['position_id' => $position, 'enabled' => 1]);
         }
         foreach ($items as $item) {
-            $slider[] = Html::img($item->getUploadUrl('image'));
+            $slider[] = $item->html;
         }
         return $slider;
     }

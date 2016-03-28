@@ -5,12 +5,14 @@ use yii\helpers\Url;
 $this->title = 'Поиск по запросу';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+      rel="stylesheet" type="text/css" />
 <div class="site-search">
     <h1><?= Html::encode($this->title) ?>&nbsp;&laquo;<?= $query ?>&raquo;</h1>
     <?php if (!empty($products)) { ?>
-        <?php foreach($products as $product) { ?>
-            <div class="item  col-xs-12 col-lg-3">
-                <div class="thumbnail">
+        <?php foreach ($products as $product) { ?>
+            <div class="item  col-xs-12 col-lg-2 col-md-3">
+                <div class="item-content">
                     <div class="post-img-content">
                         <?=
                         Html::a(
@@ -19,8 +21,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         ) ?>
                     </div>
                     <div class="caption">
-                        <h4 class="group inner list-group-item-heading">
-                            <?= Html::a($product->name, ['product/view', 'id' => $product->id], ['class' => 'text-blue']) ?></h4>
+                        <h4 class="group inner list-group-item-heading text-center">
+                            <?= Html::a($product->name, ['product/view', 'id' => $product->id], ['class' => 'item-name']) ?></h4>
 
                         <div class="group inner list-group-item-text">
                             <?php if (!empty($product->properties)) {?>
@@ -28,6 +30,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <?php foreach ($product->properties as $property) { ?>
                                         <tr>
                                             <th><?= Html::encode($property->name) ?></th>
+                                        </tr>
+                                        <tr>
                                             <td><?= Html::encode($property->value) ?></td>
                                         </tr>
                                     <?php } ?>
@@ -40,14 +44,14 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="row">
                             <div class="col-xs-6 col-md-6 text-left">
                                 <?php if (!empty($product->price)) { ?>
-                                    <p class="lead">
-                                        <?= $product->price ?> р.
+                                    <p class="price">
+                                        <?= number_format(Html::encode($product->price), 0, '', ',') ?><span class="lead">&#8399;</span>
                                     </p>
                                 <?php } ?>
                             </div>
                             <div class="col-xs-6 col-md-6 text-right">
-                                <a class="btn btn-info"
-                                   href="<?= Url::to(['product/view', 'id' => $product->id]) ?>">Посмотреть</a>
+                                <a class="btn btn-sample"
+                                   href="<?= Url::to(['product/view', 'id' => $product->id]) ?>">Подробнее</a>
                             </div>
                         </div>
                     </div>

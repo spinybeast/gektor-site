@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use app\models\BannerPosition;
+use app\models\Banner;
 use kartik\select2\Select2;
 
 /* @var $this yii\web\View */
@@ -27,6 +28,12 @@ use kartik\select2\Select2;
         'pluginOptions' => [
             'allowClear' => true
         ],
+    ]); ?>
+    <?= Html::label($model->getAttributeLabel('template')) ?>
+    <small>Для вставки картинки используйте шаблон "<?= Banner::IMAGE_TEMPLATE ?>"</small>
+    <?= yii\imperavi\Widget::widget([
+    'model' => $model,
+    'attribute' => 'template',
     ]); ?>
     <div class="form-group">
         <div class="row">

@@ -22,7 +22,7 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="<?= Html::encode(Yii::$app->params['keywords']) ?>">
     <meta name="description" content="<?= Html::encode(Yii::$app->params['description']) ?>">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?= Url::to('web/favicon.ico') ?>" type="image/x-icon" />
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode(Yii::$app->params['siteName'] . ' - ' . $this->title) ?></title>
     <?php $this->head() ?>
