@@ -213,10 +213,11 @@ a.desc:after {
 .slide .item  {
     background: #262626;
 }
-.slide .item img
-{
-    width: 60%;
-    margin-left: 40%;
+.slide .item [class^=col]  {
+    padding: 0 !important;
+}
+.slide .item [class^=col-md-5]  {
+    padding: 10% !important;
 }
 
 .headerdetails {
@@ -282,7 +283,16 @@ p.help-block.help-block-error {
     -moz-border-radius: 0px;
     border-radius: 0px;
 }
+.list-view > div img {
+    opacity: 0.5;
+}
+.list-view > div img:hover {
+    opacity: 1;
+}
 
+a.text,a.text:hover, a.text:visited, a.text:active {
+    color: #fff;
+}
 .item.list-group-item {
     float: none;
     width: 100%;

@@ -38,7 +38,6 @@ class Banner extends ActiveRecord
             [['enabled'], 'integer'],
             [['page_id'], 'checkPage'],
             [['position_id', 'page_id', 'template'], 'string'],
-            [['image'], 'required'],
             ['image', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'checkExtensionByMimeType' => false, 'on' => ['default', 'create', 'update']],
         ];
     }
@@ -86,7 +85,7 @@ class Banner extends ActiveRecord
     public function getHtml()
     {
         if ($this->template) {
-            return str_replace(self::IMAGE_TEMPLATE, $this->getImg(), $this->template);
+            return str_replace(self::IMAGE_TEMPLATE, $this->getImg(), $this->template) . '<div class="clear"></div>';
         }
 
         return $this->getImg();
@@ -94,7 +93,7 @@ class Banner extends ActiveRecord
 
     private function getImg()
     {
-        return Html::img($this->getUploadUrl('image'));
+        return Html::img($this->getUploadUrl('image'), ['class' => 'img-responsive']);
     }
 
     public function getPosition()
