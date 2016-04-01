@@ -29,9 +29,26 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'position_id',
-            'page_id',
-            'image',
+            [
+                'attribute' => 'position_id',
+                'value' => $model->position_id ? $model->position->name : '<span class="not-set">(не задано)</span>',
+                'format' => ['html']
+            ],
+            [
+                'attribute' => 'page_id',
+                'value' => $model->page ? $model->page->title : '<span class="not-set">(не задано)</span>',
+                'format' => ['html']
+            ],
+            [
+                'attribute' => 'category_id',
+                'value' => $model->category ? $model->category->name : '<span class="not-set">(не задано)</span>',
+                'format' => ['html']
+            ],
+            [
+                'attribute' => 'image',
+                'value' => $model->getThumbUploadUrl('image'),
+                'format' => ['image'],
+            ],
             'enabled',
         ],
     ]) ?>

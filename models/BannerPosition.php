@@ -15,10 +15,12 @@ class BannerPosition
     public $id;
     public $name;
 
+    const CATALOG = 'catalog';
     const SLIDER = 'slider';
     const LEFT = 'left';
 
     public static $types = array(
+        self::CATALOG => 'Категория',
         self::SLIDER => 'Слайдер на главной',
         self::LEFT => 'Слева',
     );

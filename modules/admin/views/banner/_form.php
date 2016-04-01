@@ -29,6 +29,13 @@ use kartik\select2\Select2;
             'allowClear' => true
         ],
     ]); ?>
+    <?= $form->field($model, 'category_id')->widget(Select2::classname(), [
+        'data' => ArrayHelper::map(\app\models\Category::find()->all(), 'id', 'name'),
+        'language' => 'ru',
+        'pluginOptions' => [
+            'allowClear' => true
+        ],
+    ]); ?>
     <?= Html::label($model->getAttributeLabel('template')) ?>
     <small>Для вставки картинки используйте шаблон "<?= Banner::IMAGE_TEMPLATE ?>"</small>
     <?= yii\imperavi\Widget::widget([

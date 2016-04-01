@@ -13,6 +13,7 @@ use mongosoft\file\UploadImageBehavior;
  * @property integer $id
  * @property integer $position_id
  * @property integer $page_id
+ * @property integer $category_id
  * @property string $image
  * @property integer $enabled
  * @property string $template
@@ -35,7 +36,7 @@ class Banner extends ActiveRecord
     public function rules()
     {
         return [
-            [['enabled'], 'integer'],
+            [['enabled', 'category_id'], 'integer'],
             [['page_id'], 'checkPage'],
             [['position_id', 'page_id', 'template'], 'string'],
             ['image', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'checkExtensionByMimeType' => false, 'on' => ['default', 'create', 'update']],
@@ -79,6 +80,7 @@ class Banner extends ActiveRecord
             'image' => 'Картинка',
             'enabled' => 'Включен',
             'template' => 'Шаблон',
+            'category_id' => 'Категория',
         ];
     }
 
@@ -91,7 +93,7 @@ class Banner extends ActiveRecord
         return $this->getImg();
     }
 
-    private function getImg()
+    public function getImg()
     {
         return Html::img($this->getUploadUrl('image'), ['class' => 'img-responsive']);
     }
@@ -106,6 +108,11 @@ class Banner extends ActiveRecord
         return $this->hasOne(StaticPage::className(), ['pagekey' => 'page_id']);
     }
 
+    public function getCategory()
+    {
+        return $this->hasOne(Category::className(), ['id' => 'category_id']);
+    }
+
     public static function getSliderItems()
     {
         return Banner::getItems(BannerPosition::SLIDER);
@@ -114,6 +121,11 @@ class Banner extends ActiveRecord
     public static function getLeftItems($page)
     {
         return Banner::getItems(BannerPosition::LEFT, $page);
+    }
+
+    public static function getCatalogItem($categoryId)
+    {
+        return Banner::findOne(['position_id' => BannerPosition::CATALOG, 'enabled' => 1, 'category_id' => $categoryId]);
     }
 
     private static function getItems($position, $page = false)

@@ -19,12 +19,9 @@ $this->params['breadcrumbs'][] = $this->title;
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
       rel="stylesheet" type="text/css" />
 <div class="col-md-12 category-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <div class="description">
+        <?= ($banner = \app\models\Banner::getCatalogItem($model->id)) ? $banner->html : ''?>
     </div>
-
         <?php $menu = MenuHelper::getMenu($model->id);
         if (!empty($menu)) { ?>
             <div class="children">
@@ -63,7 +60,8 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="group inner list-group-item-text">
                                 <?php if (!empty($product->properties)) {?>
                                     <table class="table table-responsive table-properties">
-                                        <?php foreach ($product->properties as $property) { ?>
+                                        <?php $properties = array_slice($product->properties, 0, 2);
+                                        foreach ($properties as $property) { ?>
                                             <tr>
                                                 <th><?= Html::encode($property->name) ?></th>
                                             </tr>
