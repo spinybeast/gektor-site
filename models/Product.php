@@ -82,7 +82,7 @@ class Product extends \yii\db\ActiveRecord
 
     public function getProperties()
     {
-        return $this->hasMany(ProductProperties::className(), ['product_id' => 'id']);
+        return $this->hasMany(ProductProperties::className(), ['product_id' => 'id'])->orderBy('id');
     }
 
     public function clearProperties()
