@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <!--        </div>-->
         <div id="products" class="row list-group">
             <?php foreach ($products as $product) { ?>
-                <div class="item  col-xs-12 col-lg-2 col-md-3">
+                <div class="item  col-xs-12 col-md-15">
                     <div class="item-content">
                         <div class="post-img-content">
                             <?=
