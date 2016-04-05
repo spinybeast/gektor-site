@@ -26,14 +26,12 @@ $this->title = 'Главная';
 
 </div>
 <?php $this->registerJs('
-    $(function(){
-        $(".banner-carousel").owlCarousel({
-            items: 1,
-            loop: true,
-            animateOut: \'fadeOut\',
-            autoplay: true,
-            autoplayTimeout: 2500,
-            autoplayHoverPause: true
-        });
+    $(".banner-carousel").owlCarousel({
+        items: 1,
+        loop: true,
+        animateOut: \'fadeOut\',
+        autoplay: true,
+        autoplayTimeout: 2500,
+        autoplayHoverPause: true
     });
 '); ?>

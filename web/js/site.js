@@ -32,27 +32,6 @@ $(document).on('submit', '#contact-form', function (e) {
 
 
 $(function() {
-    $('.logos-carousel').owlCarousel({
-        pagination: false,
-        items: 7,
-        loop: true,
-        autoplay: true,
-        autoplayTimeout: 2000,
-        autoplaySpeed: 1000,
-        responsive: {
-            0: {
-                items: 1
-            },
-            600: {
-                items: 3
-            },
-            1000: {
-                items: 6
-            }
-        }
-
-    });
-
     $(".dynamicform_wrapper").on("beforeInsert", function(e, item) {
         console.log("beforeInsert");
     });

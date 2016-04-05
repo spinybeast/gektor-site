@@ -374,7 +374,7 @@ a.text, a.text:hover, a.text:visited, a.text:active {
     padding: 0;
 }
 
-.item .lead {
+.lead {
     font-family: 'PT Sans', serif;
 }
 
@@ -603,6 +603,9 @@ div.details-description p {
 }
 
 .price-standard {
+    font-size: 22px;
+}
+.price-standard .price{
     font-size: 19px;
 }
 
