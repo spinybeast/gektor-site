@@ -6,7 +6,7 @@ use app\models\Banner;
 $this->title = 'Главная';
 ?>
 <style>
-    .wrap .body{
+    .wrap .body {
         padding: 0;
     }
 </style>
@@ -14,14 +14,27 @@ $this->title = 'Главная';
     <div class="col-md-12 no-padding">
         <div class="banner-carousel slide">
             <?php $banners = Banner::getSliderItems();
-            foreach($banners as $banner) {
+            foreach ($banners as $banner) {
                 echo Html::tag('div', $banner, ['class' => 'item']);
             }
             ?>
         </div>
-        <div class="about">
-<!--           news-->
-        </div>
+        <?php if (!empty($news)) { ?>
+            <div class="about">
+                <?php foreach ($news as $item) { ?>
+                    <div class="col-md-6">
+                        <?= Html::img($item->getUploadUrl('image'), ['class' => 'img-responsive']) ?>
+                    </div>
+                    <div class="col-md-6 news-text">
+                        <p class="title"><?= $item->title ?></p>
+                        <p class="date"><?= date('d.m.Y', strtotime($item->created_at)) ?></p>
+                        <p><?= $item->text ?></p>
+                    </div>
+                <?php } ?>
+
+                <div class="clear"></div>
+            </div>
+        <?php } ?>
     </div>
 
 </div>
@@ -31,7 +44,7 @@ $this->title = 'Главная';
         loop: true,
         animateOut: \'fadeOut\',
         autoplay: true,
-        autoplayTimeout: 2500,
+        autoplayTimeout: 5000,
         autoplayHoverPause: true
     });
 '); ?>

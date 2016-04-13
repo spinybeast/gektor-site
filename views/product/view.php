@@ -46,10 +46,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 ]);
                 $big = array_shift($images);
                 $src = $big ? $big->getUrl('original') : \app\models\Product::noImage(); ?>
-                <div class="main-image sp-wrap col-md-7 no-padding">
+                <div class="main-image sp-wrap col-md-8 no-padding">
                     <?= Html::a(Html::img($src,['class' => 'img-responsive']), $src, ['rel' => 'fancybox']); ?>
                 </div>
-                <div class="second-images col-md-5">
+                <div class="second-images col-md-4">
                     <?php foreach ($images as $image) {
                         echo Html::a(Html::img($image->getUrl('preview'), ['class' => 'img-responsive']), $image->getUrl('original'), ['rel' => 'fancybox']);
                     } ?>
@@ -60,7 +60,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <!-- right column -->
         <div class="col-lg-6 col-md-6 col-sm-5">
 
-            <h1 class="product-title"><?= Html::encode($this->title) ?></h1>
+            <h4 class="product-title"><?= Html::encode($this->title) ?></h4>
             <div class="product-price">
                 <?php if (!empty($model->price)) { ?>
                     <span class="price-standard">
@@ -69,17 +69,15 @@ $this->params['breadcrumbs'][] = $this->title;
                             <span class="lead">&#8399;</span></b>
                         </span>
                 <?php } ?>
-                <br/>
             </div>
 
             <div class="details-description">
                 <p><?= Html::encode($model->description) ?></p>
             </div>
-            <div class="properties sp-wrap col-lg-12">
+            <div class="properties sp-wrap col-lg-12 no-padding">
                 <?php if (!empty($model->properties)) { ?>
                     <br/>
-                    <h3>Характеристики</h3>
-                    <table class="table">
+                    <table class="table properties">
                         <?php foreach ($model->properties as $property) { ?>
                             <tr>
                                 <th><?= $property->name ?></th>

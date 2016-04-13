@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\News;
 use app\models\Product;
 use app\models\StaticPage;
 use Yii;
@@ -40,9 +41,9 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $page = StaticPage::findOne(['pagekey' => StaticPage::MAIN_PAGEKEY, 'enabled' => 1]);
+        $news = News::find()->where(['enabled' => 1])->orderBy('created_at')->limit(3)->all();
         return $this->render('index', [
-            'page' => $page
+            'news' => $news
         ]);
     }
 

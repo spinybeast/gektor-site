@@ -19,7 +19,7 @@ body {
     height: 100%;
     font-family: "robotoregular", Helvetica, Arial, sans-serif;
     background: #272727;
-    font-size: 16px;
+    font-size: 15px;
     color: #fff;
 }
 
@@ -48,14 +48,13 @@ h1, .btn {
 }
 
 .footer {
-    background: #232934;
     padding: 50px 0;
     font-size: 13px;
     z-index: 1;
     position: relative;
 }
 
-header {
+header, footer {
     background: #232934 url(../img/Untitled-1.gif) 0 0 no-repeat;
     background-size: contain;
 }
@@ -415,9 +414,11 @@ a.text, a.text:hover, a.text:visited, a.text:active {
 .item-content {
     padding: 0 20px;
 }
+
 #products .item {
     height: 535px;
 }
+
 .list-group-item-text {
     margin: 0 0 11px;
 }
@@ -607,7 +608,8 @@ div.details-description p {
 .price-standard {
     font-size: 22px;
 }
-.price-standard .price{
+
+.price-standard .price {
     font-size: 19px;
 }
 
@@ -652,6 +654,33 @@ fieldset[disabled] .btn-sample.active {
     border-color: #044f6e;
 }
 
+.second-images a {
+    padding: 10px 20%;
+    display: block;
+}
+
+.about {
+    padding: 30px;
+}
+
+.about img {
+    border: 2px solid #fff;
+}
+
+.about .news-text {
+    padding: 40px;
+}
+
+.about .news-text .title {
+    text-transform: uppercase
+}
+
+.about .news-text .date {
+    color: #4a78bb;
+    font-size: 13px;
+    margin-bottom: 0;
+}
+
 .btn-sample .badge {
     color: #025377;
     background-color: #ffffff;
@@ -669,12 +698,15 @@ fieldset[disabled] .btn-sample.active {
     header {
         background-size: cover;
     }
+
     #products .item {
         height: auto;
     }
+
     #products .item table {
         border: none;
     }
+
     .item div.post-img-content img {
         width: auto;
     }
@@ -694,18 +726,32 @@ fieldset[disabled] .btn-sample.active {
     width: 20%;
     float: left;
 }
+
+.table.properties th .table.properties > thead > tr > th, .table.properties > tbody > tr > th, .table.properties > tfoot > tr > th, .table.properties > thead > tr > td, .table.properties > tbody > tr > td, .table.properties > tfoot > tr > td
+{
+    padding: 3px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    font-weight: normal;
+    border-top: none;
+}
+.product-title {
+    text-transform: uppercase;
+}
 @media (min-width: 768px) {
     .col-sm-15 {
         width: 20%;
         float: left;
     }
 }
+
 @media (min-width: 992px) {
     .col-md-15 {
         width: 20%;
         float: left;
     }
 }
+
 @media (min-width: 1200px) {
     .col-lg-15 {
         width: 20%;
