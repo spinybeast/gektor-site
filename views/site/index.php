@@ -45,6 +45,5 @@ $this->title = 'Главная';
         animateOut: \'fadeOut\',
         autoplay: true,
         autoplayTimeout: 5000,
-        autoplayHoverPause: true
     });
 '); ?>
