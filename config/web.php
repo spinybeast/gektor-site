@@ -65,6 +65,9 @@ $config = [
         'defaultRoles' => ['admin'], // Здесь нет роли "guest", т.к. эта роль виртуальная и не присутствует в модели UserExt
     ],
     ],
+    'catchAll' => [
+        'site/index',
+    ],
     'params' => $params,
 ];
 
