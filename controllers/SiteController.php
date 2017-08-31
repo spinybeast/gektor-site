@@ -41,16 +41,10 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        //temporary closed
-        return $this->render('error', [
-            'name' => 'Сайт временно находится на реконструкции',
-            'message' => 'В скором времени мы вернемся'
-        ]);
-
-       /* $news = News::find()->where(['enabled' => 1])->orderBy('created_at')->limit(3)->all();
+        $news = News::find()->where(['enabled' => 1])->orderBy('created_at')->limit(3)->all();
         return $this->render('index', [
             'news' => $news
-        ]);*/
+        ]);
     }
 
     public function actionShowMessageForm()
