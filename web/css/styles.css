@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'HelveticaNeue';
+    src: url('fonts/HelveticaNeueLTCYR-MdCond.eot');
+    src: url('fonts/HelveticaNeueLTCYR-MdCond.eot?#iefix') format('embedded-opentype'),
+    url('fonts/HelveticaNeueLTCYR-MdCond.woff') format('woff'),
+    url('fonts/HelveticaNeueLTCYR-MdCond.ttf') format('truetype'),
+    url('fonts/HelveticaNeueLTCYR-MdCond.svg#HelveticaNeueLTCYR-MdCond') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+* {
+    outline: none !important;
+}
+
+html,
+body {
+    font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+    height: 100%;
+    background: #09141A;
+    font-size: 20px;
+    color: #fff;
+    min-width: 768px;
+}
+header {
+    border-bottom: 4px solid #4EBAEB;
+    text-transform: uppercase;
+}
+footer  {
+    border-top: 2px solid #4EBAEB;
+    text-transform: uppercase;
+}
+nav .navbar-nav li a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #FFFFFF;
+}
+nav .navbar-nav li a:hover {
+    color: #4EBAEB;
+    border-top: 4px solid #4EBAEB;
+    background: none;
+}
