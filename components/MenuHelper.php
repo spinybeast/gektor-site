@@ -37,7 +37,7 @@ class MenuHelper
             if (!empty($item->children)) {
                 $menuItem['items'] = static::getMenuRecursive($item->id);
             }
-            array_push($result, $menuItem);
+            $result[] = $menuItem;
         }
         return $result;
     }
@@ -46,9 +46,9 @@ class MenuHelper
     {
         if (!empty($item->category_id)) {
             $url = Url::to(['catalog/view', 'id' => $item->category_id]);
-        } elseif (!empty($item->staticpage_id)) {
-            $pagekey = $item->staticPage->pagekey == StaticPage::MAIN_PAGEKEY ? '' : $item->staticPage->pagekey ;
-            $url = Url::to('/' . $pagekey);
+        } elseif (!empty($item->staticPage)) {
+            $pageKey = $item->staticPage->pagekey === StaticPage::MAIN_PAGEKEY ? '' : $item->staticPage->pagekey ;
+            $url = Url::to('/' . $pageKey);
         } elseif (!empty($item->url)) {
             $url = Url::to($item->url);
         } else {
@@ -70,11 +70,11 @@ class MenuHelper
         foreach ($items as $item) {
             $url = self::getUrl($item);
             $active = false;
-            if (Url::current() == $url){
+            if (Url::current() === $url){
                 $active = true;
             } elseif (!empty($item->children)) {
                 foreach ($item->children as $child) {
-                    if (Url::current() == self::getUrl($child)) {
+                    if (Url::current() === self::getUrl($child)) {
                         $active = true;
                         break;
                     }
@@ -88,7 +88,7 @@ class MenuHelper
             if (!empty($item->children)) {
                 $menuItem['items'] = static::getMainMenuRecursive($item->id);
             }
-            array_push($result, $menuItem);
+            $result[] = $menuItem;
         }
 
         return $result;

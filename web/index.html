@@ -4,43 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
 <header>
-    <div class="header-top">
-        <div class="logo col-md-4">лого</div>
-        <div class="title col-md-4 text-center">
-            Оптовые поставки отопительного <br/> и водонагревательного оборудования <br/><span>SIRIUS</span>
-        </div>
-        <div class="phones col-md-4 text-right">
-            <p>+7 (8633) 103-380</p>
-            <p>+7 (8633) 111-280</p>
-            <p>+7 (8633) 111-290</p>
+    <div class="container">
+        <div class="header-top row">
+            <div class="logo col-md-3 text-left">
+                <img src="img/gektorLogo.png" alt=""/>
+            </div>
+            <div class="title col-md-6 text-center">
+                Оптовые поставки отопительного <br/> и водонагревательного оборудования <br/><span>SIRIUS</span>
+            </div>
+            <div class="phones col-md-3 text-right">
+                <p>+7 (8633) 103-380</p>
+                <p>+7 (8633) 111-280</p>
+                <p>+7 (8633) 111-290</p>
+            </div>
         </div>
     </div>
     <nav class="navbar" role="navigation">
-        <ul class="navbar-nav nav">
-            <li><a href="#">Главная</a></li>
-            <li><a href="#">Продукция</a></li>
-            <li><a href="#">Где купить</a></li>
-            <li><a href="#">Партнерам</a></li>
-            <li><a href="#">Условия сотрудничества</a></li>
-            <li><a href="#">О компании</a></li>
-            <li><a href="#">Контакты</a></li>
-        </ul>
-        <div class="search pull-right">
-            <form class="form-inline" action="/search" method="get">
-                <input type="text" id="query" class="form-control" name="q" placeholder="Поиск по сайту">
-            </form>
+        <div class="container">
+            <ul class="navbar-nav nav">
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">Продукция</a></li>
+                <li><a href="#">Где купить</a></li>
+                <li><a href="#">Партнерам</a></li>
+                <li><a href="#">Условия сотрудничества</a></li>
+                <li><a href="#">О компании</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+            <div class="search pull-right">
+                <form class="form-inline" action="/search" method="get">
+                    <input type="text" id="query" class="form-control" name="q" placeholder="Поиск по сайту">
+                </form>
+            </div>
         </div>
     </nav>
+
 </header>
-<section>слайдер</section>
-<section>котёл</section>
-<section>почему мы</section>
+<div class="wrap">
+    <section>
+        <div class="container">слайдер</div>
+    </section>
+    <div class="line"></div>
+    <section>
+        <div class="container">котёл</div>
+    </section>
+    <div class="line"></div>
+    <section>
+        <div class="container">почему мы</div>
+    </section>
+</div>
 <footer>
+    <div class="line"></div>
     <div class="col-md-3"></div>
     <div class="col-md-9">
         <div class="col-md-3">

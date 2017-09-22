@@ -17,26 +17,104 @@ html,
 body {
     font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
     height: 100%;
-    background: #09141A;
-    font-size: 20px;
+    background: #09141A url(../img/back.jpg) 0 0 no-repeat;
+    background-size: cover;
     color: #fff;
     min-width: 768px;
+    position: relative;
+}
+.container {
+    width: 1750px;
 }
 header {
+    font-size: 35px;
     border-bottom: 4px solid #4EBAEB;
     text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    line-height: 1.2;
+}
+header:before {
+    background: url(../img/back.jpg) 0 0 no-repeat;
+    background-size: cover;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: scale(1, -1);
+}
+header .header-top {
+    padding: 50px 0;
+    display: table;
+    width:100%;
+}
+header .header-top > div{
+    display: table-cell;
+    vertical-align: middle;
+}
+header .header-top p{
+    margin-bottom: 0;
+}
+header .header-top .logo {
+    position: relative;
+    height: 100%;
+}
+header .header-top .logo img {
+
 }
 footer  {
-    border-top: 2px solid #4EBAEB;
     text-transform: uppercase;
+    width: 100%;
+    height: 300px;
+}
+nav.navbar {
+    background: #09141A;
+    margin-bottom: 0;
 }
 nav .navbar-nav li a {
-    padding-top: 5px;
-    padding-bottom: 5px;
+    font-size: 25px;
+    padding: 18px 15px;
+    border-top: 4px solid transparent;
     color: #FFFFFF;
 }
-nav .navbar-nav li a:hover {
+nav .navbar-nav li a:hover, nav .navbar-nav li a.active {
     color: #4EBAEB;
     border-top: 4px solid #4EBAEB;
-    background: none;
+    background: #09141A !important;
+}
+nav .navbar-nav li a:active, .navbar-nav li a:visited {
+    background: #09141A !important;
+}
+.wrap {
+    position: relative;
+}
+.line {
+    border-top: 2px solid #4EBAEB;
+    width: 100%;
+    height: 0;
+    -webkit-box-shadow: 0px 15px 50px 1px rgba(78,185,235,1);
+    -moz-box-shadow: 0px 15px 50px 1px rgba(78,185,235,1);
+    box-shadow: 0px 15px 50px 1px rgba(78,185,235,1);
+
+}
+.search {
+    padding: 9px 0 0 0;
+}
+.search input#query {
+    background: #09141A;
+    border-radius: 50px;
+    border: 1px solid #4EBAEB;
+    width: 200px;
+    color: #FFFFFF;
+    line-height: 1.2;
+    -webkit-box-shadow: 1px 1px 10px 1px rgba(78,185,235,0.5);
+    -moz-box-shadow: 1px 1px 10px 1px rgba(78,185,235,0.5);
+    box-shadow: 1px 1px 10px 1px rgba(78,185,235,0.5);
+}
+.banner-carousel {
+    font-size: 35px;
+    text-transform: uppercase;
+    padding: 20px 0;
 }

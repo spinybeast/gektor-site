@@ -30,72 +30,44 @@ AppAsset::register($this);
 <body>
 
 <?php $this->beginBody() ?>
+<header>
+    <div class="container">
+        <div class="header-top row">
+            <div class="logo col-md-3 text-left">
+                <a href="<?= Url::home() ?>">
+                    <?= Html::img('/img/gektorLogo.png', array('alt' => Html::encode(Yii::$app->params['siteName']), 'class' => 'img-responsive')) ?>
+                </a>
+            </div>
+            <div class="title col-md-6 text-center">
+                Оптовые поставки отопительного <br/> и водонагревательного оборудования <br/><span>SIRIUS</span>
+            </div>
+            <div class="phones col-md-3 text-right">
+                <?php foreach (Yii::$app->params['sitePhones'] as $phone) { ?>
+                    <p><?= Html::encode($phone) ?></p>
+                <?php }?>
+            </div>
+        </div>
+    </div>
+    <?php
+    NavBar::begin([
+        'options' => [
+            'class' => 'navbar-gektor',
+        ],
+    ]);
+    echo Nav::widget([
+        'options' => ['class' => 'navbar-nav'], 'encodeLabels' => false,
+        'items' => MenuHelper::getMainMenu()
+    ]); ?>
+    <div class="search pull-right">
+        <form class="form-inline" action="/search" method="get">
+            <input type="text" id="query" class="form-control" name="q" placeholder="Поиск по сайту">
+        </form>
+    </div>
+    <?php NavBar::end();
+    ?>
+
+</header>
 <div class="wrap">
-    <header>
-        <div class="headerdetails">
-                <div class="col-md-12">
-                    <div class=" col-md-3 col-sm-12">
-                        <a class="logo text-left-md" href="<?= Url::home() ?>">
-                            <?= Html::img('/img/logo.png', array('alt' => Html::encode(Yii::$app->params['siteName']), 'class' => 'img-responsive')) ?>
-                        </a>
-                    </div>
-                    <div class="slogan col-md-7 col-sm-12 text-center">
-                        <p>оптовые поставки газового и водонагревательного оборудования</p>
-                    </div>
-                    <div class="text-right col-md-2 col-sm-12">
-                        <div class="call">
-                            <span><?= Html::encode(Yii::$app->params['sitePhone']) ?></span><br/>
-                            <span><?= Html::encode(Yii::$app->params['sitePhone2']) ?></span>
-                        </div>
-
-                        <?=
-                        Html::button(
-                            'Задать вопрос',
-                            [
-                                'class' => 'btn btn-lg btn-blue btn-question',
-                                'value' => Url::to(['site/show-message-form']),
-                                'id' => 'modalButton'
-                            ]) ?>
-                    </div>
-                    <?php
-                    Modal::begin([
-                        'id' => 'modal',
-                        'header' => 'Задать вопрос'
-                    ]);
-                    echo "<div id='modalContent'></div>";
-                    Modal::end();
-                    ?>
-                </div>
-            <div style="clear:both;"></div>
-        </div>
-        <div class="navbar-wrapper">
-            <?php
-            $this->beginBlock('search');
-            echo Html::beginTag('div', ['class' => 'pull-right topsearch hidden-xs']);
-            echo Html::beginForm(['site/search'], 'get', ['class' => 'form-inline']);
-            echo Html::textInput('q', null, ['placeholder' => 'Поиск по сайту', 'class' => 'form-control', 'id' => 'query']);
-            echo Html::submitButton(FA::icon("search")->size(FA::SIZE_LARGE), ['class' => 'btn btn-small btn-blue', 'id' => 'searchButton']);
-            echo Html::endForm();
-            echo Html::endTag('div');
-            $this->endBlock();
-
-            NavBar::begin([
-                'brandLabel' => '',
-                'brandUrl' => Yii::$app->homeUrl,
-                'options' => [
-                    'class' => 'navbar-gektor',
-                ],
-            ]);
-            echo Nav::widget([
-                'options' => ['class' => 'navbar-nav'], 'encodeLabels' => false,
-                'items' => MenuHelper::getMainMenu()
-            ]);
-            echo $this->blocks['search'];
-            NavBar::end();
-            ?>
-        </div>
-    </header>
-    <div class="body col-md-12">
         <?=
         Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
@@ -105,22 +77,30 @@ AppAsset::register($this);
             ]
         ]) ?>
         <?= $content ?>
-    </div>
-    <div class="clear"></div>
 </div>
-
-<footer class="footer">
-    <div class="container">
-        <div class="text-center designed"><p>Данный информационный ресурс не является публичной офертой. Наличие и стоимость товаров уточняйте по телефону.
-                <br>
-        Производители оставляют за собой право изменять технические характеристики <br>и внешний вид товаров без
-        предварительного уведомления.</p></div>
-        <p class="text-center">&copy; <?= Yii::$app->params['siteName'] ?> 2011-<?= date('Y') ?>
-
-        </p>
-        <p class="text-center">
-            Designed by fivesixeight. Developed by spiny.beast
-        </p>
+<footer>
+    <div class="line"></div>
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+        <div class="col-md-3">
+            <ul>
+                <li>Главная</li>
+                <li>Продукция</li>
+                <li>Где купить</li>
+                <li>Партнерам</li>
+                <li>Условия сотрудничества</li>
+                <li>О компании</li>
+                <li>Контакты</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            КАРТА
+        </div>
+        <div class="col-md-3 text-l">
+            <p>Таганрог, биржевой спуск, 666</p>
+            <p>admin@gektor.ru</p>
+            <p>+7 (8633) 111-290</p>
+        </div>
     </div>
 </footer>
 
