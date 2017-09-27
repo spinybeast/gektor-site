@@ -1,4 +1,5 @@
 <?php
+
 use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
@@ -22,7 +23,7 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="<?= Html::encode(Yii::$app->params['keywords']) ?>">
     <meta name="description" content="<?= Html::encode(Yii::$app->params['description']) ?>">
-    <link rel="shortcut icon" href="<?= Url::to('/web/favicon.ico') ?>" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?= Url::to('/web/favicon.ico') ?>" type="image/x-icon"/>
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode(Yii::$app->params['siteName'] . ' - ' . $this->title) ?></title>
     <?php $this->head() ?>
@@ -44,7 +45,7 @@ AppAsset::register($this);
             <div class="phones col-md-3 text-right">
                 <?php foreach (Yii::$app->params['sitePhones'] as $phone) { ?>
                     <p><?= Html::encode($phone) ?></p>
-                <?php }?>
+                <?php } ?>
             </div>
         </div>
     </div>
@@ -68,6 +69,7 @@ AppAsset::register($this);
 
 </header>
 <div class="wrap">
+    <div class="container">
         <?=
         Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
@@ -76,29 +78,26 @@ AppAsset::register($this);
                 'url' => Url::home(),
             ]
         ]) ?>
-        <?= $content ?>
+    </div>
+    <?= $content ?>
 </div>
 <footer>
     <div class="line"></div>
-    <div class="col-md-3"></div>
-    <div class="col-md-9">
+    <div class="container">
+        <div class="col-md-3"></div>
         <div class="col-md-3">
             <ul>
-                <li>Главная</li>
-                <li>Продукция</li>
-                <li>Где купить</li>
-                <li>Партнерам</li>
-                <li>Условия сотрудничества</li>
-                <li>О компании</li>
-                <li>Контакты</li>
+                <?php foreach (MenuHelper::getMainMenu() as $item) {?>
+                    <li><?= $item['label'] ?></li>
+                <?php }?>
             </ul>
         </div>
-        <div class="col-md-6">
-            КАРТА
+        <div class="col-md-4">
+            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A875317f9a2bd7d343ccf4b9229860e1f2c6c799bc013b6d5c640caa904bcae9b&amp;width=100%25&amp;height=250&amp;lang=ru_RU&amp;scroll=true"></script>
         </div>
-        <div class="col-md-3 text-l">
-            <p>Таганрог, биржевой спуск, 666</p>
-            <p>admin@gektor.ru</p>
+        <div class="col-md-2">
+            <p>Таганрог, биржевой спуск, 8</p>
+            <p><a href="mailto:admin@gektor.ru">admin@gektor.ru</a></p>
             <p>+7 (8633) 111-290</p>
         </div>
     </div>

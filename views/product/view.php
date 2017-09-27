@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
       rel="stylesheet" type="text/css"/>
-<div class="product-view">
+<div class="product-view container">
     <div class="row">
         <!-- left column -->
         <div class="col-lg-6 col-md-6 col-sm-6">

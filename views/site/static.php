@@ -20,7 +20,7 @@ $leftBanners = !empty($page) ? Banner::getLeftItems($page->pagekey) : [];
         background-size: contain}
     </style>
 <?php } ?>
-<div class="col-md-12 page">
+<div class="container page">
     <div class="col-md-8">
     <?php if (!empty($page)) { ?>
 

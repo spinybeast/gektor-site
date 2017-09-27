@@ -15,17 +15,6 @@ use yii\filters\VerbFilter;
 class CatalogController extends Controller
 {
 
-    /**
-     * @return ActiveDataProvider
-     */
-    private static function getDataProvider()
-    {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Category::find()->where(['enabled' => 1, 'parent_id' => 0])->orderBy(['id' => 'desc']),
-        ]);
-        return $dataProvider;
-    }
-
     public function behaviors()
     {
         return [
@@ -38,10 +27,6 @@ class CatalogController extends Controller
         ];
     }
 
-    /**
-     * Lists all Category models.
-     * @return mixed
-     */
     public function actionIndex()
     {
         return $this->render('index', [
@@ -49,11 +34,6 @@ class CatalogController extends Controller
         ]);
     }
 
-    /**
-     * Displays a single Category model.
-     * @param integer $id
-     * @return mixed
-     */
     public function actionView($id)
     {
         $model = $this->findModel($id);
@@ -64,26 +44,25 @@ class CatalogController extends Controller
         ]);
     }
 
-    /**
-     * Finds the Category model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Category the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     protected function findModel($id)
     {
         if (($model = Category::findOne($id)) !== null) {
             return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
         }
+        throw new NotFoundHttpException('Товарная позиция не найдена');
     }
 
     protected function getViewMode()
     {
         $cookies = Yii::$app->request->cookies;
-        $mode = $cookies->getValue('mode', 'grid');
-        return $mode;
+        return $cookies->getValue('mode', 'grid');
+    }
+
+    private static function getDataProvider()
+    {
+        $dataProvider = new ActiveDataProvider([
+            'query' => Category::find()->where(['enabled' => 1, 'parent_id' => 0])->orderBy(['id' => 'desc']),
+        ]);
+        return $dataProvider;
     }
 }
