@@ -40,7 +40,7 @@ AppAsset::register($this);
                 </a>
             </div>
             <div class="title col-md-6 text-center">
-                Оптовые поставки отопительного <br/> и водонагревательного оборудования <br/><span>SIRIUS</span>
+                Оптовые поставки отопительного <br/> и водонагревательного оборудования <br/><span class="sirius">SIRIUS</span>
             </div>
             <div class="phones col-md-3 text-right">
                 <?php foreach (Yii::$app->params['sitePhones'] as $phone) { ?>
@@ -84,15 +84,20 @@ AppAsset::register($this);
 <footer>
     <div class="line"></div>
     <div class="container">
-        <div class="col-md-3"></div>
-        <div class="col-md-3">
-            <ul>
+        <div class="col-md-3 gaz">
+            <div>
+                <div class="sirius"></div>
+                Sirius Gaz
+            </div>
+        </div>
+        <div class="col-md-2">
+            <ul class="menu">
                 <?php foreach (MenuHelper::getMainMenu() as $item) {?>
                     <li><?= $item['label'] ?></li>
                 <?php }?>
             </ul>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-5">
             <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A875317f9a2bd7d343ccf4b9229860e1f2c6c799bc013b6d5c640caa904bcae9b&amp;width=100%25&amp;height=250&amp;lang=ru_RU&amp;scroll=true"></script>
         </div>
         <div class="col-md-2">

@@ -15,6 +15,8 @@ use app\models\ContactForm;
 class SiteController extends Controller
 {
 
+    const WHY_WE_PAGE_ID = 11;
+
     public function actions()
     {
         return [
@@ -43,7 +45,8 @@ class SiteController extends Controller
     {
         $news = News::find()->where(['enabled' => 1])->orderBy('created_at')->limit(3)->all();
         return $this->render('index', [
-            'news' => $news
+            'news' => $news,
+            'whyWe' => StaticPage::findOne(self::WHY_WE_PAGE_ID)
         ]);
     }
 
