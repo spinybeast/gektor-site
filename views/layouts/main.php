@@ -24,8 +24,12 @@ AppAsset::register($this);
     <meta name="keywords" content="<?= Html::encode(Yii::$app->params['keywords']) ?>">
     <meta name="description" content="<?= Html::encode(Yii::$app->params['description']) ?>">
     <link rel="shortcut icon" href="<?= Url::to('/web/favicon.ico') ?>" type="image/x-icon"/>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode(Yii::$app->params['siteName'] . ' - ' . $this->title) ?></title>
+
     <?php $this->head() ?>
 </head>
 <body>

@@ -11,15 +11,6 @@ $this->params['breadcrumbs'][] = $this->title;
 $leftBanners = !empty($page) ? Banner::getLeftItems($page->pagekey) : [];
 ?>
 
-<?php if (!empty($page)) { ?>
-    <div style="width: 35%; position: absolute; right: 0; top: 0;z-index: 0">
-
-    </div>
-    <style>
-        .wrap {background: #262626 url(<?= $page->getUploadUrl('background') ?>) top right no-repeat;
-        background-size: contain}
-    </style>
-<?php } ?>
 <div class="container page">
     <div class="col-md-8">
     <?php if (!empty($page)) { ?>
@@ -29,6 +20,5 @@ $leftBanners = !empty($page) ? Banner::getLeftItems($page->pagekey) : [];
     <?php } else { ?>
         <h1>Извините, страница не найдена.</h1>
     <?php } ?>
-    <hr>
     </div>
 </div>
