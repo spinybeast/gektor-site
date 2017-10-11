@@ -24,9 +24,6 @@ AppAsset::register($this);
     <meta name="keywords" content="<?= Html::encode(Yii::$app->params['keywords']) ?>">
     <meta name="description" content="<?= Html::encode(Yii::$app->params['description']) ?>">
     <link rel="shortcut icon" href="<?= Url::to('/web/favicon.ico') ?>" type="image/x-icon"/>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode(Yii::$app->params['siteName'] . ' - ' . $this->title) ?></title>
 
@@ -55,6 +52,8 @@ AppAsset::register($this);
     </div>
     <?php
     NavBar::begin([
+        'brandLabel' => '',
+        'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-gektor',
         ],
@@ -64,8 +63,11 @@ AppAsset::register($this);
         'items' => MenuHelper::getMainMenu()
     ]); ?>
     <div class="search pull-right">
-        <form class="form-inline" action="/search" method="get">
-            <input type="text" id="query" class="form-control" name="q" placeholder="Поиск по сайту">
+        <form class="form-inline" action="/search" method="get" name="search">
+            <div class="query-wrap">
+                <span class="lupa" onclick="if($('#query').val() !== '') document.search.submit()"><?= FA::icon('search')?></span>
+                <input type="text" id="query" class="form-control" name="q" placeholder="Поиск по сайту">
+            </div>
         </form>
     </div>
     <?php NavBar::end();
@@ -97,7 +99,7 @@ AppAsset::register($this);
         <div class="col-md-2">
             <ul class="menu">
                 <?php foreach (MenuHelper::getMainMenu() as $item) {?>
-                    <li><?= $item['label'] ?></li>
+                    <li><a href="<?= $item['url']?>"><?= $item['label'] ?></a></li>
                 <?php }?>
             </ul>
         </div>

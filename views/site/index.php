@@ -16,7 +16,7 @@ $this->title = 'Главная';
                 }
                 ?>
             </div>
-            <?php if (!empty($news)) { ?>
+            <?php /*if (!empty($news)) { ?>
                 <div class="about">
                     <?php foreach ($news as $item) { ?>
                         <div class="col-md-6">
@@ -31,7 +31,7 @@ $this->title = 'Главная';
 
                     <div class="clear"></div>
                 </div>
-            <?php } ?>
+            <?php } */?>
         </div>
     </section>
     <div class="line"></div>
@@ -52,7 +52,7 @@ $this->title = 'Главная';
                         <li>Энергонезависимость</li>
                     </ul>
                 </div>
-                <div class="col-md-4 text-center">
+                <div class="col-md-4 text-center align-middle">
                     <?= Html::img('/img/kot1.png', ['class' => 'img-responsive', 'style' => 'margin:0 auto']) ?>
                 </div>
                 <div class="col-md-4 text-left">

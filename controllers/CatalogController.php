@@ -29,6 +29,7 @@ class CatalogController extends Controller
 
     public function actionIndex()
     {
+        return $this->redirect('/');
         return $this->render('index', [
             'dataProvider' => self::getDataProvider(),
         ]);

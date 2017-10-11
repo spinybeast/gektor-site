@@ -1,13 +1,3 @@
-// listen click, open modal and .load content
-$('#modalButton').click(function () {
-    $('#modal').modal('show')
-        .find('#modalContent')
-        .load($(this).attr('value'));
-});
-
-$('#searchButton').click(function () {
-    return $('#query').val() != '';
-});
 
 $(document).on('submit', '#contact-form', function (e) {
     e.preventDefault();
@@ -32,6 +22,17 @@ $(document).on('submit', '#contact-form', function (e) {
 
 
 $(function() {
+    // listen click, open modal and .load content
+    $('#modalButton').click(function () {
+        $('#modal').modal('show')
+            .find('#modalContent')
+            .load($(this).attr('value'));
+    });
+
+    $('[name="search"]').submit(function () {
+        return $('#query').val() !== '';
+    });
+
     $(".dynamicform_wrapper").on("beforeInsert", function(e, item) {
         console.log("beforeInsert");
     });
