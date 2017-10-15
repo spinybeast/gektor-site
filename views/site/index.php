@@ -77,10 +77,10 @@ $this->title = 'Главная';
         <div class="container">
 
             <div class="row">
-                <div class="col-md-5 hidden-xs">
+                <div class="col-md-3  hidden-xs" style="margin-top: 50px">
                     <?= Html::img('/img/chuvak.png', ['class' => 'img-responsive']) ?>
                 </div>
-                <div class="col-md-7 col-xs-12">
+                <div class="col-md-8 col-md-offset-1 col-xs-12">
                     <h2 class="why-we">Почему мы</h2>
                     <?= $whyWe ? $whyWe->text : ''?>
                 </div>

@@ -29,7 +29,7 @@ body {
     font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
     font-size: 18px;
     height: 100%;
-    background: #09141A url(../img/back.jpg) 0 0 repeat-y;
+    background: #09141A url(../img/back.jpg) 0 0 no-repeat;
     background-size: cover;
     color: #fff;
     min-width: 768px;
@@ -37,7 +37,8 @@ body {
 }
 
 .container {
-    width: 1750px;
+    width: 100%;
+    padding: 0 50px;
 }
 
 header {
@@ -305,7 +306,7 @@ nav .dropdown-menu li a {
 .products {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
 }
 
 .product-card {
