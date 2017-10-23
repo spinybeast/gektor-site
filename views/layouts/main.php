@@ -34,7 +34,7 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 <header>
     <div class="container">
-        <div class="header-top row">
+        <div class="header-top">
             <div class="logo col-md-3 text-left">
                 <a href="<?= Url::home() ?>">
                     <?= Html::img('/img/gektorLogo.png', array('alt' => Html::encode(Yii::$app->params['siteName']), 'class' => 'img-responsive')) ?>

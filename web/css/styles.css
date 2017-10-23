@@ -10,12 +10,12 @@
 }
 
 @font-face {
-    font-family: 'HelveticaNeue LT CYR 57 Cond';
-    src: url('fonts/HelveticaNeueLTCYR-Cond.eot');
-    src: url('fonts/HelveticaNeueLTCYR-Cond.eot?#iefix') format('embedded-opentype'),
-    url('fonts/HelveticaNeueLTCYR-Cond.woff') format('woff'),
-    url('fonts/HelveticaNeueLTCYR-Cond.ttf') format('truetype'),
-    url('fonts/HelveticaNeueLTCYR-Cond.svg#HelveticaNeueLTCYR-Cond') format('svg');
+    font-family: 'Fira Sans';
+    src: url('fonts/FiraSans.eot');
+    src: url('fonts/FiraSans.eot?#iefix') format('embedded-opentype'),
+    url('fonts/FiraSans.woff') format('woff'),
+    url('fonts/FiraSans.ttf') format('truetype'),
+    url('fonts/FiraSans.svg#FiraSans') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -26,10 +26,10 @@
 
 html,
 body {
-    font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
-    font-size: 18px;
+    font-family: 'Fira Sans', HelveticaNeue, Helvetica, Arial, sans-serif;
+    font-size: 16px;
     height: 100%;
-    background: #09141A url(../img/back.jpg) 0 0 no-repeat;
+    background: #09141A url(../img/bg-bottom.jpg) left bottom no-repeat fixed;
     background-size: cover;
     color: #fff;
     min-width: 768px;
@@ -38,11 +38,11 @@ body {
 
 .container {
     width: 100%;
-    padding: 0 50px;
+    padding: 0 50px 0 105px;
 }
 
 header {
-    font-size: 35px;
+    font-size: 30px;
     border-bottom: 4px solid #4EBAEB;
     text-transform: uppercase;
     position: relative;
@@ -51,7 +51,7 @@ header {
 }
 
 header:before {
-    background: url(../img/back.jpg) 0 0 no-repeat;
+    background: url(../img/bg-top.jpg) 0 0 no-repeat;
     background-size: cover;
     content: "";
     position: absolute;
@@ -59,18 +59,13 @@ header:before {
     height: 100%;
     top: 0;
     left: 0;
-    transform: scale(1, -1);
 }
 
 header .header-top {
     padding: 50px 0;
-    display: table;
-    width: 100%;
-}
-
-header .header-top > div {
-    display: table-cell;
-    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 header .header-top p {
@@ -82,19 +77,14 @@ header .header-top .logo {
     height: 100%;
 }
 
-header .header-top .logo img {
-
-}
-
 header .sirius {
     background: url(../img/gaz.png) top left no-repeat;
     background-size: contain;
-    font-size: 50px;
+    font-size: 45px;
     font-weight: bold;
     padding-left: 40px;
     padding-top: 5px;
     line-height: 60px;
-    font-family: 'HelveticaNeue LT CYR 57 Cond', Helvetica, Arial, sans-serif;
 }
 
 footer {
@@ -116,7 +106,11 @@ footer .gaz {
     padding-top: 75px;
     text-align: center;
 }
-
+footer .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 footer .sirius {
     background: url(../img/gaz.png) top center no-repeat;
     width: 62px;
@@ -125,7 +119,6 @@ footer .sirius {
     top: 0;
     left: 50%;
     margin-left: -31px;
-    font-family: 'HelveticaNeue LT CYR 57 Cond', Helvetica, Arial, sans-serif;
 }
 
 footer .menu {
@@ -156,7 +149,7 @@ nav .navbar-nav {
 }
 
 nav .navbar-nav li a {
-    font-size: 23px;
+    font-size: 20px;
     padding: 18px 15px;
     border-top: 4px solid transparent;
     color: #FFFFFF;
@@ -184,6 +177,12 @@ nav .dropdown-menu li a {
 
 .wrap {
     position: relative;
+}
+
+.align-middle {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
 }
 
 .line {
@@ -225,11 +224,15 @@ nav .dropdown-menu li a {
     color: #656565;
 }
 .banner-carousel {
-    font-size: 25px;
+    font-size: 23px;
     text-transform: uppercase;
     padding: 20px 0;
 }
-
+.banner-carousel .item > p {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
 .breadcrumb {
     background: none;
 }
@@ -239,24 +242,26 @@ nav .dropdown-menu li a {
 }
 
 .breadcrumb .active {
-    color: #656565;
+    color: #afa6a6;
 }
 
 .features {
     padding: 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 .features ul {
     list-style: none;
     text-transform: uppercase;
-    font-size: 25px;
+    font-size: 0;
 }
-.vertical-center {
-    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-    min-height: 100vh; /* These two lines are counted as one :-)       */
 
-    display: flex;
-    align-items: center;
+.features ul li {
+    font-size: 23px;
 }
+
 .why-we {
     text-transform: uppercase;
     font-size: 40px;

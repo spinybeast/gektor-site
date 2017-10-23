@@ -38,7 +38,7 @@ $this->title = 'Главная';
     <section>
         <div class="container">
             <div class="row features">
-                <div class="col-md-4 text-right">
+                <div class="col-md-4 text-right" style="padding-right: 0;">
                     <ul>
                         <li>Доступная цена</li>
                         <li>Надежность</li>
@@ -52,10 +52,10 @@ $this->title = 'Главная';
                         <li>Энергонезависимость</li>
                     </ul>
                 </div>
-                <div class="col-md-4 text-center align-middle">
+                <div class="col-md-4 text-center">
                     <?= Html::img('/img/kot1.png', ['class' => 'img-responsive', 'style' => 'margin:0 auto']) ?>
                 </div>
-                <div class="col-md-4 text-left">
+                <div class="col-md-4 text-left" style="padding-left: 0; margin-left: -50px;">
                     <ul>
                         <li>Водотрубный теплообменник</li>
                         <li>Компактный размер</li>
